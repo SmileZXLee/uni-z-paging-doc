@@ -32,37 +32,37 @@ module.exports = {
 					// SidebarItem
 					{
 						title: '介绍',
-						path: '/start/about.md',
+						path: '/start/about',
 						children: [],
 					},
 					{
 						title: '在线演示',
-						path: '/start/demo.md',
+						path: '/start/demo',
 						children: [],
 					},
 					{
 						title: '反馈QQ群',
-						path: '/start/qq-group.md',
+						path: '/start/qq-group',
 						children: [],
 					},
 					{
 						title: '安装',
-						path: '/start/install.md',
+						path: '/start/install',
 						children: [],
 					},
 					{
 						title: '教学',
-						path: '/start/teaching.md',
+						path: '/start/teaching',
 						children: [],
 					},
 					{
 						title: '基本使用',
-						path: '/start/use.md',
+						path: '/start/use',
 						children: [],
 					},
 					{
 						title: '注意事项',
-						path: '/start/notice.md',
+						path: '/start/notice',
 						children: [],
 					},
 					{
@@ -79,77 +79,77 @@ module.exports = {
 					// SidebarItem
 					{
 						title: '全局配置',
-						path: '/api/props/global-config.md',
+						path: '/api/props/global-config',
 						children: [],
 					},
 					{
 						title: '常规配置',
-						path: '/api/props/common.md',
+						path: '/api/props/common',
 						children: [],
 					},
 					{
 						title: 'reload相关配置',
-						path: '/api/props/reload.md',
+						path: '/api/props/reload',
 						children: [],
 					},
 					{
 						title: '下拉刷新配置',
-						path: '/api/props/refresher.md',
+						path: '/api/props/refresher',
 						children: [],
 					},
 					{
 						title: '底部加载更多配置',
-						path: '/api/props/loading-more.md',
+						path: '/api/props/loading-more',
 						children: [],
 					},
 					{
 						title: '空数据与加载失败图配置',
-						path: '/api/props/empty.md',
+						path: '/api/props/empty',
 						children: [],
 					},
 					{
 						title: '全屏Loading配置',
-						path: '/api/props/loading.md',
+						path: '/api/props/loading',
 						children: [],
 					},
 					{
 						title: '返回顶部按钮配置',
-						path: '/api/props/back-to-top.md',
+						path: '/api/props/back-to-top',
 						children: [],
 					},
 					{
 						title: '本地分页配置',
-						path: '/api/props/local-paging.md',
+						path: '/api/props/local-paging',
 						children: [],
 					},
 					{
 						title: '聊天记录模式配置',
-						path: '/api/props/chat-record-mode.md',
+						path: '/api/props/chat-record-mode',
 						children: [],
 					},
 					{
 						title: 'scroll-view相关配置',
-						path: '/api/props/scroll-view.md',
+						path: '/api/props/scroll-view',
 						children: [],
 					},
 					{
 						title: 'nvue独有配置',
-						path: '/api/props/nvue.md',
+						path: '/api/props/nvue',
 						children: [],
 					},
 					{
 						title: 'i18n配置',
-						path: '/api/props/i18n.md',
+						path: '/api/props/i18n',
 						children: [],
 					},
 					{
 						title: 'z-index配置',
-						path: '/api/props/z-index.md',
+						path: '/api/props/z-index',
 						children: [],
 					},
 					{
 						title: '其他配置',
-						path: '/api/props/other.md',
+						path: '/api/props/other',
 						children: [],
 					}
 				]
