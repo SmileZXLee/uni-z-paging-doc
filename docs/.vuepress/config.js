@@ -157,20 +157,17 @@ module.exports = {
 			{
 				title: 'Slot',
 				collapsable: false,
-				path: '/api/slot/index',
-				children: ['/api/slot/index']
+				path: '/api/slot/main'
 			},
 			{
 				title: 'Methods',
 				collapsable: false,
-				path: '/api/methods/index',
-				children: ['/api/methods/index'],
+				path: '/api/methods/main'
 			},
 			{
 				title: 'Events',
 				collapsable: false,
-				path: '/api/events/index',
-				children: ['/api/events/index'],
+				path: '/api/events/main'
 			}
 		],
 	},

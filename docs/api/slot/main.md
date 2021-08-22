@@ -1,4 +1,4 @@
-## Slot
+### Slot
 ::: danger 注意
 使用slot插入的view必须是z-paging的子view(此view的上一级必须是z-paging)
 :::

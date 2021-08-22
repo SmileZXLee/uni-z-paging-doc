@@ -1,4 +1,4 @@
-## Methods
+### Methods
 ::: tip 调用方式
 假设给z-paging设置ref="paging"，则通过`this.$refs.paging.xxx()`方式调用
 :::
