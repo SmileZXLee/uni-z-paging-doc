@@ -1,0 +1,16 @@
+{
+  "name": "z-paging-doc",
+  "version": "1.0.0",
+  "description": "z-paging文档",
+  "main": "index.js",
+  "author": "zxlee",
+  "license": "MIT",
+  "devDependencies": {
+    "@vuepress/plugin-active-header-links": "^1.8.2",
+    "vuepress": "^1.8.2"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}

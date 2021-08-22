@@ -1,0 +1,158 @@
+::: tip 如何下载demo
+① 在[插件市场](https://ext.dcloud.net.cn/plugin?id=3935)中访问z-paging。<br>
+② 点击【使用HbuilderX导入示例项目】或【下载示例项目ZIP】。
+:::
+
+## 基本使用
+* ①在`<template>` 中使用@query绑定js中分页请求的方法(`z-paging`会将计算好的pageNo和pageSize两个参数传递到此方法中)，然后通过` v-model`绑定列表for循环的list。
+* ②在请求结果回调中，通过调用`z-paging`的`complete()`方法，将请求返回的数组传递给`z-paging`处理，如：`this.$refs.paging.complete(服务器返回的数组);`；若请求失败，调用：`this.$refs.paging.complete(false);`即可。
+* 当tab切换或搜索时，可以通过`this.$refs.paging.reload()`刷新整个列表。
+* 在nvue中，z-paging中插入的列表item(z-paging的直接子view)必须是cell，必须使用cell包住，因为在nvue中，z-paging使用的是nvue的list组件，具体请查阅demo中的`common-demo-n.vue`示例。
+
+```html
+<template>
+    <view class="content">
+        <z-paging ref="paging" v-model="dataList" @query="queryList">
+            <!-- list数据，建议像下方这样在item外层套一个view，而非直接for循环item，因为slot插入有数量限制 -->
+            <view>
+                <view class="item" v-for="(item,index) in dataList">
+                    <view class="item-title">{{item.title}}</view>
+                </view>
+            </view>
+        </z-paging>
+    </view>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+                dataList: [],
+            };
+        },
+        methods: {
+            queryList(pageNo, pageSize) {
+              	//这里的pageNo和pageSize会自动计算好，直接传给服务器即可
+              	//这里的请求只是演示，请替换成自己的项目的网络请求，请在网络请求回调中
+              	//通过this.$refs.paging.complete(请求回来的数组);将请求结果传给z-paging
+                this.$request.queryList(pageNo, pageSize, (data) => {
+                    this.$refs.paging.complete(data);
+                });
+            },
+        },
+    };
+</script>
+
+<style scoped>
+    
+</style>
+```
+
+## 设置自定义emptyView组件示例
+
+* 设置自定义emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理
+
+```html
+<z-paging ref="paging" v-model="dataList" @query="queryList">
+    <!-- 设置自己的emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理 -->
+    <empty-view slot="empty"></empty-view>
+    <view>
+        <view class="item" v-for="(item,index) in dataList">
+            <view class="item-title">{{item.title}}</view>
+        </view>
+    </view>
+</z-paging>
+```
+
+## 自定义加载更多各个状态的描述文字示例
+
+* 以修改【没有更多了】状态描述文字为例(将默认的"没有更多了"修改为"我也是有底线的！")
+
+```html
+<z-paging ref="paging" v-model="dataList" loading-more-no-more-text="我也是有底线的！" @query="queryList">
+    <!-- 设置自己的emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理 -->
+    <view>
+        <view class="item" v-for="(item,index) in dataList">
+            <view class="item-title">{{item.title}}</view>
+        </view>
+    </view>
+</z-paging>
+```
+
+## 自定义下拉刷新view示例
+
+* `use-custom-refresher`需要设置为true(默认为true)，此时将不会使用uni自带的下拉刷新，转为使用z-paging自定义的下拉刷新，通过slot可以插入开发者自定义的下拉刷新view。
+
+```html
+<z-paging ref="paging" v-model="dataList" :refresher-threshold="80" @query="queryList">
+  <!-- 自定义下拉刷新view -->
+  <!-- 注意注意注意！！QQ小程序或字节跳动小程序中自定义下拉刷新不支持slot-scope，将导致custom-refresher无法显示 -->
+	<!-- 如果是QQ小程序或字节跳动小程序，请参照demo中的sticky-demo.vue中的写法，此处使用slot-scope是为了减少data中无关变量声明，降低依赖 -->
+	<custom-refresher slot="refresher" slot-scope="{refresherStatus}" :status="refresherStatus"></custom-refresher>
+  <!-- list数据，建议像下方这样在item外层套一个view，而非直接for循环item，因为slot插入有数量限制 -->
+  <view>
+    <view class="item" v-for="(item,index) in dataList" @click="itemClick(item)">
+      <view class="item-title">{{item.title}}</view>
+      <view class="item-detail">{{item.detail}}</view>
+      <view class="item-line"></view>
+    </view>
+  </view>
+</z-paging>
+```
+
+## 自定义加载更多各个状态的描述view示例
+
+* 以修改【没有更多了】状态描述view为例
+
+```html
+<z-paging ref="paging" v-model="dataList" @query="queryList">
+    <view>
+        <view class="item" v-for="(item,index) in dataList">
+            <view class="item-title">{{item.title}}</view>
+        </view>
+    </view>
+    <view style="background-color: red" slot="loadingMoreNoMore">这是完全自定义的没有更多数据view</view>
+</z-paging>
+```
+
+## 使用页面滚动示例
+
+```html
+<!-- 使用页面滚动示例(无需设置z-paging的高度) -->
+<template>
+	<view class="content">
+		<!-- 此时使用了页面的滚动，z-paging不需要有确定的高度，use-page-scroll需要设置为true -->
+		<!-- 注意注意！！这里的ref必须设置且必须等于"paging"，否则mixin方法无效 -->
+		<z-paging ref="paging" v-model="dataList" use-page-scroll @query="queryList">
+			<!-- 如果希望其他view跟着页面滚动，可以放在z-paging标签内 -->
+			<!-- list数据，建议像下方这样在item外层套一个view，而非直接for循环item，因为slot插入有数量限制 -->
+			<view>
+				<view class="item" v-for="(item,index) in dataList" :key="index" @click="itemClick(item)">
+					<view class="item-title">{{item.title}}</view>
+					<view class="item-detail">{{item.detail}}</view>
+					<view class="item-line"></view>
+				</view>
+			</view>
+		</z-paging>
+	</view>
+</template>
+
+<script>
+	//使用页面滚动时引入此mixin，用于监听和处理onPullDownRefresh等页面生命周期方法(如果全局引入了，就不要这一步，全局引入示例见main.js)
+	import ZPagingMixin from '@/uni_modules/z-paging/components/z-paging/js/z-paging-mixin'
+	export default {
+		//注意这一步不要漏掉，必须注册mixins(如果全局引入了，就不要这一步，全局引入示例见main.js)
+		mixins: [ZPagingMixin],
+		data() {
+			//参见demo
+		},
+		methods: {
+			//参见demo
+		}
+	}
+</script>
+```
+
+## i18n示例
+
+* 请参照demo：`i18n-demo.vue`
