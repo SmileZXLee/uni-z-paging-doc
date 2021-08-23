@@ -172,7 +172,7 @@ module.exports = {
 		],
 	},
 	plugins: [
-		['flexsearch'],
+		['fulltext-search'],
 		['@vuepress/active-header-links']
 	]
 }
