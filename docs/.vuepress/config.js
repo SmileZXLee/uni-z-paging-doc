@@ -171,6 +171,11 @@ module.exports = {
 			}
 		],
 	},
+	locales: {
+		'/': {
+			lang: 'zh-CN'
+		}
+	},
 	plugins: [
 		['fulltext-search'],
 		['@vuepress/active-header-links']
