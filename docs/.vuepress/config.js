@@ -46,7 +46,7 @@ module.exports = {
 					// SidebarItem
 					{
 						title: '介绍',
-						path: '/start/about',
+						path: '/start/intro',
 						children: [],
 					},
 					{
@@ -82,6 +82,11 @@ module.exports = {
 					{
 						title: '版本记录',
 						path: 'https://ext.dcloud.net.cn/plugin?id=3935&update_log',
+						children: [],
+					},
+					{
+						title: '升级指南',
+						path: '/start/upgrade-guide',
 						children: [],
 					}
 				],

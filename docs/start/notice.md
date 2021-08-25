@@ -1,7 +1,7 @@
 ### 注意事项
 
 ::: danger 注意事项①
-由V1.9.0起，fixed属性默认值为true，z-paging默认会铺满屏幕。老项目更新请注意，使用侧滑滚动切换选项卡或需要局部使用z-paging请设置`:fixed="false"`。<br>如果您希望fixed属性默认为false，请参考[全局配置](/api/props/global-config.md)，将fixed默认值设置为false。
+由V1.9.0起，fixed属性默认值为true，z-paging默认会铺满屏幕。V1.9.0之前的版本更新请注意，使用侧滑滚动切换选项卡或需要局部使用z-paging请设置`:fixed="false"`。<br>如果您希望fixed属性默认为false，请参考[全局配置](/api/props/global-config.md)，将fixed默认值设置为false。
 :::
 
 ::: danger 注意事项②

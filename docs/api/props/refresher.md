@@ -6,6 +6,7 @@
 |           refresher-threshold           | 设置自定义下拉刷新阈值，默认单位为px。<p style="color:red;">(支持传100、"100px"或"100rpx")(nvue无效)</p> | Number\|String |      80rpx      |                              -                               |
 |             refresher-only              | 是否只使用下拉刷新，设置为true后将关闭mounted自动请求数据、关闭滚动到底部加载更多，强制隐藏空数据图 |    Boolean     |      false      |                             true                             |
 |          use-custom-refresher           | 是否使用自定义的下拉刷新，默认为是，即使用z-paging的下拉刷新。设置为false即代表使用uni scroll-view自带的下拉刷新，h5、App、微信小程序以外的平台不支持uni scroll-view自带的下拉刷新 |    Boolean     |      true       | h5、App、微信小程序以外的平台设置为false时，无法使用下拉刷新 |
+|       show-refresher-when-reload        |             调用reload方法时自动显示下拉刷新view             | Boolean | false  |  true  |
 |          refresher-theme-style          |             下拉刷新的主题样式，支持black，white             |     String     |      black      |                            white                             |
 |           refresher-img-style           |                 自定义下拉刷新左侧图标的样式                 |     Object     |       {}        |                              -                               |
 |          refresher-title-style          |             自定义下拉刷新右侧状态描述文字的样式             |     Object     |       {}        |                              -                               |

@@ -1,6 +1,11 @@
 ### Slot
 ::: danger 注意
-使用slot插入的view必须是z-paging的子view(此view的上一级必须是z-paging)
+使用slot插入的view必须是`z-paging`的子view(此view的上一级必须是`z-paging`)，如：
+```html
+<z-paging ref="paging" v-model="dataList" @query="queryList">
+	<view slot="top">我是固定在顶部的view</view>
+</z-paging>
+```
 :::
 
 | 名称               | 说明                                                         |
