@@ -9,15 +9,12 @@
 * 当tab切换或搜索时，可以通过`this.$refs.paging.reload()`刷新整个列表。
 * 在nvue中，z-paging中插入的列表item(z-paging的直接子view)必须是cell，必须使用cell包住，因为在nvue中，z-paging使用的是nvue的list组件，具体请查阅demo中的`common-demo-n.vue`示例。
 
-```html
+```html  
 <template>
     <view class="content">
         <z-paging ref="paging" v-model="dataList" @query="queryList">
-            <!-- list数据，建议像下方这样在item外层套一个view，而非直接for循环item，因为slot插入有数量限制 -->
-            <view>
-                <view class="item" v-for="(item,index) in dataList">
-                    <view class="item-title">{{item.title}}</view>
-                </view>
+            <view class="item" v-for="(item,index) in dataList">
+                <view class="item-title">{{item.title}}</view>
             </view>
         </z-paging>
     </view>
@@ -27,7 +24,7 @@
     export default {
         data() {
             return {
-                dataList: [],
+                dataList: []
             };
         },
         methods: {
@@ -56,10 +53,8 @@
 <z-paging ref="paging" v-model="dataList" @query="queryList">
     <!-- 设置自己的emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理 -->
     <empty-view slot="empty"></empty-view>
-    <view>
-        <view class="item" v-for="(item,index) in dataList">
-            <view class="item-title">{{item.title}}</view>
-        </view>
+    <view class="item" v-for="(item,index) in dataList" :key="index">
+        <view class="item-title">{{item.title}}</view>
     </view>
 </z-paging>
 ```
@@ -71,10 +66,8 @@
 ```html
 <z-paging ref="paging" v-model="dataList" loading-more-no-more-text="我也是有底线的！" @query="queryList">
     <!-- 设置自己的emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理 -->
-    <view>
-        <view class="item" v-for="(item,index) in dataList">
-            <view class="item-title">{{item.title}}</view>
-        </view>
+    <view class="item" v-for="(item,index) in dataList" :key="index">
+        <view class="item-title">{{item.title}}</view>
     </view>
 </z-paging>
 ```
@@ -84,19 +77,15 @@
 * `use-custom-refresher`需要设置为true(默认为true)，此时将不会使用uni自带的下拉刷新，转为使用z-paging自定义的下拉刷新，通过slot可以插入开发者自定义的下拉刷新view。
 
 ```html
-<z-paging ref="paging" v-model="dataList" :refresher-threshold="80" @query="queryList">
-  <!-- 自定义下拉刷新view -->
-  <!-- 注意注意注意！！QQ小程序或字节跳动小程序中自定义下拉刷新不支持slot-scope，将导致custom-refresher无法显示 -->
-	<!-- 如果是QQ小程序或字节跳动小程序，请参照demo中的sticky-demo.vue中的写法，此处使用slot-scope是为了减少data中无关变量声明，降低依赖 -->
-	<custom-refresher slot="refresher" slot-scope="{refresherStatus}" :status="refresherStatus"></custom-refresher>
-  <!-- list数据，建议像下方这样在item外层套一个view，而非直接for循环item，因为slot插入有数量限制 -->
-  <view>
-    <view class="item" v-for="(item,index) in dataList" @click="itemClick(item)">
-      <view class="item-title">{{item.title}}</view>
-      <view class="item-detail">{{item.detail}}</view>
-      <view class="item-line"></view>
-    </view>
-  </view>
+<z-paging ref="paging" v-model="dataList" @query="queryList">
+    <!-- 自定义下拉刷新view -->
+    <!-- 注意注意注意！！QQ小程序或字节跳动小程序中自定义下拉刷新不支持slot-scope，将导致custom-refresher无法显示 -->
+    <!-- 如果是QQ小程序或字节跳动小程序，请参照demo中的sticky-demo.vue中的写法，此处使用slot-scope是为了减少data中无关变量声明，降低依赖 -->
+    <custom-refresher slot="refresher" slot-scope="{refresherStatus}" :status="refresherStatus"></custom-refresher>
+    <!-- list数据，建议像下方这样在item外层套一个view，而非直接for循环item，因为slot插入有数量限制 -->
+	<view class="item" v-for="(item,index) in dataList" :key="index">
+	    <view class="item-title">{{item.title}}</view>
+	</view>
 </z-paging>
 ```
 
@@ -106,10 +95,8 @@
 
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
-    <view>
-        <view class="item" v-for="(item,index) in dataList">
-            <view class="item-title">{{item.title}}</view>
-        </view>
+    <view class="item" v-for="(item,index) in dataList" :key="index">
+        <view class="item-title">{{item.title}}</view>
     </view>
     <view style="background-color: red" slot="loadingMoreNoMore">这是完全自定义的没有更多数据view</view>
 </z-paging>
@@ -125,13 +112,8 @@
 		<!-- 注意注意！！这里的ref必须设置且必须等于"paging"，否则mixin方法无效 -->
 		<z-paging ref="paging" v-model="dataList" use-page-scroll @query="queryList">
 			<!-- 如果希望其他view跟着页面滚动，可以放在z-paging标签内 -->
-			<!-- list数据，建议像下方这样在item外层套一个view，而非直接for循环item，因为slot插入有数量限制 -->
-			<view>
-				<view class="item" v-for="(item,index) in dataList" :key="index" @click="itemClick(item)">
-					<view class="item-title">{{item.title}}</view>
-					<view class="item-detail">{{item.detail}}</view>
-					<view class="item-line"></view>
-				</view>
+			<view class="item" v-for="(item,index) in dataList" :key="index">
+				<view class="item-title">{{item.title}}</view>
 			</view>
 		</z-paging>
 	</view>

@@ -6,9 +6,23 @@ module.exports = {
 	markdown: {
 		lineNumbers: true
 	},
+	head: [
+		['meta', {
+			name: 'viewport',
+			content: 'width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no'
+		}],
+		['meta', {
+			name: 'Keywords',
+			content: 'z-paging,uniapp,分页,下拉刷新,加载更多'
+		}],
+		['link', {
+			rel: 'icon',
+			href: '/img/logo.png'
+		}]
+	],
 	themeConfig: {
 		smoothScroll: true,
-		logo: null,
+		logo: '/img/logo.png',
 		contributors: false,
 		lastUpdatedText: '最近更新',
 		// repo: 'https://github.com/SmileZXLee/uni-z-paging',

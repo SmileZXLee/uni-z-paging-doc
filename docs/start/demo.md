@@ -1,5 +1,5 @@
-[在线体验地址](http://www.zxlee.cn/github/uni-z-paging/demo/index.html)
-[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;demo下载地址](https://ext.dcloud.net.cn/plugin?id=3935)
+[在线体验](http://www.zxlee.cn/github/uni-z-paging/demo/index.html)
+[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;demo下载](https://ext.dcloud.net.cn/plugin?id=3935)
 <div style="display: flex;flex-wrap: wrap;margin-top: 10px;">
 	<div style="position:relative;height: 650px;">
 		<img style="width:350px;" src="https://www.zxlee.cn/github/uni-z-paging/phone.png"></img>

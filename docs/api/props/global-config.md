@@ -1,7 +1,7 @@
 ### 支持全局配置 <Badge text="1.5.8"/>
 
 ::: tip 说明
-支持统一配置z-paging的所有属性，非必须！！！
+支持统一配置z-paging的所有属性，以下配置不是必须的！
 :::
 
 ::: danger 注意
@@ -13,7 +13,7 @@
 
 * (推荐)【方案1】在路径`@/uni_modules/z-paging`下创建`z-paging-config.js`(与z-paging目录下的readme.md同级)，`z-paging-config.js`中的内容如下所示。
 
-```json
+```js
 module.exports = {
 	//配置分页默认pageSize为15
 	'default-page-size': '15',
