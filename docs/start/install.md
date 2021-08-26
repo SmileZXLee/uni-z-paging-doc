@@ -6,6 +6,7 @@
 
 ::: tip 提示
 z-paging 使用`uni_modules`管理，导入的项目会在`uni_modules`目录下<br>在`uni_modules`下右键z-paging可以快速地从插件市场更新
+![](http://www.zxlee.cn/github/uni-z-paging/upgrade.png)
 :::
 
 ::: warning 注意
