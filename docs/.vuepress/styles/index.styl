@@ -35,13 +35,14 @@ tr:nth-child(2n){
 }
 
 td:nth-child(1){
-	font-weight bold
+	font-weight bold;
 }
 td{
-	font-size: 1rem;
+	font-size: 0.97rem !important;
 }
 th{
-	font-size: 1rem;
+	font-size: 0.97rem !important;
+	font-weight bold;
 }
 
 .theme-default-content code{
@@ -50,8 +51,10 @@ th{
 	font-weight bold;
 }
 
-.badge.tip[data-v-217a43d9], .badge.green[data-v-217a43d9]{
+.badge.tip, .badge.green{
 	background-color: #007aff !important;
+	user-select: none;
+	// margin-left: 0.3rem;
 }
 
 &::-webkit-scrollbar {

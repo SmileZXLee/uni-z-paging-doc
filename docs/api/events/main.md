@@ -15,5 +15,4 @@
 | @scrolltolower         | `z-paging`内置的scroll-view滚动底部时触发                    | 来源(`toBottom`滚动到底部；`click`点击了加载更多view)        |
 | @scrolltoupper         | `z-paging`内置的scroll-view滚动顶部时触发                    | -                                                            |
 | @listChange            | 分页渲染的数组改变时触发                                     | 最终的分页数据数组                                           |
-| @emptyViewReload       | 点击了空数据图中的重新加载按钮                               | 点击重新加载后是否进行reload操作，默认为是。<br>如果需要禁止reload事件，则在page的methods中书写：<p style="font-weight:bold;">emptyViewReload(e){<br/> e(false);<br/>  //处理自己的业务逻辑<br/>}</p> |
-
+| @emptyViewReload <Badge text="1.8.0"/>       | 点击了空数据图中的重新加载按钮                               | 点击重新加载后是否进行reload操作，默认为是。<br>如果需要禁止reload事件，则在page的methods中书写：<p style="font-weight:bold;">emptyViewReload(e){<br/> e(false);<br/>  //处理自己的业务逻辑<br/>}</p> |
