@@ -10,7 +10,7 @@
 | @refresherTouchend     | 自定义下拉刷新下拉结束<p style="color:red;">(use-custom-refresher为true时生效)</p>【注：当需要更细致定制自定义下拉刷新时使用，如果只需监听下拉刷新各个状态改变，使用`refresherStatusChange`即可】 | 当前触摸结束分页内容下移的y值(单位px)                        |
 | @onRefresh             | 自定义下拉刷新被触发                                         | -                                                            |
 | @onRestore             | 自定义下拉刷新被复位                                         | -                                                            |
-| @scroll                | `z-paging`内置的scroll-view滚动时触发                        | event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY} |
+| @scroll                | `z-paging`列表滚动时触发                        | event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY} |
 | @scrollTopChange       | scrollTop改变时触发，使用点击返回顶部时需要获取scrollTop时可使用此事件【注：通过`:scroll-top.sync`绑定当前data中的指定变量亦可】<p style="color:red;">(@scrolltoupper触发时，也会自动触发此方法，且scrollTop=0)</p> | scrollTop                                                    |
 | @scrolltolower         | `z-paging`内置的scroll-view滚动底部时触发                    | 来源(`toBottom`滚动到底部；`click`点击了加载更多view)        |
 | @scrolltoupper         | `z-paging`内置的scroll-view滚动顶部时触发                    | -                                                            |
