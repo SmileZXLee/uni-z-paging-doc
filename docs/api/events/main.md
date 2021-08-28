@@ -2,7 +2,7 @@
 
 | 事件名                 | 说明                                                         | 回调参数                                                     |
 | ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| @query                 | 组件加载时会自动触发此方法，因此默认页面加载时会自动触发，无需手动调用。pageNo和pageSize会自动计算好，直接传给服务器即可。 | 参数1:pageNo(当前第几页)；<br/>参数2:pageSize(每页多少条)    |
+| @query                 | 组件加载时会自动触发此方法，因此默认页面加载时会自动触发，无需手动调用。pageNo和pageSize会自动计算好，直接传给服务器即可。 | `参数1`:pageNo(当前第几页)；<br/>`参数2`:pageSize(每页多少条)    |
 | @loadingStatusChange   | 上拉加载更多状态改变                                         | 0-默认状态 1.加载中 2.没有更多数据 3.加载失败                |
 | @refresherStatusChange | 自定义下拉刷新状态改变<p style="color:red;">(use-custom-refresher为true时生效)</p>【注：通过`:refresher-status.sync`绑定当前data中的指定变量亦可】 | 0-默认状态 1.松手立即刷新 2.刷新中                           |
 | @refresherTouchstart   | 自定义下拉刷新下拉开始<p style="color:red;">(use-custom-refresher为true时生效)</p>【注：当需要更细致定制自定义下拉刷新时使用，如果只需监听下拉刷新各个状态改变，使用`refresherStatusChange`即可】 | 当前触摸开始的屏幕点的y值(单位px)                            |
