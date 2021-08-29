@@ -23,7 +23,7 @@ module.exports = {
 }
 ```
 
-* `(推荐)`【方案二】<Badge text="2.0.4"/> 在文件 `z-paging/config/index.js`中进行配置，配置与【方案1】一致。
+* 【方案二】<Badge text="2.0.4"/> 在文件 `z-paging/config/index.js`中进行配置，配置与【方案1】一致，但是需要注意更新插件时要避免被覆盖。
 * 【方案三】在`main.js`中`import zConfig from '@/uni_modules/z-paging/components/z-paging/js/z-paging-config'`(此路径为使用uni_modules情况下使用，可依照具体情况进行修改)，然后进行`z-paging`的全局配置：
 ::: danger 注意
 如果调用过setConfig进行配置，后期又需要取消配置，则必须设置zConfig.setConfig(null)将配置置空，因为setConfig是将配置设置在缓存中，直接删除配置代码将导致原先缓存的配置无法清空。

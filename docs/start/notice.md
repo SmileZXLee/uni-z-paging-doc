@@ -1,22 +1,18 @@
 ### 注意事项
 
 ::: danger 注意事项①
-由V1.9.0起，fixed属性默认值为true，z-paging默认会铺满屏幕。V1.9.0之前的版本更新请注意，使用侧滑滚动切换选项卡或需要局部使用z-paging请设置`:fixed="false"`。<br>如果您希望fixed属性默认为false，请参考[全局配置](/api/props/global-config.md)，将fixed默认值设置为false。
-:::
-
-::: danger 注意事项②
 在nvue中，z-paging中插入的列表item(z-paging的直接子view)必须是cell，必须使用cell包住，因为在nvue中，z-paging使用的是nvue的list组件，具体请查阅demo中的`common-demo-n.vue`示例
 :::
 
-::: warning 注意事项③
+::: warning 注意事项②
 由V1.8.4起，支持使用v-model绑定list，之前的:list.sync依然有效。在新的项目中建议使用v-model，因为v-model是双向绑定的，修改页面中的list将同步修改z-paging中的list。
 :::
 
-::: warning 注意事项④
+::: warning 注意事项③
 在使用fixed布局时，若要设置列表背景色，请设置page的背景色或使用:paging-style="{'background-color':'red'}"方式，因为此时z-paging的父view是没有高度的，给它们设置背景色无效。
 :::
 
-::: warning 注意事项⑤
+::: warning 注意事项④
 安卓App取消下拉刷新灰色半弧形，请在pages.json中进行如下设置：
 :::
 ```json
