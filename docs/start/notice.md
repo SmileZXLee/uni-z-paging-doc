@@ -1,7 +1,7 @@
 ### 注意事项
 
 ::: danger 注意事项①
-在nvue中，z-paging中插入的列表item(z-paging的直接子view)必须是cell，必须使用cell包住，因为在nvue中，z-paging使用的是nvue的list组件，具体请查阅demo中的`common-demo-n.vue`示例
+在nvue中，z-paging中插入的列表item(z-paging的直接子view)必须是cell，必须使用cell包住，因为在nvue中，z-paging使用的是nvue的list组件。<br>不能使用index作为key的唯一标识，`:key`必须添加并且必须是唯一的。<br>具体请查阅demo中的`common-demo-n.vue`示例
 :::
 
 ::: warning 注意事项②
@@ -13,8 +13,7 @@
 :::
 
 ::: warning 注意事项④
-安卓App取消下拉刷新灰色半弧形，请在pages.json中进行如下设置：
-:::
+安卓App`(vue)`若要取消下拉刷新和滚动到底部灰色半弧形，请在`pages.json`中进行如下设置：
 ```json
 //以下代码可以写在globalStyle中或特定页面的style中
 //在App中，取消安卓下拉刷新灰色半弧形效果
@@ -22,8 +21,11 @@
   "bounce" : "none"
 }
 ```
+安卓App`(nvue)`若要取消下拉刷新和滚动到底部灰色半弧形，请在`z-paging`标签上设置`:nvue-bounce="false"`。
+:::
 
-::: details 点击展开常见问题
+
+::: details 点击展开其他常见问题
 
 * 【若无法下拉刷新】请确认要在@query所绑定的方法中调用`this.$refs.paging.complete()`，无论是否需要网络请求都要调用，只有告知z-paging刷新状态结束了，才可以开始下次的下拉刷新。
 
@@ -39,5 +41,5 @@
 
 * 【若页面无法滚动】请检查z-paging是否有固定的高度；若您想使用页面滚动而非z-paging内置的scroll-view的滚动，请设置`use-page-scroll`为true。
 
-* 【关于自定义导航栏】若设置了`:fixed=true`，则必须将自定义导航栏放在z-paging标签中且添加slot="top"，如：`<custom-nav slot="top"></custom-nav>`，如果有多个需要固定顶部的元素，则书写`<view slot="top">需要固定顶部的元素</view>`。
+* 【关于自定义导航栏】若设置了`:fixed=true`，则必须将自定义导航栏放在z-paging标签中且添加slot="top"，如：`<custom-nav slot="top"></custom-nav>`，如果有多个需要固定顶部的元素，则书写`<view slot="top">所有需要固定顶部的元素</view>`。
 :::
