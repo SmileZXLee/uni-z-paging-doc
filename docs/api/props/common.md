@@ -9,8 +9,11 @@
 | safe-area-inset-bottom <Badge text="1.6.1"/> | 是否开启底部安全区域适配                                     | Boolean        | false  | true   |
 | use-page-scroll                              | 使用页面滚动，默认为否，当设置为是时则使用页面的滚动而非此组件内部的scroll-view的滚动，使用页面滚动时z-paging无需设置确定的高度且对于长列表展示性能更高，但配置会略繁琐<p style="color:red;">(nvue中不建议使用页面滚动，nvue中默认使用list组件，性能远高于使用页面滚动。在nvue中使用页面滚动无法插入`cell`，且仅能使用页面的下拉刷新)</p> | Boolean        | false  | true   |
 | default-theme-style                          | loading(下拉刷新、上拉加载更多)的主题样式，支持black，white  | String         | black  | white  |
-| paging-style                                 | 设置z-paging的style，部分平台可能无法直接修改组件的style，可使用此属性代替<p style="color:red;">(在使用fixed布局时，若要设置列表背景色，请设置page的背景色或使用:paging-style="{'background-color':'red'}"方式，因为此时z-paging的父view是没有高度的，给它们设置背景色无效)</p> | Object         | -      | -      |
+| paging-style                                 | 设置z-paging的style，部分平台(如微信小程序)无法直接修改组件的style，可使用此属性代替<p style="color:red;">(在使用fixed布局时，若要设置列表背景色，请设置page的背景色或使用:paging-style="{'background-color':'red'}"方式，因为此时z-paging的父view是没有高度的，给它们设置背景色无效)</p> | Object         | -      | -      |
+| height <Badge text="2.0.6"/>                                       | z-paging的高度，优先级低于`paging-style`中设置的height，传字符串，如100px、100rpx、100% | String         | -      | -      |
+| width <Badge text="2.0.6"/>                                        | z-paging的宽度，优先级低于`paging-style`中设置的width，传字符串，如100px、100rpx、100% | String         | -      | -      |
+| bg-color <Badge text="2.0.6"/>                                     | z-paging的背景色，优先级低于`paging-style`中设置的background-color。传字符串，如"#ffffff" | String         | -      | -      |
 | delay <Badge text="1.9.6"/>                  | 调用complete后延迟处理的时间，单位为毫秒                     | Number\|String | 0      | -      |
 | list.sync                                    | <p style="color:red;">(建议使用v-model代替)</p>绑定最终的列表渲染变量(页面data中声明的值)，当列表数据改变时，所绑定的变量会跟着改变 | Array          | -      | -      |
-| refresher-status.sync                        | 绑定下拉刷新状态改变的变量(页面data中声明的值)，当下拉刷新状态改变时，此变量会跟着改变 | Number         | -      | -      |
+| refresher-status.sync                        | 绑定下拉刷新状态改变的变量(页面data中声明的值)，当下拉刷新状态改变时，此变量会跟着改变（0-默认状态 1.松手立即刷新 2.刷新中 3.刷新成功） | Number         | -      | -      |
 | chat-index.sync                              | 绑定聊天记录模式下当前聊天记录第一条index的变量(页面data中声明的值)，当聊天记录第一条index改变时，此变量会跟着改变 | Number         | -      | -      |
