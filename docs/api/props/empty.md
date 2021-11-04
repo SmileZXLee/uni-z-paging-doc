@@ -21,4 +21,4 @@
 | show-empty-view-reload <Badge text="1.6.7"/>            | 是否显示空数据图重新加载按钮(无数据时)                       | Boolean        | false            | true   |
 | show-empty-view-reload-when-error <Badge text="1.6.7"/> | 加载失败时是否显示空数据图重新加载按钮                       | Boolean        | true             | false  |
 | auto-hide-empty-view-when-loading                       | 加载中时是否自动隐藏空数据图                                 | Boolean        | true             | false  |
-| auto-hide-empty-view-when-pull                          | 用户下拉列表触发下拉刷新加载中时是否自动隐藏空数据图         | Boolean        | true             | false  |
+| auto-hide-empty-view-when-pull <Badge text="2.0.9"/>                          | 用户下拉列表触发下拉刷新加载中时是否自动隐藏空数据图         | Boolean        | true             | false  |
