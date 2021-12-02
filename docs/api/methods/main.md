@@ -19,6 +19,7 @@
 | setLocalPaging                                               | 设置本地分页，请求结束(成功或者失败)调用此方法，将请求的结果传递给z-paging作分页处理<p style="color:red;">（若调用了此方法，则上拉加载更多时内部会自动分页，不会触发@query所绑定的事件）</p> | `参数1(必填)`:请求结果数组；<br/>`参数2(非必填)`:是否请求成功，不填默认为true |
 | doLoadMore                                                   | 手动触发上拉加载更多(非必须，可依据具体需求使用，例如当z-paging未确定高度时，内部的scroll-view会无限增高，此时z-paging无法得知是否滚动到底部，您可以在页面的`onReachBottom`中手动调用此方法触发上拉加载更多) <p style="color:red;">ps:`use-page-scroll`需要设置为true</p> | -                                                            |
 | doChatRecordLoadMore                                         | 手动触发滚动到顶部加载更多，聊天记录模式时有效               | -                                                            |
+| endRefresh <Badge text="2.1.0"/>                                                   | 终止下拉刷新状态                                             | -                                                            |
 | scrollToTop                                                  | 滚动到顶部                                                   | `参数1(非必填)`:是否有动画效果，默认为是                     |
 | scrollToBottom                                               | 滚动到底部                                                   | `参数1(非必填)`:是否有动画效果，默认为是                     |
 | scrollIntoViewById                                           | 滚动到指定view<p style="color:red;">(vue中有效，若此方法无效，请使用`scrollIntoViewByNodeTop`)</p> | `参数1(必填)`需要滚动的view的id值，不包含"#"；<br/>`参数2(非必填)`:偏移量，单位为px，默认为0；<br/>`参数3(非必填)`:是否有动画效果，默认为否 |
