@@ -3,7 +3,7 @@ module.exports = {
 	lang: 'zh-CN',
 	title: 'z-paging',
 	description: 'z-paging文档',
-	base: '/z-paging/',
+	// base: '/z-paging/',
 	markdown: {
 		lineNumbers: true
 	},

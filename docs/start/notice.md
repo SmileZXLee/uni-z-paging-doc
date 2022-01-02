@@ -1,18 +1,24 @@
-### 注意事项
+### 注意事项与常见问题
 
 ::: danger 注意事项①
+关于在微信小程序平台可能出现`Cannot read property 'selectAllComponents' of null`报错的原因与解决方案：
+在微信小程序中使用`slot-scope`有概率出现此问题，但是一般只在调试阶段有影响，发布后不会有此报错。
+若您需要解决此报错，请更新Hbuilder X至`3.3.5.20211229`或以上版本。
+:::
+
+::: danger 注意事项②
 在nvue中，z-paging中插入的列表item(z-paging的直接子view)必须是cell，必须使用cell包住，因为在nvue中，z-paging使用的是nvue的list组件。<br>不能使用index作为key的唯一标识，`:key`必须添加并且必须是唯一的。<br>具体请查阅demo中的`common-demo-n.vue`示例
 :::
 
-::: warning 注意事项②
+::: warning 注意事项③
 由V1.8.4起，支持使用v-model绑定list，之前的:list.sync依然有效。在新的项目中建议使用v-model，因为v-model是双向绑定的，修改页面中的list将同步修改z-paging中的list。
 :::
 
-::: warning 注意事项③
+::: warning 注意事项④
 在使用fixed布局时，若要设置列表背景色，请设置page的背景色或使用:paging-style="{'background-color':'red'}"方式，因为此时z-paging的父view是没有高度的，给它们设置背景色无效。
 :::
 
-::: warning 注意事项④
+::: warning 注意事项⑤
 安卓App`(vue)`若要取消下拉刷新和滚动到底部灰色半弧形，请在`pages.json`中进行如下设置：
 ```json
 //以下代码可以写在globalStyle中或特定页面的style中
