@@ -3,7 +3,7 @@
 ::: danger 注意事项①
 关于在微信小程序平台可能出现`Cannot read property 'selectAllComponents' of null`报错的原因与解决方案：
 在微信小程序中使用`slot-scope`有概率出现此问题，但是一般只在调试阶段有影响，发布后不会有此报错。
-若您需要解决此报错，请更新Hbuilder X至`3.3.5.20211229`或以上版本。
+若您需要解决此报错，请更新Hbuilder X至`3.3.5`或以上版本。
 :::
 
 ::: danger 注意事项②

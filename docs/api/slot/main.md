@@ -1,11 +1,20 @@
 ### Slot
 
 ::: danger 注意
-使用slot插入的view必须是`z-paging`的子view(此view的上一级必须是`z-paging`)，如：
-
+① 使用slot插入的view必须是`z-paging`的子view(此view的上一级必须是`z-paging`)，如：
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
 	<view slot="top">我是固定在顶部的view</view>
+</z-paging>
+```
+② slot节点不支持通过v-if或v-show动态显示/隐藏，若需要动态控制，可将v-if添加在其子节点上，如：
+```html
+<z-paging ref="paging" v-model="dataList" @query="queryList">
+	<view slot="bottom">
+		<view v-if="showBottom">
+			<!-- bottom的内容 -->
+		</view>
+	</view>
 </z-paging>
 ```
 
