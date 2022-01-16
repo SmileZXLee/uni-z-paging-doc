@@ -10,11 +10,11 @@
  /___|    | .__/ \__,_|\__, |_|_| |_|\__, |
           |_|          |___/         |___/   文档
 —————————————————————————————————————————————————
-v2.1.1 (2022-01-11)
+v2.1.3 (2022-01-18)
 - by ZXLee
 感谢使用^_^
 ```
-###  ⭐️ 如果您觉得觉得`z-paging`还不错的话，可以点一个star鼓励一下(＾ω＾)👉🏻  [![Github stars](https://img.shields.io/github/stars/smilezxlee/uni-z-paging.svg)](https://github.com/SmileZXLee/uni-z-paging)
+###  ⭐️ 如果您觉得`z-paging`还不错的话，可以点一个star鼓励一下(＾ω＾)👉🏻  [![Github stars](https://img.shields.io/github/stars/smilezxlee/uni-z-paging?logo=GitHub)](https://github.com/SmileZXLee/uni-z-paging)
 ## 基本使用
 ```html
 <template>
