@@ -1,18 +1,16 @@
 ### 支持全局配置 <Badge text="1.5.8"/>
 
 ::: tip 说明
-支持统一配置z-paging的所有属性，以下配置不是必须的！
-:::
-
-::: danger 注意
-这里的全局配置不是全局引入组件，全局配置是指统一配置z-paging默认的属性值，z-paging遵循easycom组件规范，无需注册即可使用。
-
+① 支持统一配置z-paging的所有属性，以下配置不是必须的！  
+② 这里的全局配置不是全局引入组件，全局配置是指统一配置z-paging默认的属性值，z-paging遵循easycom组件规范，无需注册即可使用。  
 [点击查看easycom组件规范](https://uniapp.dcloud.io/component/README?id=easycom组件规范)
-
 :::
 
 * `(推荐)`【方案1】在路径`@/uni_modules/z-paging`下创建`z-paging-config.js`(与z-paging目录下的readme.md同级)，`z-paging-config.js`中的内容如下所示。
 
+::: danger 注意
+此方案不支持`vue3`，在`vue3`中请使用【方案2】或【方案3】
+:::
 ```js
 module.exports = {
 	//配置分页默认pageSize为15
