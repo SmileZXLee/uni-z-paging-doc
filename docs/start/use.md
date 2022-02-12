@@ -3,6 +3,10 @@
 ② 点击【使用HbuilderX导入示例项目】或【下载示例项目ZIP】。
 :::
 
+::: warning 提示
+`slot`的写法在`vue2`和`vue3`中写法不同（其他一致），以下示例为`vue2`写法，若需要查看`vue3`中的写法，请[点击这里](../../start/migration-to-vue3)
+:::
+
 ## 基本使用
 * ①在`<template>` 中使用@query绑定js中分页请求的方法(`z-paging`会将计算好的pageNo和pageSize两个参数传递到此方法中)，然后通过` v-model`绑定列表for循环的list。
 * ②在请求结果回调中，通过调用`z-paging`的`complete()`方法，将请求返回的数组传递给`z-paging`处理，如：`this.$refs.paging.complete(服务器返回的数组);`；若请求失败，调用：`this.$refs.paging.complete(false);`即可。

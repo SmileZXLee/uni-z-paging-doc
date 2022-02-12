@@ -80,6 +80,11 @@ module.exports = {
 						path: '/start/notice',
 						children: [],
 					},
+                    {
+                    	title: '从vue2迁移到vue3',
+                    	path: '/start/migration-to-vue3',
+                    	children: [],
+                    },
 					{
 						title: '版本记录',
 						path: 'https://ext.dcloud.net.cn/plugin?id=3935&update_log',

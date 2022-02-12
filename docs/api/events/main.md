@@ -2,7 +2,7 @@
 
 | 事件名                                      | 说明                                                         | 回调参数                                                     |
 | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| @query                                      | 下拉刷新或滚动到底部时会自动触发此方法。`z-paging`加载时也会触发(若要禁止，请设置`:auto="false"`)。pageNo和pageSize会自动计算好，直接传给服务器即可。 | `参数1`:pageNo(当前第几页)；<br/>`参数2`:pageSize(每页多少条) |
+| @query                                      | 下拉刷新或滚动到底部时会自动触发此方法。`z-paging`加载时也会触发(若要禁止，请设置`:auto="false"`)。pageNo和pageSize会自动计算好，直接传给服务器即可。 | `参数1`:pageNo(当前第几页)；<br/>`参数2`:pageSize(每页多少条)<br/>`参数3` <Badge text="2.1.4"/>:from(@query的触发来源：0.用户主动下拉刷新 1.通过reload触发 2.通过refresh触发 3.通过滚动到底部加载更多或点击底部加载更多触发) |
 | @loadingStatusChange                        | 上拉加载更多状态改变                                         | 0-默认状态 1.加载中 2.没有更多数据 3.加载失败                |
 | @refresherStatusChange                      | 自定义下拉刷新状态改变<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：通过`:refresher-status.sync`绑定当前data中的指定变量亦可】 | 0-默认状态 1.松手立即刷新 2.刷新中 3.刷新成功                |
 | @refresherTouchstart                        | 自定义下拉刷新下拉开始<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：当需要更细致定制自定义下拉刷新时使用，如果只需监听下拉刷新各个状态改变，使用`refresherStatusChange`即可】 | 当前触摸开始的屏幕点的y值(单位px)                            |

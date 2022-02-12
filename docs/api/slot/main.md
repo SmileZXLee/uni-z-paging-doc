@@ -1,5 +1,9 @@
 ### Slot
 
+::: warning 提示
+`slot`的写法在`vue2`和`vue3`中写法不同，以下示例为`vue2`写法，若需要查看`vue3`中的写法，请[点击这里](../../start/migration-to-vue3)
+:::
+
 ::: danger 注意
 ① 使用slot插入的view必须是`z-paging`的子view(此view的上一级必须是`z-paging`)，如：
 
