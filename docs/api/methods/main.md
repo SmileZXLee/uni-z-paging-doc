@@ -19,7 +19,7 @@
 | setLocalPaging                                               | 设置本地分页，请求结束(成功或者失败)调用此方法，将请求的结果传递给z-paging作分页处理<p style="color:red;">（若调用了此方法，则上拉加载更多时内部会自动分页，不会触发@query所绑定的事件）</p> | `参数1(必填)`:请求结果数组；<br/>`参数2(非必填)`:是否请求成功，不填默认为true |
 | doLoadMore                                                   | 手动触发上拉加载更多(非必须，可依据具体需求使用，例如当z-paging未确定高度时，内部的scroll-view会无限增高，此时z-paging无法得知是否滚动到底部，您可以在页面的`onReachBottom`中手动调用此方法触发上拉加载更多) <p style="color:red;">ps:`use-page-scroll`需要设置为true</p> | -                                                            |
 | doChatRecordLoadMore                                         | 手动触发滚动到顶部加载更多，聊天记录模式时有效               | -                                                            |
-| endRefresh <Badge text="2.1.0"/>                                                   | 终止下拉刷新状态                                             | -                                                            |
+| endRefresh <Badge text="2.1.0"/>                             | 终止下拉刷新状态                                             | -                                                            |
 | scrollToTop                                                  | 滚动到顶部                                                   | `参数1(非必填)`:是否有动画效果，默认为是                     |
 | scrollToBottom                                               | 滚动到底部                                                   | `参数1(非必填)`:是否有动画效果，默认为是                     |
 | scrollIntoViewById                                           | 滚动到指定view<p style="color:red;">(vue中有效，若此方法无效，请使用`scrollIntoViewByNodeTop`)</p> | `参数1(必填)`需要滚动到的view的id值，不包含"#"；<br/>`参数2(非必填)`:偏移量，单位为px，默认为0；<br/>`参数3(非必填)`:是否有动画效果，默认为否 |
@@ -34,4 +34,5 @@
 | addDataFromTop                                               | 从顶部添加数据，不会影响分页的pageNo和pageSize               | `参数1(必填)`:需要添加的数据，可以是一条数据或一组数据；<br/>`参数2(非必填)`:是否滚动到顶部，不填默认为true；<br/>`参数3(非必填)`:是否使用动画滚动到顶部，不填默认为true |
 | resetTotalData <Badge text="不推荐" type="error"/>           | <p style="color:red;">(建议使用v-model代替:list.sync，则无需调用此方法)</p>重新设置列表数据，调用此方法不会影响pageNo和pageSize，也不会触发请求。适用场景：当需要删除列表中某一项时，将删除对应项后的数组通过此方法传递给z-paging。 | `参数1(必填)`:修改后的列表数组                               |
 | getVersion                                                   | 获取当前版本号                                               | -                                                            |
-| setListSpecialEffects`或`<br>setSpecialEffects <Badge text="2.0.4"/> | 设置nvue List的specialEffects                                | `参数1(必填)`:参见[https://uniapp.dcloud.io/component/list?id=listsetspecialeffects]( |
+| setListSpecialEffects`或`<br>setSpecialEffects <Badge text="2.0.4"/> | 设置nvue List的specialEffects                                | `参数1(必填)`:参见[https://uniapp.dcloud.io/component/list?id=listsetspecialeffects](https://uniapp.dcloud.io/component/list?id=listsetspecialeffects) |
+
