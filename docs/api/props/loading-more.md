@@ -5,7 +5,7 @@
 | loading-more-enabled                                | 是否启用加载更多数据(含滑动到底部加载更多数据和点击加载更多数据) | Boolean        | true                   | false  |
 | lower-threshold                                     | 距底部/右边多远时，触发 scrolltolower 事件，默认单位为px。<p style="color:red;">(支持传100、"100px"或"100rpx")</p> | Number\|String | 100rpx                 | -      |
 | to-bottom-loading-more-enabled                      | 是否启用滑动到底部加载更多数据                               | Boolean        | true                   | false  |
-| show-loading-more-when-reload <Badge text="1.7.2"/>                       | 调用reload方法时自动显示加载更多view，且为加载中状态<p style="color:red;">(仅初始设置有效，不可动态修改)</p> | Boolean        | false                  | true   |
+| show-loading-more-when-reload <Badge text="1.7.2"/>                       | 列表刷新时自动显示加载更多view，且为加载中状态<p style="color:red;">(仅初始设置有效，不可动态修改)</p> | Boolean        | false                  | true   |
 | loading-more-theme-style                            | 底部加载更多的主题样式，支持black，white                     | String         | black                  | white  |
 | loading-more-custom-style                           | 自定义底部加载更多样式；如：{'color':'red'}                  | Object         | -                      | -      |
 | loading-more-loading-icon-custom-style              | 自定义底部加载更多加载中动画样式                             | Object         | -                      | -      |

@@ -11,14 +11,10 @@
 :::
 
 ::: warning 注意事项③
-由V1.8.4起，支持使用v-model绑定list，之前的:list.sync依然有效。在新的项目中建议使用v-model，因为v-model是双向绑定的，修改页面中的list将同步修改z-paging中的list。
+在使用fixed布局时，若要设置列表背景色，请设置page的背景色或使用`:paging-style="{'background-color':'red'}"`方式，因为此时z-paging的父view是没有高度的，给它们设置背景色无效。
 :::
 
 ::: warning 注意事项④
-在使用fixed布局时，若要设置列表背景色，请设置page的背景色或使用:paging-style="{'background-color':'red'}"方式，因为此时z-paging的父view是没有高度的，给它们设置背景色无效。
-:::
-
-::: warning 注意事项⑤
 安卓App`(vue)`若要取消下拉刷新和滚动到底部灰色半弧形，请在`pages.json`中进行如下设置：
 ```json
 //以下代码可以写在globalStyle中或特定页面的style中
@@ -28,6 +24,17 @@
 }
 ```
 安卓App`(nvue)`若要取消下拉刷新和滚动到底部灰色半弧形，请在`z-paging`标签上设置`:nvue-bounce="false"`。
+:::
+
+::: warning 注意事项⑤
+在支付宝和钉钉小程序中，请在`pages.json`中进行如下设置：
+```json
+//以下代码可以写在globalStyle中或特定页面的style中
+//支付宝和钉钉小程序需要取消回弹效果
+"mp-alipay": {
+  "allowsBounceVertical": "NO"
+}
+```
 :::
 
 
