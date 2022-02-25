@@ -28,6 +28,10 @@ npm install z-paging --save
 //更新
 npm update z-paging
 ```
+
+::: danger 注意
+下方配置只有在通过npm安装的时候才要配置！！！！！！！！
+:::
 在`pages.json`中配置`easycom`
 
 ```json
