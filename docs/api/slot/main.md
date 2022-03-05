@@ -1,7 +1,7 @@
 ### Slot
 
 ::: warning 提示
-`slot`的写法在`vue2`和`vue3`中写法不同，以下示例为`vue2`写法，若需要查看`vue3`中的写法，请[点击这里](../../start/migration-to-vue3)
+`slot`的写法在`vue2`和`vue3`中写法不同，以下示例为`vue2`写法，若需要查看`vue3`中的写法，请[点击这里](../../start/migration-to-vue3.html)
 :::
 
 ::: danger 注意
