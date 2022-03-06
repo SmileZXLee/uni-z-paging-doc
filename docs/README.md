@@ -10,7 +10,7 @@
  /___|    | .__/ \__,_|\__, |_|_| |_|\__, |
           |_|          |___/         |___/   文档
 —————————————————————————————————————————————————
-v2.1.7 (2022-03-05)
+v2.1.8 (2022-03-05)
 - by ZXLee
 感谢使用^_^
 ```
@@ -56,4 +56,4 @@ v2.1.7 (2022-03-05)
 :::
 
 <center style="margin-bottom:10px;"><img src="https://visitor-badge.glitch.me/badge?page_id=smilezxlee.z-paging" /></center> 
-<div style="margin-bottom:-80px; display:flex;justify-content: center;font-size:13px;">Copyright 2021 z-paging | <a style="color: #014084;margin-left:5px;" href="https://beian.miit.gov.cn/" target="_blank">闽ICP备17015849号-1</a></div>
+<div style="margin-bottom:-80px; display:flex;justify-content: center;font-size:13px;">Copyright 2022 z-paging | <a style="color: #014084;margin-left:5px;" href="https://beian.miit.gov.cn/" target="_blank">闽ICP备17015849号-1</a></div>
