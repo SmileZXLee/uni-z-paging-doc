@@ -1,8 +1,3 @@
-::: warning 通知
-由于此域名`z-paging.com`未备案，只能部署在国外的服务器上，因此此网站访问速度较慢。  
-为提供更快速的文档浏览体验，推荐访问国内镜像： [https://z-paging.zxlee.cn](https://z-paging.zxlee.cn)，感谢大家理解和支持。
-:::
-
 ```html                                  
   ____     _ __   __ _  __ _(_)_ __   __ _ 
  |_  /____| '_ \ / _` |/ _` | | '_ \ / _` |
@@ -48,7 +43,7 @@ v2.1.8 (2022-03-05)
     
 </style>
 ```
-[查看详情](../start/use)
+[查看详情](../start/use.html)
 
 ::: danger 特别注意
 #### ① v-model所绑定的list请不要在网络请求成功回调中自己修改，只需要将请求结果通过`this.$refs.paging.complete(请求回调数组)`传给z-paging即可，不要自己给list赋值！！
