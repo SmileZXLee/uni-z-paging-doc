@@ -1,15 +1,10 @@
+::: warning 请注意
+① z-paging由 <Badge text="2.1.4"/> 起兼容vue3，请确保已将z-paging更新至`v2.1.4`或以上版本  
+② 请将HbuilderX升级到`3.3.13.20220314`或以上版本
+:::
+
+
 ### 从vue2目迁移到vue3，必须适配的部分
-
-::: danger 注意
-目前尚不建议您在vue3中使用`z-paging`，在vue3中存在以下bug，需等uni-app官方修复：   
-① 在微信小程序中，下拉刷新后无法结束下拉刷新状态。[详情](https://ask.dcloud.net.cn/question/137684)  
-② 在h5中，导航栏会遮挡住z-paging列表。[详情](https://ask.dcloud.net.cn/question/139069)  
-③ 聊天记录模式无法立即滚动到底部，同时分页滚动也异常。[详情](https://ask.dcloud.net.cn/question/139432)
-:::
-
-::: tip 提示
-z-paging由 <Badge text="2.1.4"/> 起兼容vue3，请确保已将z-paging更新至`v2.1.4`或以上版本
-:::
 
 #### ① `slot="xxx"` 需要修改为 `v-slot:xxx`，并使用`template`包住：
 

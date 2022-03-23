@@ -20,6 +20,7 @@
 | hide-loading-more-when-no-more-and-inside-of-paging   | 当没有更多数据且分页内容未超出z-paging时是否隐藏没有更多数据的view(nvue不支持，nvue中请使用`hide-loading-more-when-no-more-by-limit`控制) | Boolean        | false                  | true   |
 | hide-loading-more-when-no-more-by-limit               | 当没有更多数据且分页数组长度少于这个值时，隐藏没有更多数据的view，默认为0，代表不限制。此属性优先级高于`hide-loading-more-when-no-more-and-inside-of-paging` | Number         | 0                      | -      |
 | inside-more <Badge text="2.0.0"/>                     | 当分页未满一屏时，是否自动加载更多(nvue无效)                 | Boolean        | false                  | true   |
+| loading-more-default-as-loading <Badge text="2.2.0"/> | 滑动到底部状态为默认状态时，以加载中的状态展示。若设置为是，可避免滚动到底部看到默认状态然后立刻变为加载中状态的问题，但分页数量未超过一屏时，不会显示【点击加载更多】 | Boolean        | false                  | true   |
 | show-loading-more-no-more-view                        | 是否显示没有更多数据的view                                   | Boolean        | true                   | false  |
 | show-default-loading-more-text                        | 是否显示默认的加载更多text                                   | Boolean        | true                   | false  |
 | show-loading-more-no-more-line                        | 是否显示没有更多数据的分割线，默认为是                       | Boolean        | true                   | false  |
