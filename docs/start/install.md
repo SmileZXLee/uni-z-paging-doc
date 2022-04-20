@@ -5,12 +5,12 @@
 ### ③ 选择目标项目并导入。
 
 ::: tip 提示
-z-paging 使用`uni_modules`管理，导入的项目会在`uni_modules`目录下<br>在`uni_modules`下右键z-paging可以快速地从插件市场更新
-![](http://www.zxlee.cn/github/uni-z-paging/upgrade.png)
+z-paging 使用`uni_modules`管理，导入的项目会在`uni_modules`目录下，在`uni_modules`下右键z-paging可以快速地从插件市场更新<br>
+<img style="width:450px;" src="https://z-paging.zxlee.cn/z-paging-upgrade.jpg"></img>
 :::
 
 ::: warning 注意
-若不想使用`uni_modules`，可以在插件市场中点击【下载插件ZIP】，解压后将`z-paging`、`z-paging-empty-view`、`z-paging-swiper`和`z-paging-swiper-item`放到项目的`components`目录下。
+若不想使用`uni_modules`，可以在插件市场中点击【下载插件ZIP】，解压后将`z-paging`(必须)、`z-paging-empty-view`(必须)、`z-paging-swiper`(可选)和`z-paging-swiper-item`(可选)放到项目的`components`目录下。
 :::
 
 ::: warning 注意
@@ -31,6 +31,11 @@ npm update z-paging
 
 ::: danger 注意
 下方配置只有在通过npm安装的时候才要配置！！！！！！！！
+:::
+
+::: warning 注意
+使用npm方式安装编译会提示`WARNING: Module not found: Error: Can't resolve' @/uni_modules/z-paging'`<br>
+此警告不影响正常使用，若需要消除此警告，请至源码的`z-paging-utils.js`文件中，按照注释提示注释相关代码。
 :::
 在`pages.json`中配置`easycom`
 

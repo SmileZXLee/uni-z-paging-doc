@@ -9,7 +9,8 @@
 * `(推荐)`【方案1】在路径`@/uni_modules/z-paging`下创建`z-paging-config.js`(与z-paging目录下的readme.md同级)，`z-paging-config.js`中的内容如下所示。
 
 ::: danger 注意
-此方案不支持`vue3`，在`vue3`中请使用【方案2】或【方案3】
+此方案不支持`vue3`，在`vue3`中请使用【方案2】或【方案3】<br>
+此方案不支持使用npm安装z-paging的情况，使用npm安装时请使用【方案2】或【方案3】
 :::
 ```js
 module.exports = {
