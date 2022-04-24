@@ -2,7 +2,8 @@
 
 ::: tip 说明
 ① 支持统一配置z-paging的所有属性，以下配置不是必须的！  
-② 这里的全局配置不是全局引入组件，全局配置是指统一配置z-paging默认的属性值，z-paging遵循easycom组件规范，无需注册即可使用。  
+② 在z-paging标签上的局部配置优先级高于全局配置。  
+③ 这里的全局配置不是全局引入组件，全局配置是指统一配置z-paging默认的属性值，z-paging遵循easycom组件规范，无需注册即可使用。  
 [点击查看easycom组件规范](https://uniapp.dcloud.io/component/README?id=easycom组件规范)
 :::
 
