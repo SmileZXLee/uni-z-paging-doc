@@ -193,7 +193,12 @@ module.exports = {
 				title: 'Events',
 				collapsable: false,
 				path: '/api/events/main'
-			}
+			},
+            {
+            	title: '公用子组件',
+            	collapsable: false,
+            	path: '/api/sub-components/main'
+            }
 		],
 	},
 	locales: {
