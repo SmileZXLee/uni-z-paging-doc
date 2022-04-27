@@ -143,6 +143,11 @@ module.exports = {
 						children: [],
 					},
 					{
+						title: '虚拟列表配置',
+						path: '/api/props/virtual-list',
+						children: [],
+					},
+					{
 						title: '本地分页配置',
 						path: '/api/props/local-paging',
 						children: [],
