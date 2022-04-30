@@ -1,6 +1,6 @@
 ### 虚拟列表配置 <Badge text="2.2.5"/>
 
-> z-paging支持虚拟列表，可以轻松渲染万级列表数据而不卡顿。
+> 轻松渲染万级列表数据。
 
 ::: tip 为什么需要虚拟列表？
 
@@ -19,13 +19,14 @@
 :::
 
 
-| 参数             | 说明                                                         | 类型           | 默认值 | 可选值  |
-| :--------------- | :----------------------------------------------------------- | :------------- | :----- | :------ |
-| use-virtual-list | 是否使用虚拟列表<p style="color:red;">(由于字节跳动小程序不支持`slot-scope`，因此`use-virtual-list`无法在字节跳动小程序中使用)</p> | Boolean        | false  | true    |
-| use-inner-list   | 是否在z-paging内部循环渲染列表，若`use-virtual-list`为true，则此项恒为true<br><br>此模式下使用`slot="cell"`插入cell；使用`slot="header"`插入header(在cell顶部且跟随列表滚动)；使用`slot="footer"`插入bottom(在cell底部且跟随列表滚动)；  <p style="color:red;">(由于字节跳动小程序不支持`slot-scope`，因此`use-inner-list`无法在字节跳动小程序中使用)</p> | Boolean        | false  | true    |
-| inner-list-style | innerList样式                                                | Object         | {}     | -       |
-| preload-page     | 预加载的列表可视范围(列表高度)页数，默认为7，即预加载当前页及上下各7页的cell。此数值越大，则虚拟列表中加载的dom越多，内存消耗越大(会维持在一个稳定值)，但增加预加载页面数量可缓解快速滚动短暂白屏问题 | Number\|String | 7      | -       |
-| cell-height-mode | 虚拟列表cell高度模式，默认为fixed，也就是每个cell高度完全相同，将以第一个cell高度为准进行计算。可选值：`dynamic`，即代表高度是动态非固定的；`dynamic`性能远低于`fixed`，因此如非必要，请使用`fixed` | String         | fixed  | dynamic |
+| 参数               | 说明                                                         | 类型           | 默认值 | 可选值  |
+| :----------------- | :----------------------------------------------------------- | :------------- | :----- | :------ |
+| use-virtual-list   | 是否使用虚拟列表<p style="color:red;">(由于字节跳动小程序不支持`slot-scope`，因此`use-virtual-list`无法在字节跳动小程序中使用)</p> | Boolean        | false  | true    |
+| use-inner-list     | 是否在z-paging内部循环渲染列表，若`use-virtual-list`为true，则此项恒为true<br><br>此模式下使用`slot="cell"`插入cell；使用`slot="header"`插入header(在cell顶部且跟随列表滚动)；使用`slot="footer"`插入bottom(在cell底部且跟随列表滚动)；  <p style="color:red;">(由于字节跳动小程序不支持`slot-scope`，因此`use-inner-list`无法在字节跳动小程序中使用)</p> | Boolean        | false  | true    |
+| inner-list-style   | innerList样式                                                | Object         | {}     | -       |
+| preload-page       | 预加载的列表可视范围(列表高度)页数，默认为7，即预加载当前页及上下各7页的cell。此数值越大，则虚拟列表中加载的dom越多，内存消耗越大(会维持在一个稳定值)，但增加预加载页面数量可缓解快速滚动短暂白屏问题 | Number\|String | 7      | -       |
+| cell-height-mode   | 虚拟列表cell高度模式，默认为fixed，也就是每个cell高度完全相同，将以第一个cell高度为准进行计算。可选值：`dynamic`，即代表高度是动态非固定的；`dynamic`性能远低于`fixed`，因此如非必要，请使用`fixed` | String         | fixed  | dynamic |
+| virtual-scroll-fps | 虚拟列表scroll取样帧率，默认为60，过高可能出现卡顿等问题     | Number\|String | 60     | -       |
 
 ### 虚拟列表写法示例
 
