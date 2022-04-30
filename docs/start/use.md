@@ -144,6 +144,54 @@
 </script>
 ```
 
+## 虚拟列表示例
+
+```html
+<!-- 使用页面滚动示例(无需设置z-paging的高度) -->
+<template>
+	<view class="content">
+		<!-- 如果页面中的cell高度是固定不变的，则不需要设置cell-height-mode，如果页面中高度是动态改变的，则设置cell-height-mode="dynamic" -->
+		<z-paging ref="paging" use-virtual-list @query="queryList">
+			<!-- 通过slot="cell"插入列表for循环的cell，slot-scope中提供当前for循环的item和index -->
+			<!-- 因字节跳动小程序不支持slot-scope，因此不支持字节跳动小程序 -->
+			<view slot="cell" slot-scope="{item,index}">
+				<view class="item-title">{{item.title}}</view>
+			</view>
+			<!-- vue3中写法如下 -->
+			<!-- 
+			<template v-slot:cell="{item,index}">
+				<view class="item-title">{{item.title}}</view>
+			</template> 
+			-->
+		</z-paging>
+	</view>
+</template>
+
+<script>
+    export default {
+        methods: {
+            queryList(pageNo, pageSize) {
+              	//这里的pageNo和pageSize会自动计算好，直接传给服务器即可
+              	//这里的请求只是演示，请替换成自己的项目的网络请求，并在网络请求回调中通过this.$refs.paging.complete(请求回来的数组)将请求结果传给z-paging
+                this.$request.queryList({ pageNo,pageSize }).then(res => {
+                	//请勿在网络请求回调中给dataList赋值！！只需要调用complete就可以了
+                	this.$refs.paging.complete(res.data.list);
+                }).catch(res => {
+                	//如果请求失败写this.$refs.paging.complete(false)，会自动展示错误页面
+                	//注意，每次都需要在catch中写这句话很麻烦，z-paging提供了方案可以全局统一处理
+                	//在底层的网络请求抛出异常时，写uni.$emit('z-paging-error-emit');即可
+                	this.$refs.paging.complete(false);
+                })
+            }
+        },
+    };
+</script>
+
+<style scoped>
+    
+</style>
+```
+
 ## i18n示例
 
 * 请参照demo：`i18n-demo.vue`
