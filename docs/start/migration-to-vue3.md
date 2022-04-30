@@ -3,11 +3,6 @@
 ② 请将HbuilderX升级到`3.3.13.20220314`或以上版本
 :::
 
-::: danger 注意
-在微信小程序中使用vue3会报错：`TypeError: Cannot read property 'forceUpdate' of undefined`，可忽略，不影响正常使用。
-:::
-
-
 ### 从vue2目迁移到vue3，必须适配的部分
 
 #### ① `slot="xxx"` 需要修改为 `v-slot:xxx`，并使用`template`包住：
@@ -42,8 +37,8 @@
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
 	<!-- 之后-vue3 -->
-	<template v-slot:refresher="slotProps">
-		<custom-refresher :status="slotProps.refresherStatus" />
+	<template v-slot:refresher="{refresherStatus}">
+		<custom-refresher :status="refresherStatus" />
 	</template>
 </z-paging>
 ```
