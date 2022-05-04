@@ -11,7 +11,7 @@
 * 【超灵活，支持各种类型自定义】支持自定义下拉刷新，自定义上拉加载更多，自带自定义下拉刷新效果，及其他数十种自定义属性。
 * 【功能丰富】支持国际化，支持自定义且自动管理空数据图，支持主题模式切换，支持本地分页，支持聊天分页模式，支持展示最后更新时间，支持吸顶效果，支持内部scroll-view滚动与页面滚动，支持一键滚动到顶部等诸多功能。
 * 【全平台兼容】支持nvue，vue3，支持h5、app及各家小程序。
-* 【高性能】在app-vue、h5、微信小程序、QQ小程序上使用`wxs+renderjs`从视图层实现下拉刷新以提升下拉刷新性能；支持`虚拟列表`，轻松渲染万级数据！
+* 【高性能】在app-vue、h5、微信小程序、QQ小程序上使用`wxs+renderjs`从视图层实现下拉刷新；支持`虚拟列表`，轻松渲染万级数据！
 #### 关于自动引入组件
 
 > `z-paging` 支持[easycom组件规范](https://uniapp.dcloud.io/component/README?id=easycom组件规范)，无需引用和注册组件即可直接使用，在正在运行的项目中导入`z-paging`可能会提示：`Unknown custom element：<z-paging> - did you register the component corrently?... `，此时需要重新运行项目即可。

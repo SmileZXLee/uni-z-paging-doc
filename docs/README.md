@@ -1,10 +1,4 @@
 ::: warning 通知
-由于此域名`z-paging.com`未备案，只能部署在国外的服务器上，因此此网站访问速度较慢。  
-为提供更快速的文档浏览体验，推荐访问国内镜像： [https://z-paging.zxlee.cn](https://z-paging.zxlee.cn)，感谢大家理解和支持。
-:::
-
-
-::: warning 通知
 在新版HbuilderX中使用z-paging可能会出现下方的错误提示：  
 <img style="width:950px;" src="https://z-paging.zxlee.cn/z-paging-error.jpg"></img>  
 将z-paging更新至`2.2.0`或以上版本即可解决。（或修改`z-paging/wxs/z-paging-wxs.wxs`文件中的`propObserver`函数，将此函数内的第一行修改为：`var state = ownerIns.getState() || {};`即可，也就是加一个`|| {}`）
@@ -21,7 +15,7 @@
  /___|    | .__/ \__,_|\__, |_|_| |_|\__, |
           |_|          |___/         |___/   文档
 —————————————————————————————————————————————————
-v2.2.5 (2022-04-30)
+v2.2.7 (2022-05-05)
 - by ZXLee
 感谢使用^_^
 ```
