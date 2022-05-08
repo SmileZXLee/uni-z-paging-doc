@@ -103,7 +103,7 @@ module.exports = {
 				children: [
 					// SidebarItem
 					{
-						title: '全局配置',
+						title: '全局配置&拦截器',
 						path: '/api/props/global-config',
 						children: [],
 					},

@@ -58,7 +58,7 @@ export default { X };
 #### 其他详见uni-app官方文档：[vue2 项目迁移 vue3](https://uniapp.dcloud.io/migration-to-vue3)  
 #### 
 ***
-### 支持vue3的setup写法
+### 支持vue3组合式api写法
 ```html  
 <template>
     <view class="content">

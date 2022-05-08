@@ -5,6 +5,7 @@
 ::: tip 为什么需要虚拟列表？
 
 * <div style="font-size:14px;">在一般情况下，无论是使用scroll-view滚动还是页面滚动，即使进行了分页，当列表本身长度很长时将存在严重的性能问题。随着渲染的dom越来越多，页面占用的内存会持续升高，从而造成页面卡顿、白屏等问题。</div>
+
 * <div style="font-size:14px;">虚拟列表适合长列表渲染，当需要渲染一万条数据时，实际上不需要渲染一万个cell，只需要渲染屏幕可视范围内的cell即可，超出屏幕的不应该渲染，然后随着列表滚动不断切换需要显示或销毁的cell。这可以保证无论有多少数据，页面渲染的dom都不会无限增加，它将保持在一个较低的水平，从而保持了列表的良好性能。</div>
 
 :::
@@ -25,10 +26,13 @@
 | force-close-inner-list <Badge text="2.2.7"/> | 强制关闭inner-list，默认为false，如果为true将强制关闭innerList，适用于开启了虚拟列表后需要强制关闭inner-list的情况 | Boolean        | false  | true    |
 | cell-key-name <Badge text="2.2.7"/>          | 内置列表cell的key名称<p style="color:red;">(仅nvue有效，在nvue中开启use-inner-list时必须填此项)</p> | String         | ""     | -       |
 | inner-list-style                             | innerList样式                                                | Object         | {}     | -       |
+| inner-cell-style <Badge text="2.2.8"/>       | innerCell样式                                                | Object         | {}     | -       |
 | preload-page                                 | 预加载的列表可视范围(列表高度)页数，默认为7，即预加载当前页及上下各7页的cell。此数值越大，则虚拟列表中加载的dom越多，内存消耗越大(会维持在一个稳定值)，但增加预加载页面数量可缓解快速滚动短暂白屏问题 | Number\|String | 7      | -       |
 | cell-height-mode                             | 虚拟列表cell高度模式，默认为fixed，也就是每个cell高度完全相同，将以第一个cell高度为准进行计算。可选值：`dynamic`，即代表高度是动态非固定的；`dynamic`性能远低于`fixed`，因此如非必要，请使用`fixed` | String         | fixed  | dynamic |
+| virtual-list-times <Badge text="2.2.8"/>                           | 虚拟列表可视区域数组的区间index的倍数，默认为1。常用于每行有多列的情况(瀑布流)，例如每行有2列数据，需要将此值设置为2，则可视范围的数组index必然为2的倍数：0、2、4、6(总数组长度为奇数时，最后一组可视区间的结尾也为奇数)，由此可避免可视范围数组动态改变导致的用户可感知的数据跳动变化的问题。<p style="color:red;">(仅支持`cell-height-mode`为fixed的情况，即：不支持动态高度的瀑布流)</p>例：需要设置每行2列的瀑布流时，请设置：`virtual-list-times="2"`、`:inner-list-style="{'display':'flex','flex-wrap':'wrap'}"`(设置inner-list开启flex布局，且子view自动换行)、`:inner-cell-style="{width:'50%'}"`(设置子view宽度为50%) | Number\|String | 1      | -       |
 | virtual-scroll-fps                           | 虚拟列表scroll取样帧率，默认为60，过高可能出现卡顿等问题     | Number\|String | 60     | -       |
 
 ### 虚拟列表写法示例
 
 [点击查看](../../start/use.html#虚拟列表示例)
+
