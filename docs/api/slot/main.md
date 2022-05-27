@@ -41,7 +41,7 @@
 | header <Badge text="2.2.5"/>            | `use-virtual-list`或`use-inner-list`为true时有效<br/>内置列表中的header(在cell顶部且跟随列表滚动) |
 | footer <Badge text="2.2.5"/>            | `use-virtual-list`或`use-inner-list`为true时有效<br/>内置列表中的footer(在cell底部且跟随列表滚动) |
 | chatLoading                             | 使用聊天记录模式时自定义顶部加载更多view，`use-chat-record-mode`为true时有效 |
-| loadingMoreDefault                      | 自定义滑动到底部"默认"状态的view                             |
+| loadingMoreDefault                      | 自定义滑动到底部"默认"状态的view(即"点击加载更多view")<p style="color:red;">(自定义插入时默认点击无法加载更多，若需要实现点击加载更多，请为插入的view添加点击事件，并在点击事件中调用`this.$refs.paging.doLoadMore('click')`)</p> |
 | loadingMoreLoading                      | 自定义滑动到底部"加载中"状态的view                           |
 | loadingMoreNoMore                       | 自定义滑动到底部"没有更多数据"状态的view                     |
 | loadingMoreFail                         | 自定义滑动到底部"加载失败"状态的view                         |

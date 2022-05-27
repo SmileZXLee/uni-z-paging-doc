@@ -18,3 +18,4 @@
 | @virtualListChange <Badge text="2.2.7"/>    | 虚拟列表当前渲染的数组改变时触发，在虚拟列表中只会渲染可见区域内+预加载页面的数据 | 虚拟列表当前渲染的数组                                       |
 | @contentHeightChanged <Badge text="2.1.3"/> | `z-paging`中内容高度改变时触发                               | 改变后的高度                                                 |
 | @emptyViewReload <Badge text="1.8.0"/>      | 点击了空数据图中的重新加载按钮                               | 点击重新加载后是否进行reload操作，默认为是。<br>如果需要禁止reload事件，则在page的methods中书写：<p style="font-weight:bold;">emptyViewReload(e){<br/> e(false);<br/>  //处理自己的业务逻辑<br/>}</p>### Events |
+| @touchDirectionChange <Badge text="2.3.0"/> | 监听列表触摸方向改变                                         | 列表触摸的方法，有`top`和`bottom`两种值，`top`代表用户将列表向上移动(scrollTop不断减小)，`bottom`代表用户将列表向下移动(scrollTop不断增大) |

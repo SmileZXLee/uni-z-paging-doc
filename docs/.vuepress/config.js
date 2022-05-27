@@ -143,7 +143,7 @@ module.exports = {
 						children: [],
 					},
 					{
-						title: '虚拟列表配置',
+						title: '虚拟列表&内置列表配置',
 						path: '/api/props/virtual-list',
 						children: [],
 					},

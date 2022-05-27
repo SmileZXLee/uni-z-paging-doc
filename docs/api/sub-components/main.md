@@ -8,15 +8,24 @@
 | safe-area-inset-bottom | 是否开启底部安全区域适配 | Boolean | false  | true   |
 | swiper-style           | z-paging-swiper样式      | Object  | {}     | -      |
 
+### slots
+
+| 名称                         | 说明                                                         |
+| :--------------------------- | ------------------------------------------------------------ |
+| top <Badge text="1.5.5"/>    | 可以将自定义导航栏、tab-view等需要固定的`(不需要跟着滚动的)`元素放入`slot="top"`的view中。<br/>注意，当有多个需要固定的view时，请用一个view包住它们，并且在这个view上设置`slot="top"`。需要固定在顶部的view请勿设置`position: fixed;`。 |
+| bottom <Badge text="1.6.2"/> | 可以将需要固定在底部的`(不需要跟着滚动的)`元素放入`slot="bottom"`的view中。<br>注意，当有多个需要固定的view时，请用一个view包住它们，并且在这个view上设置`slot="bottom"`。需要固定在底部的view请勿设置`position: fixed;`。 |
+| left <Badge text="2.2.3"/>   | 可以将需要固定在左侧的`(不需要跟着滚动的)`元素放入`slot="left"`的view中。<br>注意，当有多个需要固定的view时，请用一个view包住它们，并且在这个view上设置`slot="left"`。需要固定在左侧的view请勿设置`position: fixed;`。<p style="color:red;">`slot="left"`插入的view将夹在`slot="top"`和`slot="bottom"`之间，不会盖住它们。如果希望它的高度铺满屏幕，请为插入的view设置`height:100%`(如果是nvue请设置`flex:1`)，不建议在页面滚动模式下使用`slot="left"`，因为它也会跟着页面滚动。</p> |
+| right <Badge text="2.2.3"/>  | 可以将需要固定在右侧的`(不需要跟着滚动的)`元素放入`slot="right"`的view中。<br>注意，当有多个需要固定的view时，请用一个view包住它们，并且在这个view上设置`slot="right"`。需要固定在右侧的view请勿设置`position: fixed;`。<p style="color:red;">`slot="right"`插入的view将夹在`slot="top"`和`slot="bottom"`之间，不会盖住它们。如果希望它的高度铺满屏幕，请为插入的view设置`height:100%`(如果是nvue请设置`flex:1`)，不建议在页面滚动模式下使用`slot="right"`，因为它也会跟着页面滚动。</p> |
+
 ## z-paging-swiper-item配置
 
 ### props
 
-| 参数                  | 说明                                              | 类型   | 默认值 | 可选值 |
-| :-------------------- | :------------------------------------------------ | :----- | :----- | :----- |
-| tab-index             | 当前组件的index，也就是当前组件是swiper中的第几个 | Number | 0      | -      |
-| current-index         | 当前swiper切换到第几个index                       | Number | 0      | -      |
-| 虚拟列表&内置列表相关 <Badge text="2.2.8"/> | 见[虚拟列表配置](.././props/virtual-list.html)         | -      | -      | -      |
+| 参数                                        | 说明                                              | 类型   | 默认值 | 可选值 |
+| :------------------------------------------ | :------------------------------------------------ | :----- | :----- | :----- |
+| tab-index                                   | 当前组件的index，也就是当前组件是swiper中的第几个 | Number | 0      | -      |
+| current-index                               | 当前swiper切换到第几个index                       | Number | 0      | -      |
+| 虚拟列表&内置列表相关 <Badge text="2.2.8"/> | 见[虚拟列表配置](.././props/virtual-list.html)    | -      | -      | -      |
 
 ### methods
 
