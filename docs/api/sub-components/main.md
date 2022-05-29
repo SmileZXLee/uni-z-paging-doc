@@ -1,5 +1,7 @@
 ## z-paging-swiper配置
 
+> 在swiper中使用z-paging时(左右滑动切换列表)，在根节点使用z-paging-swiper，其相当于一个view容器，默认铺满全屏，可免计算高度直接插入swiper的识图容器。
+
 ### props
 
 | 参数                   | 说明                     | 类型    | 默认值 | 可选值 |
@@ -18,6 +20,8 @@
 | right <Badge text="2.2.3"/>  | 可以将需要固定在右侧的`(不需要跟着滚动的)`元素放入`slot="right"`的view中。<br>注意，当有多个需要固定的view时，请用一个view包住它们，并且在这个view上设置`slot="right"`。需要固定在右侧的view请勿设置`position: fixed;`。<p style="color:red;">`slot="right"`插入的view将夹在`slot="top"`和`slot="bottom"`之间，不会盖住它们。如果希望它的高度铺满屏幕，请为插入的view设置`height:100%`(如果是nvue请设置`flex:1`)，不建议在页面滚动模式下使用`slot="right"`，因为它也会跟着页面滚动。</p> |
 
 ## z-paging-swiper-item配置
+
+> swiper+list极简写法中使用到，实际上就是对普通的swiper+list中swiper-item的包装封装，用以简化写法，但个性化配置局限较多
 
 ### props
 
@@ -43,6 +47,8 @@
 
 ## z-paging-empty-view配置
 
+> 通用的z-paging空数据组件
+
 ### props
 
 | 参数                                          | 说明                                                         | 类型    | 默认值      | 可选值 |
@@ -63,3 +69,13 @@
 | 事件名  | 说明               | 回调参数 |
 | ------- | ------------------ | -------- |
 | @reload | 点击了重新加载按钮 | -        |
+
+## z-paging-cell配置 <Badge text="2.3.1"/>
+
+> 用于兼容nvue和vue中的cell渲染，因为在nvue中z-paging内置的是list，因此列表item必须使用cell包住，在vue中不能使用cell，否则会报组件找不到的错误，此子组件为了兼容这两种情况，内部作了条件编译处理
+
+### props
+
+| 参数       | 说明     | 类型   | 默认值 | 可选值 |
+| :--------- | :------- | :----- | :----- | :----- |
+| cell-style | cell样式 | Object | {}     | -      |
