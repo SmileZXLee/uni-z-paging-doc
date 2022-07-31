@@ -12,10 +12,11 @@
 
 ::: warning 注意
 
-* 由于超出屏幕的cell可能被销毁并重新创建，因此cell内的switch等带状态的控件同样将被销毁和重新创建，因此请确保是通过for循环item绑定它们的状态的，否则其状态将丢失。
-* 由于字节跳动小程序不支持`slot-scope`，因此`use-virtual-list`与`use-inner-list`无法在字节跳动小程序中使用。
-* `use-inner-list`在微信小程序中部分较高版本调试库会报`More than one slot named "cell" are found...`的警告并导致开发者工具卡顿，将基础库版本调到`2.18.0`以下即可。因线上没有控制台打印，因此不会影响线上版本。
-
+① 由于超出屏幕的cell可能被销毁并重新创建，因此cell内的switch等带状态的控件同样将被销毁和重新创建，因此请确保是通过for循环item绑定它们的状态的，否则其状态将丢失。  
+② 由于字节跳动小程序不支持`slot-scope`，因此`use-virtual-list`与`use-inner-list`无法在字节跳动小程序中使用。  
+③ `use-virtual-list`与`use-inner-list`在微信小程序中部分较高版本调试库会报`More than one slot named "cell" are found...`的警告并导致开发者工具卡顿，将基础库版本调到`2.18.0`以下即可。因线上没有控制台打印，因此不会影响线上版本。  
+④ `use-virtual-list`与`use-inner-list`在微信小程序中若在slot插入的cell内部引用了页面中的data、computed、methods等，将导致cell只能渲染一行，需等待官方修复，详见：[点击查看详情](https://ask.dcloud.net.cn/question/147333)  
+⑤ `use-virtual-list`与`use-inner-list`在微信小程序中若在slot插入的cell内部通过switch等修改item内部变量，内部变量修改无效，需等待官方修复，详见：[点击查看详情](https://ask.dcloud.net.cn/question/147494)  
 :::
 
 
