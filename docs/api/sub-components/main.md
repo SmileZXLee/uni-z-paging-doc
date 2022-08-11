@@ -19,6 +19,12 @@
 | left <Badge text="2.2.3"/>   | 可以将需要固定在左侧的`(不需要跟着滚动的)`元素放入`slot="left"`的view中。<br>注意，当有多个需要固定的view时，请用一个view包住它们，并且在这个view上设置`slot="left"`。需要固定在左侧的view请勿设置`position: fixed;`。<p style="color:red;">`slot="left"`插入的view将夹在`slot="top"`和`slot="bottom"`之间，不会盖住它们。如果希望它的高度铺满屏幕，请为插入的view设置`height:100%`(如果是nvue请设置`flex:1`)，不建议在页面滚动模式下使用`slot="left"`，因为它也会跟着页面滚动。</p> |
 | right <Badge text="2.2.3"/>  | 可以将需要固定在右侧的`(不需要跟着滚动的)`元素放入`slot="right"`的view中。<br>注意，当有多个需要固定的view时，请用一个view包住它们，并且在这个view上设置`slot="right"`。需要固定在右侧的view请勿设置`position: fixed;`。<p style="color:red;">`slot="right"`插入的view将夹在`slot="top"`和`slot="bottom"`之间，不会盖住它们。如果希望它的高度铺满屏幕，请为插入的view设置`height:100%`(如果是nvue请设置`flex:1`)，不建议在页面滚动模式下使用`slot="right"`，因为它也会跟着页面滚动。</p> |
 
+### methods
+
+| 方法名                                        | 说明                                                         | 参数 |
+| --------------------------------------------- | ------------------------------------------------------------ | ---- |
+| updateLeftAndRightWidth <Badge text="2.3.5"/> | 更新`slot="left"`和`slot="right"`宽度，当`slot="left"`或`slot="right"`宽度动态改变后调用 | -    |
+
 ## z-paging-swiper-item配置
 
 > swiper+list极简写法中使用到，实际上就是对普通的swiper+list中swiper-item的包装封装，用以简化写法，但个性化配置局限较多
