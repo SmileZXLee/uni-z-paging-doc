@@ -158,7 +158,7 @@ module.exports = {
 						children: [],
 					},
 					{
-						title: 'scroll-view相关配置',
+						title: 'scroll-view&滚动相关配置',
 						path: '/api/props/scroll-view',
 						children: [],
 					},
