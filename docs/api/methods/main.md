@@ -33,6 +33,7 @@
 | updateLeftAndRightWidth <Badge text="2.3.5"/>                | 更新`slot="left"`和`slot="right"`宽度，当`slot="left"`或`slot="right"`宽度动态改变后调用 | -                                                            |
 | addChatRecordData                                            | 添加聊天记录，`use-chat-record-mode`为true时有效             | `参数1(必填)`:需要添加的聊天数据，可以是一条数据或一组数据；<br/>`参数2(非必填)`:是否滚动到底部，不填默认为true；<br/>`参数3(非必填)`:是否使用动画滚动到底部，不填默认为true |
 | addDataFromTop                                               | 从顶部添加数据，不会影响分页的pageNo和pageSize               | `参数1(必填)`:需要添加的数据，可以是一条数据或一组数据；<br/>`参数2(非必填)`:是否滚动到顶部，不填默认为true；<br/>`参数3(非必填)`:是否使用动画滚动到顶部，不填默认为true |
+| updateCache <Badge text="2.3.9"/>                            | 手动更新列表缓存数据，将自动截取v-model绑定的list中的前pageSize条覆盖缓存，请确保在list数据更新到预期结果后再调用此方法 | -                                                            |
 | resetTotalData <Badge text="不推荐" type="error"/>           | <p style="color:red;">(建议使用v-model代替:list.sync，则无需调用此方法)</p>重新设置列表数据，调用此方法不会影响pageNo和pageSize，也不会触发请求。适用场景：当需要删除列表中某一项时，将删除对应项后的数组通过此方法传递给z-paging。 | `参数1(必填)`:修改后的列表数组                               |
 | getVersion                                                   | 获取当前版本号                                               | -                                                            |
 | setListSpecialEffects`或`<br>setSpecialEffects <Badge text="2.0.4"/> | 设置nvue List的specialEffects                                | `参数1(必填)`:参见[https://uniapp.dcloud.io/component/list?id=listsetspecialeffects]( |

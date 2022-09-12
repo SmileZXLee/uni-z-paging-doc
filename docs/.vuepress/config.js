@@ -173,6 +173,11 @@ module.exports = {
 						children: [],
 					},
 					{
+						title: '缓存配置',
+						path: '/api/props/cache',
+						children: [],
+					},
+					{
 						title: 'z-index配置',
 						path: '/api/props/z-index',
 						children: [],
