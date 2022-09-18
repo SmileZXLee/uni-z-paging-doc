@@ -16,6 +16,7 @@
 | @scrolltoupper                              | `z-paging`内置的scroll-view滚动顶部时触发                    | -                                                            |
 | @listChange                                 | 分页渲染的数组改变时触发                                     | 最终的分页数据数组                                           |
 | @virtualListChange <Badge text="2.2.7"/>    | 虚拟列表当前渲染的数组改变时触发，在虚拟列表中只会渲染可见区域内+预加载页面的数据 | 虚拟列表当前渲染的数组                                       |
+| @innerCellClick <Badge text="2.4.0"/>       | 使用虚拟列表或内置列表时点击了cell                           | `参数1`:item；<br/>`参数2`:index                             |
 | @contentHeightChanged <Badge text="2.1.3"/> | `z-paging`中内容高度改变时触发                               | 改变后的高度                                                 |
 | @emptyViewReload <Badge text="1.8.0"/>      | 点击了空数据图中的重新加载按钮                               | 点击重新加载后是否进行reload操作，默认为是。<br>如果需要禁止reload事件，则在page的methods中书写：<p style="font-weight:bold;">emptyViewReload(e){<br/> e(false);<br/>  //处理自己的业务逻辑<br/>}</p>### Events |
 | @emptyViewClick <Badge text="2.3.3"/>       | 点击了空数据图view                                           | -                                                            |

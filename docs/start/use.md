@@ -146,8 +146,9 @@
 
 ## 虚拟列表示例
 
+* 一般写法
 ```html
-<!-- 使用页面滚动示例(无需设置z-paging的高度) -->
+<!-- 虚拟列表演示(一般写法) -->
 <template>
 	<view class="content">
 		<!-- 如果页面中的cell高度是固定不变的，则不需要设置cell-height-mode，如果页面中高度是动态改变的，则设置cell-height-mode="dynamic" -->
@@ -190,6 +191,59 @@
 <style scoped>
     
 </style>
+```
+* 兼容写法
+```html
+<!-- 虚拟列表演示(兼容写法) -->
+<!-- 在微信小程序中若使用虚拟列表推荐使用兼容写法，具体写法参见demo中的virtual-list-compatibility-demo -->
+<template>
+	<view class="content">
+		<!-- 如果页面中的cell高度是固定不变的，则不需要设置cell-height-mode，如果页面中高度是动态改变的，则设置cell-height-mode="dynamic" -->
+		<z-paging ref="paging" use-virtual-list use-compatibility-mode :extra-data="{id:'test1'}" @query="queryList">
+			<!-- 以下内容极为重要！！！！！！！！ -->
+			<!-- cell中的内容必须写在zp-virtual-cell组件中，必须在项目的components目录下创建名为zp-virtual-cell的组件 -->
+		</z-paging>
+	</view>
+</template>
+
+<script>
+    export default {
+        methods: {
+            queryList(pageNo, pageSize) {
+              	//代码同虚拟列表一般写法
+            }
+        },
+    };
+</script>
+```
+在`/components/zp-virtual-cell/zp-virtual-cell.vue`文件中
+```html
+<!-- 当虚拟列表兼容模式渲染的时候，列表中实际上渲染的是这个组件，并且会把当前的item，index和extraData(附加数据)通过props传给这个组件 -->
+<!-- 如果有多个不同的虚拟列表，它们会共用这个组件，这时候可以通过extraData来区分不同的页面 -->
+<template>
+	<view>
+		<!-- 这里的extraData.id在virtual-list-compatibility-demo设置的是test1 -->
+		<!-- virtual-list-test-cell是自定义的虚拟列表cell内容组件 -->
+		<virtual-list-test-cell v-if="extraData.id==='test1'" :item="item" :index="index" :extraData="extraData" />
+	</view>
+</template>
+
+<script>
+	export default {
+		name:"zp-virtual-cell",
+		props: {
+			item: null,
+			index: 0,
+			// 这里的extraData是在页面中通过:extraData给z-paging组件传的对象
+			extraData: null
+		},
+		data() {
+			return {
+				
+			};
+		}
+	}
+</script>
 ```
 
 ## i18n示例

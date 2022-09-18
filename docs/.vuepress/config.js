@@ -31,7 +31,7 @@ module.exports = {
 		nav: [
 			// NavbarItem
 			{
-				text: '在插件市场查看',
+				text: '在插件市场查看(安装或下载demo)',
 				link: 'https://ext.dcloud.net.cn/plugin?id=3935',
 			}, {
 				text: 'Github',
