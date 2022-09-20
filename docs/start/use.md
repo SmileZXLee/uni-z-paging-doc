@@ -201,7 +201,7 @@
 		<!-- 如果页面中的cell高度是固定不变的，则不需要设置cell-height-mode，如果页面中高度是动态改变的，则设置cell-height-mode="dynamic" -->
 		<z-paging ref="paging" use-virtual-list use-compatibility-mode :extra-data="{id:'test1'}" @query="queryList">
 			<!-- 以下内容极为重要！！！！！！！！ -->
-			<!-- cell中的内容必须写在zp-virtual-cell组件中，必须在项目的components目录下创建名为zp-virtual-cell的组件 -->
+			<!-- cell中的内容必须写在zp-public-virtual-cell组件中，必须在项目的components目录下创建名为zp-public-virtual-cell的组件 -->
 		</z-paging>
 	</view>
 </template>
@@ -216,7 +216,7 @@
     };
 </script>
 ```
-在`/components/zp-virtual-cell/zp-virtual-cell.vue`文件中
+在`/components/zp-public-virtual-cell/zp-public-virtual-cell.vue`文件中
 ```html
 <!-- 当虚拟列表兼容模式渲染的时候，列表中实际上渲染的是这个组件，并且会把当前的item，index和extraData(附加数据)通过props传给这个组件 -->
 <!-- 如果有多个不同的虚拟列表，它们会共用这个组件，这时候可以通过extraData来区分不同的页面 -->
@@ -230,7 +230,7 @@
 
 <script>
 	export default {
-		name:"zp-virtual-cell",
+		name: "zp-public-virtual-cell",
 		props: {
 			item: null,
 			index: 0,
