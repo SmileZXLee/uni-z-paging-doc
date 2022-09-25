@@ -13,10 +13,10 @@
 | loading-more-loading-icon-type                        | 自定义底部加载更多加载中动画图标类型，可选flower或circle，默认为flower | String         | flower                 | circle |
 | loading-more-loading-icon-custom-image                | 自定义底部加载更多加载中动画图标图片，若设置则使用自定义的动画图标，`loading-more-loading-icon-type`将无效<p style="color:red;">(nvue无效)</p> | String         | -                      | -      |
 | loading-more-loading-animated <Badge text="1.9.4"/>   | 底部加载更多加载中view是否展示旋转动画<p style="color:red;">(loading-more-loading-icon-custom-image有值时有效，nvue无效)</p> | Boolean        | true                   | false  |
-| loading-more-default-text                             | 滑动到底部"默认"文字<p style="color:red;">(支持直接传字符串或形如：{'en':'英文配置':'zh-cn':'中文配置'}的i18n配置)</p> | String\|Object | 点击加载更多           | -      |
-| loading-more-loading-text                             | 滑动到底部"加载中"文字<p style="color:red;">(支持直接传字符串或形如：{'en':'英文配置':'zh-cn':'中文配置'}的i18n配置)</p> | String\|Object | 正在加载...            | -      |
-| loading-more-no-more-text                             | 滑动到底部"没有更多"文字<p style="color:red;">(支持直接传字符串或形如：{'en':'英文配置':'zh-cn':'中文配置'}的i18n配置)</p> | String\|Object | 没有更多了             | -      |
-| loading-more-fail-text                                | 滑动到底部"加载失败"文字<p style="color:red;">(支持直接传字符串或形如：{'en':'英文配置':'zh-cn':'中文配置'}的i18n配置)</p> | String\|Object | 加载失败，点击重新加载 | -      |
+| loading-more-default-text                             | 滑动到底部"默认"文字<p style="color:red;">(支持直接传字符串或形如：{'en':'英文配置':'zh-Hans':'中文配置'}的i18n配置)</p> | String\|Object | 点击加载更多           | -      |
+| loading-more-loading-text                             | 滑动到底部"加载中"文字<p style="color:red;">(支持直接传字符串或形如：{'en':'英文配置':'zh-Hans':'中文配置'}的i18n配置)</p> | String\|Object | 正在加载...            | -      |
+| loading-more-no-more-text                             | 滑动到底部"没有更多"文字<p style="color:red;">(支持直接传字符串或形如：{'en':'英文配置':'zh-Hans':'中文配置'}的i18n配置)</p> | String\|Object | 没有更多了             | -      |
+| loading-more-fail-text                                | 滑动到底部"加载失败"文字<p style="color:red;">(支持直接传字符串或形如：{'en':'英文配置':'zh-Hans':'中文配置'}的i18n配置)</p> | String\|Object | 加载失败，点击重新加载 | -      |
 | hide-loading-more-when-no-more-and-inside-of-paging   | 当没有更多数据且分页内容未超出z-paging时是否隐藏没有更多数据的view(nvue不支持，nvue中请使用`hide-loading-more-when-no-more-by-limit`控制) | Boolean        | false                  | true   |
 | hide-loading-more-when-no-more-by-limit               | 当没有更多数据且分页数组长度少于这个值时，隐藏没有更多数据的view，默认为0，代表不限制。此属性优先级高于`hide-loading-more-when-no-more-and-inside-of-paging` | Number         | 0                      | -      |
 | inside-more <Badge text="2.0.0"/>                     | 当分页未满一屏时，是否自动加载更多(nvue无效)                 | Boolean        | false                  | true   |

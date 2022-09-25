@@ -38,4 +38,4 @@
 | didDeleteVirtualListCell <Badge text="2.4.0"/>               | 在使用动态高度虚拟列表时，若删除了列表数组中的某个item，需要调用此方法以更新高度缓存数组 | `参数1(必填)`:需要更新的cell在列表中的位置，从0开始          |
 | resetTotalData <Badge text="不推荐" type="error"/>           | <p style="color:red;">(建议使用v-model代替:list.sync，则无需调用此方法)</p>重新设置列表数据，调用此方法不会影响pageNo和pageSize，也不会触发请求。适用场景：当需要删除列表中某一项时，将删除对应项后的数组通过此方法传递给z-paging。 | `参数1(必填)`:修改后的列表数组                               |
 | getVersion                                                   | 获取当前版本号                                               | -                                                            |
-| setListSpecialEffects`或`<br>setSpecialEffects <Badge text="2.0.4"/> | 设置nvue List的specialEffects                                | `参数1(必填)`:参见[https://uniapp.dcloud.io/component/list?id=listsetspecialeffects]( |
+| setListSpecialEffects`或`<br>setSpecialEffects <Badge text="2.0.4"/> | 设置nvue List的specialEffects                                | `参数1(必填)`:参见[https://uniapp.dcloud.io/component/list?id=listsetspecialeffects](https://uniapp.dcloud.io/component/list?id=listsetspecialeffects) |

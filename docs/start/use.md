@@ -196,6 +196,7 @@
 ```html
 <!-- 虚拟列表演示(兼容写法) -->
 <!-- 在微信小程序中若使用虚拟列表推荐使用兼容写法，具体写法参见demo中的virtual-list-compatibility-demo -->
+<!-- 使用虚拟列表兼容写法时必须手动在z-paging的源代码z-paging.vue中搜索zp-public-virtual-cell并打开相关注释 -->
 <template>
 	<view class="content">
 		<!-- 如果页面中的cell高度是固定不变的，则不需要设置cell-height-mode，如果页面中高度是动态改变的，则设置cell-height-mode="dynamic" -->
@@ -210,7 +211,7 @@
     export default {
         methods: {
             queryList(pageNo, pageSize) {
-              	//代码同虚拟列表一般写法
+              	//代码同虚拟列表(一般写法)
             }
         },
     };
