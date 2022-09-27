@@ -41,7 +41,9 @@ npm update z-paging
 
 ```json
 "easycom": {
-    "^(?!z-paging-refresh|z-paging-load-more)z-paging(.*)": "z-paging/components/z-paging$1/z-paging$1.vue"
+	"custom": {
+	    "^(?!z-paging-refresh|z-paging-load-more)z-paging(.*)": "z-paging/components/z-paging$1/z-paging$1.vue"
+	}
 }
 ```
 
