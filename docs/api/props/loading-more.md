@@ -17,8 +17,8 @@
 | loading-more-loading-text                             | 滑动到底部"加载中"文字<p style="color:red;">(支持直接传字符串或形如：{'en':'英文配置':'zh-Hans':'中文配置'}的i18n配置)</p> | String\|Object | 正在加载...            | -      |
 | loading-more-no-more-text                             | 滑动到底部"没有更多"文字<p style="color:red;">(支持直接传字符串或形如：{'en':'英文配置':'zh-Hans':'中文配置'}的i18n配置)</p> | String\|Object | 没有更多了             | -      |
 | loading-more-fail-text                                | 滑动到底部"加载失败"文字<p style="color:red;">(支持直接传字符串或形如：{'en':'英文配置':'zh-Hans':'中文配置'}的i18n配置)</p> | String\|Object | 加载失败，点击重新加载 | -      |
-| hide-loading-more-when-no-more-and-inside-of-paging   | 当没有更多数据且分页内容未超出z-paging时是否隐藏没有更多数据的view(nvue不支持，nvue中请使用`hide-loading-more-when-no-more-by-limit`控制) | Boolean        | false                  | true   |
-| hide-loading-more-when-no-more-by-limit               | 当没有更多数据且分页数组长度少于这个值时，隐藏没有更多数据的view，默认为0，代表不限制。此属性优先级高于`hide-loading-more-when-no-more-and-inside-of-paging` | Number         | 0                      | -      |
+| hide-no-more-inside <Badge text="2.4.3"/>             | 当没有更多数据且分页内容未超出z-paging时是否隐藏没有更多数据的view(nvue不支持，nvue中请使用`hide-no-more-by-limit`控制)<p style="color:red;">(由`v2.4.3`起，`hide-loading-more-when-no-more-and-inside-of-paging`已废弃，请使用此属性代替)</p> | Boolean        | false                  | true   |
+| hide-no-more-by-limit <Badge text="2.4.3"/>           | 当没有更多数据且分页数组长度少于这个值时，隐藏没有更多数据的view，默认为0，代表不限制。此属性优先级高于`hide-no-more-inside`<p style="color:red;">(由`v2.4.3`起，`hide-loading-more-when-no-more-by-limit`已废弃，请使用此属性代替)</p> | Number         | 0                      | -      |
 | inside-more <Badge text="2.0.0"/>                     | 当分页未满一屏时，是否自动加载更多(nvue无效)                 | Boolean        | false                  | true   |
 | loading-more-default-as-loading <Badge text="2.2.0"/> | 滑动到底部状态为默认状态时，以加载中的状态展示。若设置为是，可避免滚动到底部看到默认状态然后立刻变为加载中状态的问题，但分页数量未超过一屏时，不会显示【点击加载更多】 | Boolean        | false                  | true   |
 | show-loading-more-no-more-view                        | 是否显示没有更多数据的view                                   | Boolean        | true                   | false  |

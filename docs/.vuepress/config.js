@@ -76,7 +76,7 @@ module.exports = {
 						children: [],
 					},
 					{
-						title: '注意事项',
+						title: '注意事项与常见问题',
 						path: '/start/notice',
 						children: [],
 					},
@@ -91,7 +91,7 @@ module.exports = {
 						children: [],
 					},
 					{
-						title: '升级指南',
+						title: '版本差异',
 						path: '/start/upgrade-guide',
 						children: [],
 					}
