@@ -10,7 +10,7 @@
 | loading-more-custom-style                             | 自定义底部加载更多样式；如：{'background':'red'}<p style="color:red;">(此属性无法修改文字样式，修改文字样式请使用下方的`loading-more-title-custom-style`)</p> | Object         | -                      | -      |
 | loading-more-title-custom-style <Badge text="2.1.7"/> | 自定义底部加载更多文字样式；如：{'color':'red'}              |                |                        |        |
 | loading-more-loading-icon-custom-style                | 自定义底部加载更多加载中动画样式                             | Object         | -                      | -      |
-| loading-more-loading-icon-type                        | 自定义底部加载更多加载中动画图标类型，可选flower或circle，默认为flower | String         | flower                 | circle |
+| loading-more-loading-icon-type                        | 自定义底部加载更多加载中动画图标类型，可选flower或circle，默认为flower<p style="color:red;">(nvue不支持)</p> | String         | flower                 | circle |
 | loading-more-loading-icon-custom-image                | 自定义底部加载更多加载中动画图标图片，若设置则使用自定义的动画图标，`loading-more-loading-icon-type`将无效<p style="color:red;">(nvue无效)</p> | String         | -                      | -      |
 | loading-more-loading-animated <Badge text="1.9.4"/>   | 底部加载更多加载中view是否展示旋转动画<p style="color:red;">(loading-more-loading-icon-custom-image有值时有效，nvue无效)</p> | Boolean        | true                   | false  |
 | loading-more-default-text                             | 滑动到底部"默认"文字<p style="color:red;">(支持直接传字符串或形如：{'en':'英文配置':'zh-Hans':'中文配置'}的i18n配置)</p> | String\|Object | 点击加载更多           | -      |
