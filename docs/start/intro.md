@@ -23,7 +23,7 @@
 | app-vue <br>app-nvue |  √   |     √      |      √       |     √      |     √      |    √     |
 
 ### 许可协议
-* [MIT协议](./license)
+* [MIT协议](./license.html)
 ### 预览
 
 ***
