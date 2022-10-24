@@ -14,7 +14,7 @@ module.exports = {
 		}],
 		['meta', {
 			name: 'Keywords',
-			content: 'z-paging,uniapp,分页,下拉刷新,加载更多'
+			content: 'z-paging,uniapp,分页,下拉刷新,加载更多,虚拟列表'
 		}],
 		['link', {
 			rel: 'icon',
@@ -38,16 +38,15 @@ module.exports = {
 				link: 'https://github.com/SmileZXLee/uni-z-paging',
 			}
 		],
-		sidebar: [
-			// SidebarItem
-			{
+		sidebar: {
+			'/': [{
 				title: '起步',
 				collapsable: false,
 				children: [
 					// SidebarItem
 					{
 						title: '介绍',
-						path: '/start/intro',
+						path: 'start/intro',
 						children: [],
 					},
 					{
@@ -56,8 +55,8 @@ module.exports = {
 						children: [],
 					},
 					{
-						title: '反馈QQ群',
-						path: '/start/qq-group',
+						title: '反馈群',
+						path: '/start/feedback-group',
 						children: [],
 					},
 					{
@@ -80,11 +79,11 @@ module.exports = {
 						path: '/start/notice',
 						children: [],
 					},
-                    {
-                    	title: '从vue2迁移到vue3',
-                    	path: '/start/migration-to-vue3',
-                    	children: [],
-                    },
+					{
+						title: '从vue2迁移到vue3',
+						path: '/start/migration-to-vue3',
+						children: [],
+					},
 					{
 						title: '版本记录',
 						path: 'https://ext.dcloud.net.cn/plugin?id=3935&update_log',
@@ -204,12 +203,12 @@ module.exports = {
 				collapsable: false,
 				path: '/api/events/main'
 			},
-            {
-            	title: '公用子组件',
-            	collapsable: false,
-            	path: '/api/sub-components/main'
-            }
-		],
+			{
+				title: '公用子组件',
+				collapsable: false,
+				path: '/api/sub-components/main'
+			}]
+		},
 	},
 	locales: {
 		'/': {

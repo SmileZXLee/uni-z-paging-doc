@@ -23,13 +23,13 @@
 
 | 参数                                         | 说明                                                         | 类型           | 默认值 | 可选值  |
 | :------------------------------------------- | :----------------------------------------------------------- | :------------- | :----- | :------ |
-| use-virtual-list                             | 是否使用虚拟列表<p style="color:red;">(使用页面滚动或nvue时，不支持虚拟列表。在nvue中z-paging内置了list组件，效果与虚拟列表类似，并且可以提供更好的性能)</p> | Boolean        | false  | true    |
+| use-virtual-list                             | 是否使用虚拟列表<p style="color:red;">(使用页面滚动或nvue时，不支持虚拟列表。在nvue中z-paging内置了list组件，效果与虚拟列表类似，并且可以提供更好的性能)</p><p style="color:red;">(当服务端一次性返回大量数据时，可结合本地分页处理。不能一次性通过`complete`传上万条数据，否则会导致卡顿，本地分页参见：[本地分页配置](./local-paging.html))</p> | Boolean        | false  | true    |
 | use-compatibility-mode <Badge text="2.4.0"/> | 在使用虚拟列表时，是否使用兼容模式，兼容模式写法较繁琐，但可提供良好的兼容性。在微信小程序中，推荐使用兼容模式。具体写法请参照demo中的`virtual-list-compatibility-demo.vue` | Boolean        | false  | true    |
 | extra-data <Badge text="2.4.0"/>             | 使用兼容模式时传递的附加数据，可选、非必须                   | Object         | null   | -       |
 | cell-height-mode                             | 虚拟列表cell高度模式，默认为fixed，也就是每个cell高度完全相同，将以第一个cell高度为准进行计算。可选值：`dynamic`，即代表高度是动态非固定的；`dynamic`性能低于`fixed`，因此如非必要，请使用`fixed` | String         | fixed  | dynamic |
 | preload-page                                 | 预加载的列表可视范围(列表高度)页数，默认为7，即预加载当前页及上下各7页的cell。此数值越大，则虚拟列表中加载的dom越多，内存消耗越大(会维持在一个稳定值)，但增加预加载页面数量可缓解快速滚动短暂白屏问题 | Number\|String | 7      | -       |
 | virtual-list-col <Badge text="2.2.8"/>       | 虚拟列表列数，默认为1。常用于每行有多列的情况，例如每行有2列数据，需要将此值设置为2<p style="color:red;">(仅支持`cell-height-mode`为fixed的情况，即：不支持动态高度的瀑布流)</p>例：需要设置每行2列的瀑布流时，请设置：`virtual-list-times="2"`、`:inner-list-style="{'display':'flex','flex-wrap':'wrap'}"`(设置inner-list开启flex布局，且子view自动换行)、`:inner-cell-style="{width:'50%'}"`(设置子view宽度为50%) | Number\|String | 1      | -       |
-| virtual-scroll-fps                           | 虚拟列表scroll取样帧率，默认为80，过低容易出现白屏问题，过高容易出现卡顿问题     | Number\|String | 80     | -       |
+| virtual-scroll-fps                           | 虚拟列表scroll取样帧率，默认为80，过低容易出现白屏问题，过高容易出现卡顿问题 | Number\|String | 80     | -       |
 | use-inner-list                               | 是否在z-paging内部循环渲染列表(使用内置列表)，若`use-virtual-list`为true，则此项恒为true<br><br>此模式下使用`slot="cell"`插入cell；使用`slot="header"`插入header(在cell顶部且跟随列表滚动)；使用`slot="footer"`插入bottom(在cell底部且跟随列表滚动)；  <p style="color:red;">(由于字节跳动小程序不支持`slot-scope`，因此`use-inner-list`无法在字节跳动小程序中使用)</p><p style="color:red;">(use-inner-list在微信小程序中部分较高版本调试库会报`More than one slot named "cell" are found...`的警告并导致开发者工具卡顿，将基础库版本调到2.18.0以下即可。因线上没有控制台打印，因此不会影响线上版本。)</p> | Boolean        | false  | true    |
 | force-close-inner-list <Badge text="2.2.7"/> | 强制关闭inner-list，默认为false，如果为true将强制关闭innerList，适用于开启了虚拟列表后需要强制关闭inner-list的情况 | Boolean        | false  | true    |
 | cell-key-name <Badge text="2.2.7"/>          | 内置列表cell的key名称<p style="color:red;">(仅nvue有效，在nvue中开启use-inner-list时必须填此项)</p> | String         | ""     | -       |
@@ -47,5 +47,4 @@
 ***
 
 ### 虚拟列表写法示例
-
 [点击查看](../../start/use.html#虚拟列表示例)

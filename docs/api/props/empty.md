@@ -8,7 +8,7 @@
 | :------------------------------------------------------ | :----------------------------------------------------------- | :------------- | :--------------- | :----- |
 | hide-empty-view                                         | 是否强制隐藏空数据图                                         | Boolean        | false            | true   |
 | empty-view-fixed <Badge text="2.0.3"/>                  | 空数据图片是否铺满z-paging，默认为是。若设置为否，则为填充满z-paging的剩余部分 | Boolean        | false            | true   |
-| empty-view-center <Badge text="2.0.6"/>                 | 空数据图片是否垂直居中<p style="color:red;">(`empty-view-fixed`为false时有效)</p> | Boolean        | true             | false  |
+| empty-view-center <Badge text="2.0.6"/>                 | 空数据图片是否垂直居中<p style="color:red;">(`empty-view-fixed`为false时有效)</p><p style="color:red;">(在nvue中，如果列表内占位的cell特别高导致空数据图特别靠下甚至超出屏幕外时，请务必设置此属性为false！)</p> | Boolean        | true             | false  |
 | empty-view-text                                         | 空数据图描述文字<p style="color:red;">(支持直接传字符串或形如：{'en':'英文配置':'zh-Hans':'中文配置'}的i18n配置)</p> | String\|Object | 没有数据哦~      | -      |
 | empty-view-img                                          | 空数据图图片，默认使用z-paging内置的图片<br><p style="color:red;">(建议使用绝对路径，开头不要添加"@"，请以"/"开头)</p> | String         | -                | -      |
 | empty-view-error-img <Badge text="1.6.7"/>              | 空数据图“加载失败”图片，默认使用z-paging内置的图片<br><p style="color:red;">(建议使用绝对路径，开头不要添加"@"，请以"/"开头)</p> | String         | -                | -      |
