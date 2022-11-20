@@ -93,6 +93,11 @@ module.exports = {
 						title: '版本差异',
 						path: '/start/upgrade-guide',
 						children: [],
+					},
+					{
+						title: 'mini版',
+						path: '/start/mini',
+						children: [],
 					}
 				],
 			},
