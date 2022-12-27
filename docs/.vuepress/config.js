@@ -31,9 +31,14 @@ module.exports = {
 		nav: [
 			// NavbarItem
 			{
+				text: '使用案例收集',
+				link: '../about/case-collection.html',
+			},
+			{
 				text: '插件市场(安装或下载demo)',
 				link: 'https://ext.dcloud.net.cn/plugin?id=3935',
-			}, {
+			},
+			{
 				text: 'Github',
 				link: 'https://github.com/SmileZXLee/uni-z-paging',
 			}

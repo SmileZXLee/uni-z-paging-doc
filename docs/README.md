@@ -13,7 +13,7 @@ v2.4.8 (2022-11-03)
 - by ZXLee
 感谢使用^_^
 ```
-###  ⭐️ 如果您觉得`z-paging`还不错的话，可以点一个star鼓励一下(＾ω＾)👉🏻  [![Github stars](https://img.shields.io/github/stars/smilezxlee/uni-z-paging?logo=GitHub)](https://github.com/SmileZXLee/uni-z-paging)
+###  ⭐️ 如果您觉得`z-paging`还不错的话，可以点一个star鼓励一下(＾ω＾)👉🏻  [![Github stars](https://img.shields.io/github/stars/smilezxlee/uni-z-paging?logo=GitHub&style=flat-square)](https://github.com/SmileZXLee/uni-z-paging)
 ## 基本使用
 ```html
 <template>
@@ -54,5 +54,6 @@ v2.4.8 (2022-11-03)
 #### ② @query所绑定的方法不要自己调用！！需要刷新列表数据时，只需要调用`this.$refs.paging.reload()`即可。
 :::
 
-<center style="margin-bottom:10px;"><img src="https://visitor-badge.glitch.me/badge?page_id=smilezxlee.z-paging" /></center> 
+<center style="margin-bottom:10px;"><img src="https://visitor-badge.glitch.me/badge?page_id=smilezxlee.z-paging" /></center>
+<img style="display:none" src="https://api.z-notify.zxlee.cn/v1/public/statistics/8293556910106066944/addOnly" />
 <div style="margin-bottom:-80px; display:flex;justify-content: center;font-size:13px;">Copyright 2022 z-paging | <a style="color: #014084;margin-left:5px;" href="https://beian.miit.gov.cn/" target="_blank">闽ICP备17015849号-1</a></div>
