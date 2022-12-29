@@ -17,6 +17,17 @@ z-paging 使用`uni_modules`管理，导入的项目会在`uni_modules`目录下
 z-paging遵循[easycom规范](https://uniapp.dcloud.io/component/README?id=easycom组件规范)，无需注册即可使用。
 :::
 
+::: warning 注意
+在支付宝和钉钉小程序中，必须在`pages.json`中进行如下设置：
+```json
+//以下代码可以写在globalStyle中或特定页面的style中
+//支付宝和钉钉小程序需要取消回弹效果
+"mp-alipay": {
+  "allowsBounceVertical": "NO"
+}
+```
+:::
+
 ## 通过npm安装
 > 为多端兼容考虑，建议优先从[插件市场](https://ext.dcloud.net.cn/plugin?id=3935)获取插件
 ```bash
@@ -34,7 +45,7 @@ npm update z-paging
 :::
 
 ::: warning 注意
-使用npm方式安装编译会提示`WARNING: Module not found: Error: Can't resolve' @/uni_modules/z-paging'`<br>
+(v`2.4.6`之前)使用npm方式安装编译会提示`WARNING: Module not found: Error: Can't resolve' @/uni_modules/z-paging'`<br>
 此警告不影响正常使用，若需要消除此警告，请至源码的`z-paging-utils.js`文件中，按照注释提示注释相关代码。
 :::
 在`pages.json`中配置`easycom`
@@ -47,10 +58,10 @@ npm update z-paging
 }
 ```
 
-在`vue.config.js`(没有这个文件则忽略)中添加配置
+在`vue.config.js`(没有这个文件则在项目根目录下创建)中添加配置
 ```js
-{
-    transpileDependencies: ['z-paging']
+module.exports = {
+	transpileDependencies: ['z-paging']
 }
 ```
 
