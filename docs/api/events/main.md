@@ -10,7 +10,7 @@
 | @refresherTouchend                          | 自定义下拉刷新下拉结束<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：当需要更细致定制自定义下拉刷新时使用，如果只需监听下拉刷新各个状态改变，使用`refresherStatusChange`即可】<p style="color:red;">(nvue无效)</p> | 当前触摸结束分页内容下移的y值(单位px)                        |
 | @onRefresh                                  | 自定义下拉刷新被触发                                         | -                                                            |
 | @onRestore                                  | 自定义下拉刷新被复位                                         | -                                                            |
-| @scroll                                     | `z-paging`列表滚动时触发                                     | event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY} |
+| @scroll                                     | `z-paging`列表滚动时触发                                     | `(vue中)` event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY}<br/>`(nvue中)` event = {`contentSize`(列表的内容尺寸) = {width, height}, `contentOffset`(列表的偏移尺寸) = {x, y} , `isDragging`(用户是否正在拖动列表)} |
 | @scrollTopChange                            | scrollTop改变时触发，使用点击返回顶部时需要获取scrollTop时可使用此事件【注：通过`:scroll-top.sync`绑定当前data中的指定变量亦可】<p style="color:red;">(@scrolltoupper触发时，也会自动触发此方法，且scrollTop=0)</p> | scrollTop                                                    |
 | @scrolltolower                              | `z-paging`内置的scroll-view滚动底部时触发                    | 来源(`toBottom`滚动到底部；`click`点击了加载更多view)        |
 | @scrolltoupper                              | `z-paging`内置的scroll-view滚动顶部时触发                    | -                                                            |
@@ -20,5 +20,6 @@
 | @contentHeightChanged <Badge text="2.1.3"/> | `z-paging`中内容高度改变时触发                               | 改变后的高度                                                 |
 | @emptyViewReload <Badge text="1.8.0"/>      | 点击了空数据图中的重新加载按钮                               | 点击重新加载后是否进行reload操作，默认为是。<br>如果需要禁止reload事件，则在page的methods中书写：<p style="font-weight:bold;">emptyViewReload(e){<br/> e(false);<br/>  //处理自己的业务逻辑<br/>}</p>### Events |
 | @emptyViewClick <Badge text="2.3.3"/>       | 点击了空数据图view                                           | -                                                            |
+| @isLoadFailedChange <Badge text="2.5.0"/>   | `z-paging`请求失败状态改变                                   | 当前是否是请求失败状态，为true代表是，反之为否；默认状态为否 |
 | @touchDirectionChange <Badge text="2.3.0"/> | 监听列表触摸方向改变<p style="color:red;">(nvue无效)</p>     | <p style="color:red;">(必须同时设置`:watch-touch-direction-change="true"`)</p>列表触摸的方法，有`top`和`bottom`两种值，`top`代表用户将列表向上移动(scrollTop不断减小)，`bottom`代表用户将列表向下移动(scrollTop不断增大) |
 | @hidedKeyboard <Badge text="2.3.6"/>        | 在聊天记录模式下，触摸列表隐藏了键盘<p style="color:red;">(nvue无效)</p> | -                                                            |

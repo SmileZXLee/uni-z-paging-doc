@@ -8,17 +8,20 @@
 #### ① `slot="xxx"` 需要修改为 `v-slot:xxx`，并使用`template`包住：
 
 * `vue2`
+
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
 	<!-- 之前-vue2 -->
 	<view slot="top">我是固定在顶部的view</view>
 </z-paging>
 ```
+
 * `vue3`
+
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
 	<!-- 之后-vue3 -->
-	<template v-slot:top>
+	<template #top>
 	    <view>我是固定在顶部的view</view>
 	</template>
 </z-paging>
@@ -27,38 +30,49 @@
 #### ② `slot-scope`写法调整：
 
 * `vue2`
+
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
 	<!-- 之前-vue2 -->
 	<custom-refresher slot="refresher" slot-scope="{refresherStatus}" :status="refresherStatus">
 </z-paging>
 ```
+
 * `vue3`
+
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
 	<!-- 之后-vue3 -->
-	<template v-slot:refresher="{refresherStatus}">
+	<template #refresher="{refresherStatus}">
 		<custom-refresher :status="refresherStatus" />
 	</template>
 </z-paging>
 ```
 
 #### ③ 模块导出写法调整：
+
 * `vue2`
+
 ```js
 // 之前-vue2
 module.exports.X = X;
 ```
+
 * `vue3`
+
 ```js
 // 之后-vue3
 export default { X };
 ```
 
 #### 其他详见uni-app官方文档：[vue2 项目迁移 vue3](https://uniapp.dcloud.io/migration-to-vue3)  
+
 #### 
+
 ***
+
 ### 支持vue3组合式api写法
+
 ```html  
 <template>
     <view class="content">

@@ -29,9 +29,9 @@
 
 | 名称                                    | 说明                                                         |
 | :-------------------------------------- | ------------------------------------------------------------ |
-| empty                                   | 自定义空数据占位view                                         |
+| empty                                   | 自定义空数据占位view<p><Badge text="2.5.0"/> slot-scope="{ isLoadFailed(true: 加载失败，false: 加载成功) }"</p> |
 | loading                                 | 自定义页面reload时的加载view，注意：这个slot默认仅会在第一次加载时显示，若需要每次reload时都显示，需要将`auto-hide-loading-after-first-loaded`设置为false |
-| refresher                               | 自定义下拉刷新view，设置后则不使用uni自带的下拉刷新view和z-paging自定义的下拉刷新view。此view的style必须设置为`height:100%`<p style="color:red;">(在非nvue中，自定义下拉刷新view的高度受`refresher-threshold`控制，因此如果它的高度不为默认的80rpx，则需要设置`refresher-threshold="自定义下拉刷新view的高度"`)</p> |
+| refresher                               | 自定义下拉刷新view，设置后则不使用uni自带的下拉刷新view和z-paging自定义的下拉刷新view。此view的style必须设置为`height:100%`<p style="color:red;">(在非nvue中，自定义下拉刷新view的高度受`refresher-threshold`控制，因此如果它的高度不为默认的80rpx，则需要设置`refresher-threshold="自定义下拉刷新view的高度"`)</p><p>slot-scope="{ refresherStatus(0-默认状态 1.松手立即刷新 2.刷新中 3.刷新成功) }"</p> |
 | refresherComplete <Badge text="2.1.1"/> | 自定义`结束状态下`的下拉刷新view，若设置，当下拉刷新结束时，会替换当前状态下的下拉刷新view。<p style="color:red;">(注意：默认情况下您无法看到结束状态的下拉刷新view，除非您设置了`refresher-complete-delay`并且值足够大，例如：500)</p> |
 | top <Badge text="1.5.5"/>               | 可以将自定义导航栏、tab-view等需要固定的`(不需要跟着滚动的)`元素放入`slot="top"`的view中。<br/>注意，当有多个需要固定的view时，请用一个view包住它们，并且在这个view上设置`slot="top"`。需要固定在顶部的view请勿设置`position: fixed;`。<p style="color:red;">在使用页面滚动时，若top中的内容动态变化(即高度动态变化)，请在高度更新后调用[this.$refs.paging.updatePageScrollTopHeight()](../methods/main.html)</p> |
 | bottom <Badge text="1.6.2"/>            | 可以将需要固定在底部的`(不需要跟着滚动的)`元素放入`slot="bottom"`的view中。<br>注意，当有多个需要固定的view时，请用一个view包住它们，并且在这个view上设置`slot="bottom"`。需要固定在底部的view请勿设置`position: fixed;`。<p style="color:red;">在使用页面滚动时，若bottom中的内容动态变化(即高度动态变化)，请在高度更新后调用[this.$refs.paging.updatePageScrollBottomHeight()](../methods/main.html)</p> |

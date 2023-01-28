@@ -41,6 +41,10 @@ module.exports = {
 			{
 				text: 'Github',
 				link: 'https://github.com/SmileZXLee/uni-z-paging',
+			},
+			{
+				text: '关于作者',
+				link: 'https://zxlee.cn',
 			}
 		],
 		sidebar: {
