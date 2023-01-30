@@ -24,6 +24,8 @@ v2.5.0 (2023-01-28)
 ```html
 <template>
     <z-paging ref="paging" v-model="dataList" @query="queryList">
+		<!-- z-paging默认铺满全屏，此时页面所有view都应放在z-paging标签内，否则会被盖住 -->
+		<!-- 需要固定在页面顶部的view请通过slot="top"插入，包括自定义的导航栏 -->
         <view class="item" v-for="(item,index) in dataList" :key="index">
             <view class="item-title">{{item.title}}</view>
         </view>
@@ -34,10 +36,12 @@ v2.5.0 (2023-01-28)
     export default {
         data() {
             return {
+				// v-model绑定的这个变量不要在分页请求结束中自己赋值，直接使用即可
                 dataList: []
             };
         },
         methods: {
+			// @query所绑定的方法不要自己调用！！需要刷新列表数据时，只需要调用this.$refs.paging.reload()即可
             queryList(pageNo, pageSize) {
 				// 此处请求仅为演示，请替换为自己项目中的请求
                 this.$request.queryList({ pageNo,pageSize }).then(res => {
@@ -58,8 +62,10 @@ v2.5.0 (2023-01-28)
 <script setup>
     import { ref } from 'vue';
     const paging = ref(null)
+	// v-model绑定的这个变量不要在分页请求结束中自己赋值，直接使用即可
     let dataList = ref([])
     
+	// @query所绑定的方法不要自己调用！！需要刷新列表数据时，只需要调用paging.reload()即可
     const queryList = (pageNo, pageSize) => {
 		// 此处请求仅为演示，请替换为自己项目中的请求
         request.queryList({ pageNo,pageSize }).then(res => {
@@ -68,11 +74,6 @@ v2.5.0 (2023-01-28)
     }
 </script>
 ```
-
-::: danger 特别注意
-#### ① v-model所绑定的list请不要在网络请求成功回调中自己修改，只需要将请求结果通过`this.$refs.paging.complete(请求回调数组)`传给z-paging即可，不要自己给list赋值！！
-#### ② @query所绑定的方法不要自己调用！！需要刷新列表数据时，只需要调用`this.$refs.paging.reload()`即可。
-:::
 
 <center style="margin-bottom:10px;"><img src="https://visitor-badge.glitch.me/badge?page_id=smilezxlee.z-paging" /></center>
 <img style="display:none" src="https://api.z-notify.zxlee.cn/v1/public/statistics/8293556910106066944/addOnly" />

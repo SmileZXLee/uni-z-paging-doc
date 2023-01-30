@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
 	lang: 'zh-CN',
-	title: 'z-paging',
+	title: 'z-paging文档',
 	description: 'z-paging文档',
 	// base: '/z-paging/',
 	markdown: {
@@ -23,7 +23,7 @@ module.exports = {
 	],
 	themeConfig: {
 		smoothScroll: true,
-		logo: '/img/logo.png',
+		logo: '/img/title-logo.png',
 		contributors: false,
 		lastUpdatedText: '最近更新',
 		// repo: 'https://github.com/SmileZXLee/uni-z-paging',
