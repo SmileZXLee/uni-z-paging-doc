@@ -10,20 +10,29 @@
 `z-paging`的所有版本更新都会尽可能兼容低版本写法，更新版本之后可能出现的不兼容之处都会在下方列出。  
 :::
 
-## `V1.9.0+`
+## `V2.5.1+`
 
-* 由V1.9.0起，fixed属性默认值为true，`z-paging`默认会铺满屏幕。V1.9.0之前的版本更新请注意，使用侧滑滚动切换选项卡或需要局部使用`z-paging`请设置`:fixed="false"`。<br>如果您希望fixed属性默认为false，请参考[全局配置](/api/props/global-config.md)，将fixed默认值设置为false。
+* 由V2.5.1起，方法`end`废弃，由`complete`代替
+* 由V2.5.1起，方法`endByTotalCount`、`endByTotal`、`completeByTotalCount`废弃，由`completeByTotal`代替
+* 由V2.5.1起，方法`endByNoMore`废弃，由`completeByNoMore`代替
+* 由V2.5.1起，方法`endByKey`废弃，由`completeByKey`代替
+* 由V2.5.1起，方法`completeByNoMore`中参数2(必填):`是否有更多数据`，修改为`是否没有更多数据`，若为true则代表没有更多数据了。与V2.5.1之前相反。
 
-## `V2.0.5+`
+## `V2.4.3+`
 
-* 由V2.0.5起，`z-paging`的内置下拉刷新`z-paging-refresh`和内置滚动到底部加载更多`z-paging-load-more`内部view的class和props有所改变。若之前使用`/deep/`修改内置下拉刷新或滚动到底部view的样式，更新到此版本及之后的版本，需要进行相关的调整。
+* 由V2.4.3起，旧属性`mounted-auto-call-reload`废弃，由`auto`代替)
+* 由V2.4.3起，旧属性`loading-more-when-no-more-and-inside-of-paging`废弃，由`hide-no-more-inside`代替
+* 由V2.4.3起，旧属性`hide-loading-more-when-no-more-by-limit`废弃，由`hide-no-more-by-limit`代替
 
 ## `V2.4.1+`
 
 * 由V2.4.1起，`z-paging`的i18n配置与`uni-app`国际化方案对齐，具体参见[i18n配置](/api/props/i18n.html)。
 
-## `V2.4.3+`
+## `V2.0.5+`
 
-* 由V2.4.3起，旧属性`mounted-auto-call-reload`废弃，由`auto`代替)
-* 由V2.4.3起，旧属性`hide-loading-more-when-no-more-by-limit`废弃，由`hide-no-more-by-limit`代替
-* 由V2.4.3起，旧属性`hide-loading-more-when-no-more-by-limit`废弃，由`hide-no-more-by-limit`代替
+* 由V2.0.5起，`z-paging`的内置下拉刷新`z-paging-refresh`和内置滚动到底部加载更多`z-paging-load-more`内部view的class和props有所改变。若之前使用`/deep/`修改内置下拉刷新或滚动到底部view的样式，更新到此版本及之后的版本，需要进行相关的调整。
+
+
+## `V1.9.0+`
+
+* 由V1.9.0起，`fixed`属性默认值为true，`z-paging`默认会铺满屏幕。V1.9.0之前的版本更新请注意，使用侧滑滚动切换选项卡或需要局部使用`z-paging`请设置`:fixed="false"`。<br>如果您希望fixed属性默认为false，请参考[全局配置](/api/props/global-config.md)，将fixed默认值设置为false。

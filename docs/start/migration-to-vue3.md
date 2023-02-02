@@ -5,7 +5,7 @@
 
 ### 从vue2目迁移到vue3，必须适配的部分
 
-#### ① `slot="xxx"` 需要修改为 `v-slot:xxx`，并使用`template`包住：
+#### ① `slot="top"` 需要修改为 `v-slot:top`或`#top`，并使用`template`包住：
 
 * `vue2`
 
