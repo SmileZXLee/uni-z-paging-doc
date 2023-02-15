@@ -231,6 +231,6 @@ module.exports = {
 	},
 	plugins: [
 		['fulltext-search'],
-		['@vuepress/active-header-links']
-	]
+		['@vuepress/active-header-links'],
+	],
 }
