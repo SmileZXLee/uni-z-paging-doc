@@ -1,8 +1,3 @@
-::: danger 2023新年快乐！！🎉🧨🎉🧨
-（`・ω・)つ━☆・*。祝大家在新的一年里工作顺利，事事顺心！  
-<span style="font-size: 14px;font-weight: bold;">工作再忙，也要记得照顾好自己･◡･</span>
-:::
-
 <!-- ::: tip 虚拟列表
 `z-paging`现已支持虚拟列表，支持cell动态高度。轻松渲染万级数据！[点击查看](../../api/props/virtual-list.html)
 ::: -->
@@ -14,7 +9,7 @@
  /___|    | .__/ \__,_|\__, |_|_| |_|\__, |
           |_|          |___/         |___/   文档
 —————————————————————————————————————————————————
-v2.5.3 (2023-02-13)
+v2.5.4 (2023-03-05)
 - by ZXLee
 感谢使用^_^
 ```
@@ -56,7 +51,13 @@ v2.5.3 (2023-02-13)
 
 ```html  
 <template>
-    <!-- 与选项式api写法一致 -->
+    <z-paging ref="paging" v-model="dataList" @query="queryList">
+    	<!-- z-paging默认铺满全屏，此时页面所有view都应放在z-paging标签内，否则会被盖住 -->
+    	<!-- 需要固定在页面顶部的view请通过slot="top"插入，包括自定义的导航栏 -->
+        <view class="item" v-for="(item,index) in dataList" :key="index">
+            <view class="item-title">{{item.title}}</view>
+        </view>
+    </z-paging>
 </template>
 
 <script setup>

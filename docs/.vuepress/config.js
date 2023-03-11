@@ -121,7 +121,7 @@ module.exports = {
 						children: [],
 					},
 					{
-						title: '常规配置',
+						title: '数据&布局配置',
 						path: '/api/props/common',
 						children: [],
 					},
