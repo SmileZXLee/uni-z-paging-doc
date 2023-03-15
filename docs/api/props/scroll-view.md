@@ -10,3 +10,5 @@
 | scroll-with-animation           | 在设置滚动条位置时使用动画过渡                               | Boolean | false  | true   |
 | scroll-into-view                | 值应为某子元素id（id不能以数字开头）。设置哪个方向可滚动，则在哪个方向滚动到该元素<p style="color:red;">(此属性等同于`scroll-view`中的`scroll-into-view`，若在一些平台中无效，可以通过调用z-paging的scrollToxxx系列的方法实现，具体请参见下方tab中的Methods栏)</p> | String  | -      | -      |
 | enable-back-to-top              | iOS点击顶部状态栏、安卓双击标题栏时，滚动条返回顶部<p style="color:red;">(仅支持app-nvue，微信小程序，如果在其他平台上需要此功能，请使用页面滚动！)</p> | Boolean | true   | false  |
+
+#### 如需滚动到指定位置请查阅[滚动到指定位置方法](/api/methods/main.html#滚动到指定位置方法)
