@@ -40,6 +40,7 @@ v2.5.7 (2023-03-14)
             queryList(pageNo, pageSize) {
 				// 此处请求仅为演示，请替换为自己项目中的请求
                 this.$request.queryList({ pageNo,pageSize }).then(res => {
+					// 将请求结果通过complete传给z-paging处理，同时也代表请求结束，这一行必须调用
                 	this.$refs.paging.complete(res.data.list);
                 })
             }
@@ -70,6 +71,7 @@ v2.5.7 (2023-03-14)
     const queryList = (pageNo, pageSize) => {
 		// 此处请求仅为演示，请替换为自己项目中的请求
         request.queryList({ pageNo,pageSize }).then(res => {
+			// 将请求结果通过complete传给z-paging处理，同时也代表请求结束，这一行必须调用
             paging.value.complete(res.data.list);
         })
     }

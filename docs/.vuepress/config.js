@@ -84,8 +84,8 @@ module.exports = {
 						children: [],
 					},
 					{
-						title: '注意事项与常见问题',
-						path: '/start/notice',
+						title: '常见问题',
+						path: '/start/common-problem',
 						children: [],
 					},
 					{
@@ -230,7 +230,7 @@ module.exports = {
 		}
 	},
 	plugins: [
-		['fulltext-search'],
+		['flexsearch'],
 		['@vuepress/active-header-links'],
 	],
 }

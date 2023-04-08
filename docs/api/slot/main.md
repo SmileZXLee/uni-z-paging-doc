@@ -74,7 +74,7 @@
 
 | 名称                         | 说明                                                         |
 | :--------------------------- | ------------------------------------------------------------ |
-| cell <Badge text="2.2.5"/>   | `use-virtual-list`或`use-inner-list`为true时有效<br>内置列表中的cell |
+| cell <Badge text="2.2.5"/>   | `use-virtual-list`或`use-inner-list`为true时有效<br>内置列表中的cell<br>slot-scope="{ item, index }" |
 | header <Badge text="2.2.5"/> | `use-virtual-list`或`use-inner-list`为true时有效<br/>内置列表中的header(在cell顶部且跟随列表滚动) |
 | footer <Badge text="2.2.5"/> | `use-virtual-list`或`use-inner-list`为true时有效<br/>内置列表中的footer(在cell底部且跟随列表滚动) |
 
@@ -83,4 +83,3 @@
 | 名称        | 说明                                                         |
 | :---------- | ------------------------------------------------------------ |
 | chatLoading | 使用聊天记录模式时自定义顶部加载更多view，`use-chat-record-mode`为true时有效 |
-
