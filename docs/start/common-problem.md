@@ -1,4 +1,5 @@
 ### 常见问题
+
 ## 为什么z-paging盖住了我页面上的其他view或下拉刷新被其他view盖住？
 在默认情况下，z-paging是铺满全屏的，它会盖住z-paging标签外的其他view。因此你可以将页面中的所有view放在z-paging标签内，需要固定在页面顶部不跟着列表滚动的view(包括自定义导航栏)放在`slot="top"`内，固定底部的放在`slot="bottom"`内，注意放在`slot="top"`和`slot="bottom"`内的view不要设置style：`position: fixed`；  
 如果你希望z-paging不铺满屏幕，高度跟随内容高度，可以设置页面滚动`use-page-scroll`，注意页面滚动时要引入mixins，详情请[点击这里](./use.html#使用页面滚动示例)；  
@@ -8,7 +9,10 @@
 必须引入`mixins`，详情请[点击这里](./use.html#使用页面滚动示例)
 
 ## 为什么我复制demo中的代码在我的项目中提示TypeError: Cannot read properties of undefined (reading 'queryList')
-因为demo中的`this.$request.queryList`中的`this.$request`，这个是demo中测试用的请求，你的项目中不存在它，请更换为你项目中的请求
+因为demo中的`this.$request.queryList`中的`this.$request`，这个是demo中测试用的请求，你的项目中不存在它，请更换为你项目中的请求。
+
+## 为什么slot="top"内的picker、popup、dropdown会被z-paging列表的cell盖住
+因为z-paging中的内容z-index默认为10，如果其他弹窗遮罩的z-index小于这个值则会被盖住，可以通过`:content-z-index="1"`来降低列表内容的z-index以解决此问题。
 
 ## 为什么z-paging在我的项目中无法下拉刷新？
 因为z-paging的`complete`方法没有调用，z-paging组件加载时会自动触发刷新，`complete`方法代表刷新结束，因此必须在`@query`的函数中调用`complete`，才允许进行下次的下拉刷新。
@@ -50,3 +54,15 @@ z-paging中`complete`方法中默认判断有无更多数据的规则是：当`c
 ## 为什么我给z-paging的父容器设置背景色无效？
 默认情况下，z-paging使用的是`position: fixed`，脱离了文档流，因此它的父容器高度为0，不会被z-paging撑开，此时给它设置背景色是无效的。  
 请设置page的背景色或使用`:paging-style="{'background-color':'red'}"`或`bg-color="red"`
+
+## 为什么我使用uview1.x的u-waterfall，下拉刷新时候之前滚动底部加载更多的数据没有被重置？
+在`u-waterfall`中，如果是下拉刷新等重置列表的行为，需要调用`u-waterfall`的`clear`方法对其内部旧数据进行重置
+```js
+queryList(pageNo, pageSize) {
+	if (pageNo === 1) {
+		//如果是第一页，则调用u-waterfall的clear方法，注意这里不一定是pageNo === 1，需要根据具体起始pageNo进行修改
+		//u-waterfall组件需要添加ref="uWaterfall"
+		this.$refs.uWaterfall.clear();
+	}
+}
+```

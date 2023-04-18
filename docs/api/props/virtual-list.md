@@ -20,13 +20,12 @@
 ⑦在微信小程序中使用虚拟列表时，如果不同的cell中的image不同，会存在image闪动的问题。目前原因不明，可通过给view设置`background-image`来代替`<image />`以解决此问题。  
 :::
 
-
 | 参数                                         | 说明                                                         | 类型           | 默认值 | 可选值  |
 | :------------------------------------------- | :----------------------------------------------------------- | :------------- | :----- | :------ |
 | use-virtual-list                             | 是否使用虚拟列表<p style="color:red;">(使用页面滚动或nvue时，不支持虚拟列表。在nvue中z-paging内置了list组件，效果与虚拟列表类似，并且可以提供更好的性能)</p><p style="color:red;">(当服务端一次性返回大量数据时，可结合本地分页处理。不能一次性通过`complete`传上万条数据，否则会导致卡顿，本地分页参见：[本地分页配置](./local-paging.html))</p> | Boolean        | false  | true    |
 | use-compatibility-mode <Badge text="2.4.0"/> | 在使用虚拟列表时，是否使用兼容模式，兼容模式写法较繁琐，但可提供良好的兼容性。在微信小程序中，推荐使用兼容模式。具体写法请参照demo中的`virtual-list-compatibility-demo.vue` | Boolean        | false  | true    |
 | extra-data <Badge text="2.4.0"/>             | 使用兼容模式时传递的附加数据，可选、非必须                   | Object         | null   | -       |
-| cell-height-mode                             | 虚拟列表cell高度模式，默认为fixed，也就是每个cell高度完全相同，将以第一个cell高度为准进行计算。可选值：`dynamic`，即代表高度是动态非固定的；`dynamic`性能低于`fixed`，因此如非必要，请使用`fixed` | String         | fixed  | dynamic |
+| cell-height-mode                             | 虚拟列表cell高度模式，默认为fixed，也就是每个cell高度完全相同，将以第一个cell高度为准进行计算。可选值：`dynamic`，即代表高度是动态非固定的；`dynamic`性能低于`fixed`，因此如非必要，请使用`fixed`<p style="color:red;">(在`dynamic`模式下，z-paging会在cell初次加载时缓存cell高度，当cell高度异步变化或cell删除时，请告知z-paging更新内部缓存的高度，具体方法详见：[虚拟列表相关方法](/api/methods/main.html#虚拟列表相关方法))</p> | String         | fixed  | dynamic |
 | preload-page                                 | 预加载的列表可视范围(列表高度)页数，默认为7，即预加载当前页及上下各7页的cell。此数值越大，则虚拟列表中加载的dom越多，内存消耗越大(会维持在一个稳定值)，但增加预加载页面数量可缓解快速滚动短暂白屏问题 | Number\|String | 7      | -       |
 | virtual-list-col <Badge text="2.2.8"/>       | 虚拟列表列数，默认为1。常用于每行有多列的情况，例如每行有2列数据，需要将此值设置为2<p style="color:red;">(仅支持`cell-height-mode`为fixed的情况，即：不支持动态高度的瀑布流)</p>例：需要设置每行2列的瀑布流时，请设置：`:virtual-list-col="2"`、`:inner-list-style="{'display':'flex','flex-wrap':'wrap'}"`(设置inner-list开启flex布局，且子view自动换行)、`:inner-cell-style="{width:'50%'}"`(设置子view宽度为50%) | Number\|String | 1      | -       |
 | virtual-scroll-fps                           | 虚拟列表scroll取样帧率，默认为80，过低容易出现白屏问题，过高容易出现卡顿问题 | Number\|String | 80     | -       |
@@ -35,6 +34,7 @@
 | cell-key-name <Badge text="2.2.7"/>          | 内置列表cell的key名称<p style="color:red;">(仅nvue有效，在nvue中开启use-inner-list时必须填此项)</p> | String         | ""     | -       |
 | inner-list-style                             | innerList样式                                                | Object         | {}     | -       |
 | inner-cell-style <Badge text="2.2.8"/>       | innerCell样式                                                | Object         | {}     | -       |
+
 
 ***
 
