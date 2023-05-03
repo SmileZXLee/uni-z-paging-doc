@@ -18,6 +18,7 @@
 ⑤在使用vue3且同时运行在微信小程序上时，暂不支持`use-inner-list`与`use-virtual-list(非兼容模式)`。  
 ⑥上方 ②、③、④、⑤ 四个问题可通过使用`兼容模式`解决，在微信小程序中推荐使用兼容模式的写法！  
 ⑦在微信小程序中使用虚拟列表时，如果不同的cell中的image不同，会存在image闪动的问题。目前原因不明，可通过给view设置`background-image`来代替`<image />`以解决此问题。  
+⑧在微信小程序模拟器中，cell高度模式为dynamic时可能存在上下跳动的问题，此为模拟器的bug，不影响生产用户正常使用。可使用真机预览模式进行测试。
 :::
 
 | 参数                                         | 说明                                                         | 类型           | 默认值 | 可选值  |
@@ -34,7 +35,6 @@
 | cell-key-name <Badge text="2.2.7"/>          | 内置列表cell的key名称<p style="color:red;">(仅nvue有效，在nvue中开启use-inner-list时必须填此项)</p> | String         | ""     | -       |
 | inner-list-style                             | innerList样式                                                | Object         | {}     | -       |
 | inner-cell-style <Badge text="2.2.8"/>       | innerCell样式                                                | Object         | {}     | -       |
-
 
 ***
 

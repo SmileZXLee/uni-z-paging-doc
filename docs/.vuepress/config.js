@@ -31,11 +31,11 @@ module.exports = {
 		nav: [
 			// NavbarItem
 			{
-				text: '使用案例收集',
-				link: '/about/case-collection.html',
+				text: '示例项目下载',
+				link: '/start/example-download.html',
 			},
 			{
-				text: '插件市场(安装或下载demo)',
+				text: '插件市场',
 				link: 'https://ext.dcloud.net.cn/plugin?id=3935',
 			},
 			{

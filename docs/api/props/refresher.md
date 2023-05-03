@@ -23,6 +23,7 @@
 | refresher-pulling-img <Badge text="2.3.6"/>         | 自定义下拉刷新松手立即刷新状态下的图片，默认与`refresher-default-img`一致<p style="color:red;">(建议使用绝对路径，开头不要添加"@"，请以"/"开头)</p> | String         | -               | -                                                            |
 | refresher-refreshing-img <Badge text="2.3.6"/>      | 自定义下拉刷新刷新中状态下的图片<p style="color:red;">(建议使用绝对路径，开头不要添加"@"，请以"/"开头)</p> | String         | -               | -                                                            |
 | refresher-complete-img <Badge text="2.3.6"/>        | 自定义下拉刷新刷新结束状态下的图片<p style="color:red;">(建议使用绝对路径，开头不要添加"@"，请以"/"开头)</p><p style="color:red;">(注意：默认情况下您无法看到刷新结束状态下的图片，除非您设置了`refresher-complete-delay`并且值足够大，例如：500)</p> | String         | -               | -                                                            |
+| refresher-refreshing-animated <Badge text="2.5.8"/> | 自定义下拉刷新刷新中状态下是否展示旋转动画                   | Boolean        | true            | false                                                        |
 | refresher-end-bounce-enabled                        | 是否开启自定义下拉刷新刷新结束回弹动画效果(收回后上下弹一下的动画) | Boolean        | true            | false                                                        |
 | refresher-default-style                             | 设置系统下拉刷新默认样式，支持设置 black，white，none，none 表示不使用默认样式 | String         | black           | white、none                                                  |
 | refresher-background                                | 设置自定义下拉刷新区域背景颜色                               | String         | #FFFFFF00(透明) | -                                                            |
@@ -38,3 +39,4 @@
 | refresher-fps                                       | 自定义下拉刷新下拉帧率，默认为40，过高可能会出现抖动问题     | Number\|String | 40              | -                                                            |
 | refresher-max-angle                                 | 自定义下拉刷新允许触发的最大下拉角度，默认为40度，当下拉角度小于设定值时，自定义下拉刷新动画不会被触发。<p style="color:red;">(值小于0或大于90时，代表不受角度限制)</p> | Number\|String | 40              | 0-90                                                         |
 | refresher-angle-enable-change-continued             | 自定义下拉刷新的角度由未达到最大角度变到达到最大角度时，是否继续下拉刷新手势 | Boolean        | false           | true                                                         |
+| refresher-no-transform <Badge text="2.5.8"/>        | 下拉刷新时是否禁止下拉刷新view跟随用户触摸竖直移动。注意此属性只是禁止下拉刷新view移动，其他下拉刷新逻辑依然会正常触发 | Boolean        | false           | true                                                         |

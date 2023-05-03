@@ -42,10 +42,15 @@ zConfig.setConfig({
 ### 拦截器 <Badge text="2.2.8"/>
 * 支持全局对`@query`的参数进行拦截&修改  
 在`main.js`中`import ZPInterceptor from '@/uni_modules/z-paging/components/z-paging/js/z-paging-interceptor'`(此路径为使用uni_modules情况下使用，可依照具体情况进行修改)，然后可以对`@query`进行拦截&修改：
+* `ZPInterceptor.handleQuery`各参数说明：  
+`pageNo`：当前第几页；  
+`pageSize`：每页多少条；  
+`from`：@query的触发来源：0.用户主动下拉刷新 1.通过reload触发 2.通过refresh触发 3.通过滚动到底部加载更多或点击底部加载更多触发；  
+`lastItem` <Badge text="2.5.8"/>：当前列表最后一项。
 ```js
 import ZPInterceptor from '@/uni_modules/z-paging/components/z-paging/js/z-paging-interceptor'
-ZPInterceptor.handleQuery((pageNo, pageSize, from) => {
-	//这里可以对pageNo, pageSize, from进行一些处理后return，请注意需要return一个数组，数组中0、1、2的元素就代表@query中绑定方法获取到的参数，数组长度不一定为3，数组长度为多少，@query中的参数就有多少个
+ZPInterceptor.handleQuery((pageNo, pageSize, from, lastItem) => {
+	//这里可以对pageNo, pageSize, from, lastItem进行一些处理后return，请注意需要return一个数组，数组中0、1、2的元素就代表@query中绑定方法获取到的参数，数组长度不一定为3，数组长度为多少，@query中的参数就有多少个
 	return [pageNo, pageSize, from];
 })
 ```

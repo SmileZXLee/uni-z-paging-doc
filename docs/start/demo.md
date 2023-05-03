@@ -1,5 +1,5 @@
 [在线体验](https://demo.z-paging.zxlee.cn)
-[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;demo下载](https://ext.dcloud.net.cn/plugin?id=3935)
+[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;示例项目下载](/start/example-download.html)
 <div style="display: flex;flex-wrap: wrap;margin-top: 10px;" v-if="showPhone">
 	<div style="position:relative;height: 650px;">
 		<img style="width:350px;" src="https://www.zxlee.cn/github/uni-z-paging/phone.png"></img>
