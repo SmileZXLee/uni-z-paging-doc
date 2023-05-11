@@ -5,6 +5,9 @@
 如果您希望z-paging不铺满屏幕，高度跟随内容高度，可以设置页面滚动`use-page-scroll`，注意页面滚动时要引入mixins，详情请[点击这里](./use.html#使用页面滚动示例)；  
 您也可以设置`:fixed="false"`来取消z-paging铺满全屏，但是这时候z-paging依然是局部滚动，和`scroll-view`一样，您必须为z-paging或z-paging的父容器指定确定的高度，设置z-paging高度时可以通过`height="100px"`或`:paging-style="{height: '100px'}"`，不要直接通过class或style设置高度，因为在微信小程序中，这样给组件设置样式是无效的。
 
+## 为什么我无法进行下拉刷新
+在默认情况下，z-paging组件加载时会自动触发`queryList`，请确保您在`queryList`中调用了z-paging的`complete`方法，因为为了避免数据错乱，每次触发`queryList`后都必须调用`complete`才允许下次的分页（下拉刷新、滚动到底部加载更多）操作。
+
 ## 为什么页面滚动(use-page-scroll)的时候，滚动到底部不会加载更多，并且在任何位置下拉都触发了下拉刷新？
 必须引入`mixins`，详情请[点击这里](./use.html#使用页面滚动示例)
 
