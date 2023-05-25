@@ -38,7 +38,15 @@
   "allowsBounceVertical": "NO"
 }
 ```
-
+## 为什么在iOS中有时候若列表滚动到最底部后继续往上拉，列表会被锁住3-5秒无法滚动？
+这是因为系统内置的bounce导致的，请在`pages.json`中进行如下设置：  
+```json
+//以下代码可以写在globalStyle中或特定页面的style中
+"app-plus": {
+	//禁用bounce
+	"bounce": "none"
+}
+```
 ## 为什么监听页面事件：onPageScroll、onReachBottom等无效？
 默认情况下，z-paging铺满全屏并局部滚动的，因此不会触发相关页面事件，可以通过`@scroll`监听滚动事件，通过`@scrolltolower`监听滚动到底部事件。
 

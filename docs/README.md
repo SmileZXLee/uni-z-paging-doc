@@ -13,7 +13,7 @@ v2.5.8 (2023-05-03)
 - by ZXLee 
 感谢使用^_^
 ```
-###  ⭐️ 如果您觉得`z-paging`还不错的话，可以点一个star鼓励一下(＾ω＾)👉🏻  [![Github stars](https://img.shields.io/github/stars/smilezxlee/uni-z-paging?logo=GitHub&style=flat-square)](https://github.com/SmileZXLee/uni-z-paging)
+###  ⭐️ 如果您觉得`z-paging`还不错的话，可以点一个star鼓励一下(＾ω＾)👉🏻  [![Github stars](https://img.shields.io/github/stars/smilezxlee/uni-z-paging?logo=GitHub&style=flat)](https://github.com/SmileZXLee/uni-z-paging)
 ## 基本使用
 ### `选项式api写法(vue2/vue3)`
 ```html
@@ -67,7 +67,7 @@ v2.5.8 (2023-05-03)
 	// v-model绑定的这个变量不要在分页请求结束中自己赋值，直接使用即可
     let dataList = ref([])
     
-	// @query所绑定的方法不要自己调用！！需要刷新列表数据时，只需要调用paging.reload()即可
+	// @query所绑定的方法不要自己调用！！需要刷新列表数据时，只需要调用paging.value.reload()即可
     const queryList = (pageNo, pageSize) => {
 		// 此处请求仅为演示，请替换为自己项目中的请求
         request.queryList({ pageNo,pageSize }).then(res => {
@@ -78,6 +78,6 @@ v2.5.8 (2023-05-03)
 </script>
 ```
 
-<center style="margin-bottom:10px;"><img src="https://visitor-badge.glitch.me/badge?page_id=smilezxlee.z-paging" /></center>
-<img style="display:none" src="https://api.z-notify.zxlee.cn/v1/public/statistics/8293556910106066944/addOnly" />
+<!-- <center style="margin-bottom:10px;"><img src="https://visitor-badge.glitch.me/badge?page_id=smilezxlee.z-paging" /></center> -->
+<center style="margin-bottom:10px;"><img src="https://api.z-notify.zxlee.cn/v1/public/statistics/8293556910106066944/badge?title=访问人次&style=flat" /></center>
 <div style="margin-bottom:-80px; display:flex;justify-content: center;font-size:13px;">Copyright 2021-2023 z-paging | <a style="color: #014084;margin-left:5px;" href="https://beian.miit.gov.cn/" target="_blank">闽ICP备17015849号-1</a></div>
