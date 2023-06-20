@@ -27,7 +27,7 @@
 | refresher-end-bounce-enabled                        | 是否开启自定义下拉刷新刷新结束回弹动画效果(收回后上下弹一下的动画) | Boolean        | true            | false                                                        |
 | refresher-default-style                             | 设置系统下拉刷新默认样式，支持设置 black，white，none，none 表示不使用默认样式 | String         | black           | white、none                                                  |
 | refresher-background                                | 设置自定义下拉刷新区域背景颜色                               | String         | #FFFFFF00(透明) | -                                                            |
-| refresher-fixed-background                          | 设置固定的自定义下拉刷新区域背景颜色                         | String         | #FFFFFF00(透明) | -                                                            |
+| refresher-fixed-background                          | 设置固定的自定义下拉刷新区域背景颜色<p style="color:red;">(必须设置`refresher-fixed-bac-height`，否则无效)</p> | String         | #FFFFFF00(透明) | -                                                            |
 | refresher-fixed-bac-height                          | 设置固定的自定义下拉刷新区域高度                             | Number\|String | 0               | -                                                            |
 | refresher-default-duration <Badge text="2.3.1"/>    | 设置自定义下拉刷新默认状态下回弹动画时间，单位为毫秒         | Number\|String | 100             | -                                                            |
 | refresher-complete-delay <Badge text="2.0.6"/>      | 自定义下拉刷新结束以后延迟收回的时间，单位为毫秒<p style="color:red;">(默认为0，因此看不到刷新结束状态。若需要展示刷新结束状态，请设置一个合适的值，例如200)</p> | Number\|String | 0               | -                                                            |
