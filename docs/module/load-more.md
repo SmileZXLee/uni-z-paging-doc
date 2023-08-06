@@ -1,0 +1,11 @@
+### 底部加载更多模块
+> 针对底部加载更多的处理
+
+### [Props](/api/props/loading-more.html)
+属性配置：控制`是否启用底部加载更多`、控制`底部加载更多距离`、自定义`底部加载更多样式`、`文字`、`图片`等
+### [Slots](/api/slot/main.html#底部加载更多slot)
+插槽：自定义`不同状态下的底部加载更多view`
+### [Methods](/api/methods/main.html#底部加载更多相关方法)
+方法：手动触发`滚动到底部加载更多`
+### [Events](/api/events/main.html#底部加载更多相关事件)
+事件：监听`底部加载更多状态改变`

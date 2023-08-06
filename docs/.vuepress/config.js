@@ -111,8 +111,65 @@ module.exports = {
 				],
 			},
 			{
-				title: 'Props',
+				title: '核心模块',
 				collapsable: false,
+				children: [
+					// SidebarItem
+					{
+						title: '数据处理&布局模块',
+						path: '/module/common',
+						children: [],
+					},
+					{
+						title: '下拉刷新模块',
+						path: '/module/refresher',
+						children: [],
+					},
+					{
+						title: '底部加载更多模块',
+						path: '/module/load-more',
+						children: [],
+					},
+					{
+						title: '空数据与加载失败模块',
+						path: '/module/empty',
+						children: [],
+					},
+					{
+						title: '全屏Loading模块',
+						path: '/module/loading',
+						children: [],
+					},
+					{
+						title: '返回顶部按钮模块',
+						path: '/module/back-to-top',
+						children: [],
+					},
+					{
+						title: '虚拟列表&内置列表模块',
+						path: '/module/virtual-list',
+						children: [],
+					},
+					{
+						title: '聊天记录模式模块',
+						path: '/module/chat-record-mode',
+						children: [],
+					},
+					{
+						title: '列表滚动模块',
+						path: '/module/scroll',
+						children: [],
+					},
+					{
+						title: 'nvue模块',
+						path: '/module/nvue',
+						children: [],
+					}
+				]
+			},
+			{
+				title: 'Props',
+				collapsable: true,
 				children: [
 					// SidebarItem
 					{
@@ -203,7 +260,7 @@ module.exports = {
 				]
 			},
 			{
-				title: 'Slot',
+				title: 'Slots',
 				collapsable: false,
 				path: '/api/slot/main'
 			},
