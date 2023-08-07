@@ -9,3 +9,7 @@
 方法：触发`滚动到顶部加载更多`、`添加聊天记录`
 ### [Events](/api/events/main.html#下拉刷新相关事件)
 事件：监听`聊天记录模式下，触摸列表隐藏了键盘`
+
+### 预览
+<br />
+<img src="https://z-paging.zxlee.cn/public/img/z-paging-demo7.gif" />

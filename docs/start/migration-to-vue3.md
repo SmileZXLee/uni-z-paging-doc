@@ -7,17 +7,17 @@
 
 #### ① `slot="top"` 需要修改为 `v-slot:top`或`#top`，并使用`template`包住：
 
-* `vue2`
-
+<code-group>
+<code-block title="vue2" active>
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
 	<!-- 之前-vue2 -->
 	<view slot="top">我是固定在顶部的view</view>
 </z-paging>
 ```
+</code-block>
 
-* `vue3`
-
+<code-block title="vue3">
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
 	<!-- 之后-vue3 -->
@@ -26,20 +26,22 @@
 	</template>
 </z-paging>
 ```
+</code-block>
+</code-group>
 
 #### ② `slot-scope`写法调整：
 
-* `vue2`
-
+<code-group>
+<code-block title="vue2" active>
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
 	<!-- 之前-vue2 -->
 	<custom-refresher slot="refresher" slot-scope="{refresherStatus}" :status="refresherStatus">
 </z-paging>
 ```
+</code-block>
 
-* `vue3`
-
+<code-block title="vue3">
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
 	<!-- 之后-vue3 -->
@@ -48,22 +50,26 @@
 	</template>
 </z-paging>
 ```
+</code-block>
+</code-group>
 
 #### ③ 模块导出写法调整：
 
-* `vue2`
-
+<code-group>
+<code-block title="vue2" active>
 ```js
 // 之前-vue2
 module.exports.X = X;
 ```
+</code-block>
 
-* `vue3`
-
+<code-block title="vue3">
 ```js
 // 之后-vue3
 export default { X };
 ```
+</code-block>
+</code-group>
 
 #### 其他详见uni-app官方文档：[vue2 项目迁移 vue3](https://uniapp.dcloud.io/migration-to-vue3)  
 

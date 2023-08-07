@@ -14,8 +14,10 @@ v2.5.8 (2023-05-03)
 感谢使用^_^
 ```
 ###  ⭐️ 如果您觉得`z-paging`还不错的话，可以点一个star鼓励一下(＾ω＾)👉🏻  [![Github stars](https://img.shields.io/github/stars/smilezxlee/uni-z-paging?logo=GitHub&style=flat)](https://github.com/SmileZXLee/uni-z-paging)
-## 基本使用
-### `选项式api写法(vue2/vue3)`
+## 基本使用  
+
+<code-group>
+<code-block title="选项式api(vue2/3)" active>
 ```html
 <template>
     <z-paging ref="paging" v-model="dataList" @query="queryList">
@@ -48,8 +50,9 @@ v2.5.8 (2023-05-03)
     };
 </script>
 ```
-### `组合式api写法(vue3)`
+</code-block>
 
+<code-block title="组合式api(vue3)">
 ```html  
 <template>
     <z-paging ref="paging" v-model="dataList" @query="queryList">
@@ -77,6 +80,10 @@ v2.5.8 (2023-05-03)
     }
 </script>
 ```
+</code-block>
+</code-group>
+
+
 
 <!-- <center style="margin-bottom:10px;"><img src="https://visitor-badge.glitch.me/badge?page_id=smilezxlee.z-paging" /></center> -->
 <center style="margin-bottom:10px;"><img src="https://api.z-notify.zxlee.cn/v1/public/statistics/8293556910106066944/badge?title=访问人次&style=flat" /></center>

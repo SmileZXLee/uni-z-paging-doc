@@ -1,20 +1,32 @@
-### Slot
+### Slots
 
-::: warning 提示
-`slot`的写法在`vue2`和`vue3`中写法不同，以下示例为`vue2`写法，若需要查看`vue3`中的写法，请[点击这里](../../start/migration-to-vue3.html)
-:::
-
-::: danger 注意
+::: warning 注意
 ① 使用slot插入的view必须是`z-paging`的子view(此view的上一级必须是`z-paging`)，如：
 
+<code-group>
+<code-block title="vue2" active>
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
 	<view slot="top">我是固定在顶部的view</view>
 </z-paging>
 ```
+</code-block>
+
+<code-block title="vue2/3">
+```html
+<z-paging ref="paging" v-model="dataList" @query="queryList">
+	<template #top>
+		<view>我是固定在顶部的view</view>
+	</template>
+</z-paging>
+```
+</code-block>
+</code-group>
 
 ② slot节点不支持通过v-if或v-show动态显示/隐藏，若需要动态控制，可将v-if添加在其子节点上，如：
 
+<code-group>
+<code-block title="vue2" active>
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
 	<view slot="bottom">
@@ -24,6 +36,20 @@
 	</view>
 </z-paging>
 ```
+</code-block>
+
+<code-block title="vue2/3">
+```html
+<z-paging ref="paging" v-model="dataList" @query="queryList">
+	<template #bottom>
+		<view v-if="showBottom">
+			<!-- bottom的内容 -->
+		</view>
+	</template>
+</z-paging>
+```
+</code-block>
+</code-group>
 
 :::
 

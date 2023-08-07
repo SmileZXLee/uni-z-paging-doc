@@ -79,7 +79,7 @@ module.exports = {
 						children: [],
 					},
 					{
-						title: '基本使用',
+						title: '使用示例',
 						path: '/start/use',
 						children: [],
 					},
@@ -111,12 +111,12 @@ module.exports = {
 				],
 			},
 			{
-				title: '核心模块',
+				title: '功能模块',
 				collapsable: false,
 				children: [
 					// SidebarItem
 					{
-						title: '数据处理&布局模块',
+						title: '基础模块(数据处理、页面滚动、本地分页、布局设置)',
 						path: '/module/common',
 						children: [],
 					},
@@ -163,6 +163,11 @@ module.exports = {
 					{
 						title: 'nvue模块',
 						path: '/module/nvue',
+						children: [],
+					},
+					{
+						title: 'i18n模块',
+						path: '/module/i18n',
 						children: [],
 					}
 				]

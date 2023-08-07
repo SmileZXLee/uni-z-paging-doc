@@ -1,10 +1,6 @@
 ::: tip 如何下载demo
-① 在[插件市场](https://ext.dcloud.net.cn/plugin?id=3935)中访问z-paging。<br>
-② 点击【使用HbuilderX导入示例项目】或【下载示例项目ZIP】。
-:::
-
-::: warning 提示
-`slot`的写法在`vue2`和`vue3`中写法不同（其他一致），以下示例为`vue2`写法，若需要查看`vue3`中的写法，请[点击这里](../../start/migration-to-vue3.html)
+* 以下基本使用均为选项式api写法，若需要查询组合式api(setup)写法，请查阅demo  
+* 👉🏻[(demo)示例项目下载](/start/example-download.html)
 :::
 
 ## 基本使用
@@ -55,22 +51,38 @@
 ```
 
 ## 设置自定义emptyView组件示例
-
-* 设置自定义emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理
-
+#### 设置自定义emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理
+<code-group>
+<code-block title="vue2" active>
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
     <!-- 设置自己的emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理 -->
-    <empty-view slot="empty"></empty-view>
+    <empty-view slot="empty" />
     <view class="item" v-for="(item,index) in dataList" :key="index">
         <view class="item-title">{{item.title}}</view>
     </view>
 </z-paging>
 ```
+</code-block>
+
+<code-block title="vue2/3">
+```html
+<z-paging ref="paging" v-model="dataList" @query="queryList">
+    <!-- 设置自己的emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理 -->
+	<template #empty>
+		<empty-view />
+	</template>
+    <view class="item" v-for="(item,index) in dataList" :key="index">
+        <view class="item-title">{{item.title}}</view>
+    </view>
+</z-paging>
+```
+</code-block>
+</code-group>
 
 ## 自定义加载更多各个状态的描述文字示例
 
-* 以修改【没有更多了】状态描述文字为例(将默认的"没有更多了"修改为"我也是有底线的！")
+#### 以修改【没有更多了】状态描述文字为例(将默认的"没有更多了"修改为"我也是有底线的！")
 
 ```html
 <z-paging ref="paging" v-model="dataList" loading-more-no-more-text="我也是有底线的！" @query="queryList">
@@ -83,13 +95,14 @@
 
 ## 自定义下拉刷新view示例
 
-* `use-custom-refresher`需要设置为true(默认为true)，此时将不会使用uni自带的下拉刷新，转为使用z-paging自定义的下拉刷新，通过slot可以插入开发者自定义的下拉刷新view。
+#### `use-custom-refresher`需要设置为true(默认为true)，此时将不会使用uni自带的下拉刷新，转为使用z-paging自定义的下拉刷新，通过slot可以插入开发者自定义的下拉刷新view。
 
+<code-group>
+<code-block title="vue2" active>
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
     <!-- 自定义下拉刷新view -->
-    <!-- 注意注意注意！！QQ小程序或字节跳动小程序中自定义下拉刷新不支持slot-scope，将导致custom-refresher无法显示 -->
-    <!-- 如果是QQ小程序或字节跳动小程序，请参照demo中的sticky-demo.vue中的写法，此处使用slot-scope是为了减少data中无关变量声明，降低依赖 -->
+    <!-- 此处的custom-refresh为demo中自定义的组件，非z-paging的内置组件，请在实际项目中自行创建。这里插入什么view，下拉刷新就显示什么view -->
     <custom-refresher slot="refresher" slot-scope="{refresherStatus}" :status="refresherStatus"></custom-refresher>
     <!-- list数据，建议像下方这样在item外层套一个view，而非直接for循环item，因为slot插入有数量限制 -->
 	<view class="item" v-for="(item,index) in dataList" :key="index">
@@ -97,23 +110,60 @@
 	</view>
 </z-paging>
 ```
+</code-block>
+
+<code-block title="vue2/3">
+```html
+<z-paging ref="paging" v-model="dataList" @query="queryList">
+    <!-- 自定义下拉刷新view -->
+    <template #refresher="{refresherStatus}">
+		<!-- 此处的custom-refresh为demo中自定义的组件，非z-paging的内置组件，请在实际项目中自行创建。这里插入什么view，下拉刷新就显示什么view -->
+		<custom-refresher :status="refresherStatus" />
+	</template>
+	<view class="item" v-for="(item,index) in dataList" :key="index">
+	    <view class="item-title">{{item.title}}</view>
+	</view>
+</z-paging>
+```
+</code-block>
+</code-group>
 
 ## 自定义加载更多各个状态的描述view示例
 
-* 以修改【没有更多了】状态描述view为例
+#### 以修改【没有更多了】状态描述view为例
 
+<code-group>
+<code-block title="vue2" active>
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
     <view class="item" v-for="(item,index) in dataList" :key="index">
         <view class="item-title">{{item.title}}</view>
     </view>
-    <view style="background-color: red" slot="loadingMoreNoMore">这是完全自定义的没有更多数据view</view>
+	<!-- 自定义的没有更多数据view -->
+    <view slot="loadingMoreNoMore" style="background-color: red">这是完全自定义的没有更多数据view</view>
 </z-paging>
 ```
+</code-block>
+
+<code-block title="vue2/3">
+```html
+<z-paging ref="paging" v-model="dataList" @query="queryList">
+    <view class="item" v-for="(item,index) in dataList" :key="index">
+        <view class="item-title">{{item.title}}</view>
+    </view>
+	<!-- 自定义的没有更多数据view -->
+	<template #loadingMoreNoMore>
+		<view style="background-color: red">这是完全自定义的没有更多数据view</view>
+	</template>
+</z-paging>
+```
+</code-block>
+</code-group>
 
 ## 使用页面滚动示例
 
-### `选项式api写法(vue2/vue3)`
+<code-group>
+<code-block title="选项式api(vue2/3)" active>
 ```html
 <!-- 使用页面滚动示例(无需设置z-paging的高度) -->
 <template>
@@ -144,8 +194,9 @@
 	}
 </script>
 ```
+</code-block>
 
-### `组合式api写法(vue3+hooks)`
+<code-block title="组合式api(vue3+hooks)">
 ```html
 <!-- 使用页面滚动示例 -->
 <template>
@@ -176,10 +227,13 @@
 	//其他省略
 </script>
 ```
+</code-block>
+</code-group>
 
 ## 虚拟列表示例
 
-* 一般写法
+<code-group>
+<code-block title="一般写法" active>
 ```html
 <!-- 虚拟列表演示(一般写法) -->
 <template>
@@ -225,7 +279,9 @@
     
 </style>
 ```
-* 兼容写法
+</code-block>
+
+<code-block title="兼容写法">
 ```html
 <!-- 虚拟列表演示(兼容写法) -->
 <!-- 在微信小程序中若使用虚拟列表推荐使用兼容写法，具体写法参见demo中的virtual-list-compatibility-demo -->
@@ -249,9 +305,11 @@
         },
     };
 </script>
-```
-在`/components/zp-public-virtual-cell/zp-public-virtual-cell.vue`文件中
-```html
+
+
+
+<!-- ******************************************************************************************************* -->
+<!-- 在`/components/zp-public-virtual-cell/zp-public-virtual-cell.vue`文件中 -->
 <!-- 当虚拟列表兼容模式渲染的时候，列表中实际上渲染的是这个组件，并且会把当前的item，index和extraData(附加数据)通过props传给这个组件 -->
 <!-- 如果有多个不同的虚拟列表，它们会共用这个组件，这时候可以通过extraData来区分不同的页面 -->
 <template>
@@ -279,7 +337,56 @@
 	}
 </script>
 ```
+</code-block>
+</code-group>
 
 ## i18n示例
 
 * 请参照demo：`i18n-demo.vue`
+
+## 本地分页示例
+```html
+<!-- 本地分页示例 -->
+<template>
+    <z-paging ref="paging" v-model="dataList" @query="queryList">
+        <view class="item" v-for="(item,index) in dataList">
+            <view class="item-title">{{item.title}}</view>
+        </view>
+    </z-paging>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+                dataList: []
+            };
+        },
+        methods: {
+            queryList() {
+              	//这里的请求只是演示，请替换成自己的项目的网络请求
+                this.$request.queryList({ pageNo,pageSize }).then(res => {
+                	//设置本地分页并将数据传给z-paging
+                	this.$refs.paging.setLocalPaging(res.data.list);
+                })
+            }
+        },
+    };
+</script>
+```
+
+## 数据缓存示例
+```html
+<!-- 设置数据缓存示例 -->
+<template>
+    <z-paging ref="paging" v-model="dataList" use-cache cache-key="goodsList" @query="queryList">
+        <view class="item" v-for="(item,index) in dataList">
+            <view class="item-title">{{item.title}}</view>
+        </view>
+    </z-paging>
+</template>
+
+<script>
+    // 与普通模式一致，略
+</script>
+```
