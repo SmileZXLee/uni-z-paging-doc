@@ -50,6 +50,31 @@
 </style>
 ```
 
+## 仅使用下拉刷新示例
+```html  
+<template>
+    <z-paging ref="paging" refresher-only @onRefresh="onRefresh">
+		<!-- 页面内容 -->
+	</z-paging>
+</template>
+
+<script>
+    export default {
+        methods: {
+            // 下拉刷新被触发
+			onRefresh() {
+				// 告知z-paging下拉刷新结束，这样才可以开始下一次的下拉刷新
+				setTimeout(() => {
+					//1.5秒之后停止刷新动画
+					this.$refs.paging.complete();
+				}, 1500)
+			},
+        },
+    };
+</script>
+```
+
+
 ## 设置自定义emptyView组件示例
 #### 设置自定义emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理
 <code-group>

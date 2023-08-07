@@ -13,3 +13,6 @@
 ### 预览
 <br />
 <img src="https://z-paging.zxlee.cn/public/img/z-paging-demo7.gif" />
+
+### 示例
+* 下载[示例项目](/start/example-download.html)查看`chat-history-demo.vue`

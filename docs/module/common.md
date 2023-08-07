@@ -18,6 +18,7 @@
 
 ### 示例
 * [基本使用](/start/use.html#基本使用)
+* [仅使用下拉刷新示例](/start/use.html#仅使用下拉刷新示例)
 
 ### 关于z-paging布局模式
  z-paging布局默认有`固定布局`、`非固定布局`和`页面滚动`三种👇🏻
@@ -28,8 +29,33 @@
 | 页面滚动 | :use-page-scroll="true"`(注意引入mixins，详见props中的说明)` | 可选配置，z-paging`不再是局部滚动的`，也就是z-paging内部相当于不再存在`scroll-view`，可以将z-paging想象成普通的view容器，列表内容会将其撑高，z-paging的`高度由列表内容决定`。<br />适用场景：下拉刷新需要从页面的某个view下方开始；或者一些需要使用到页面滚动默认行为的场景 | <img src="/img/pic_page_scroll.png"/> |
 
 #### 关于页面滚动模式，为什么要引入mixins的解释
-在页面滚动模式下，z-paging无法得知当前页面滚动的scrollTop和页面是否滚动到底部了，因此必须监听页面滚动相关事件并将其通知给z-paging；使得z-paging可以作出相应的响应
-
+在页面滚动模式下，z-paging无法得知当前页面滚动的scrollTop和页面是否滚动到底部了，因此必须监听页面滚动相关事件并将其通知给z-paging；使得z-paging可以作出相应的响应。
+mixins中核心代码&解释说明如下👇🏻
+```js
+export default {
+    // 当页面的系统下拉刷新事件被触发（绝大多数情况不用写，因为z-paging默认使用的是内部的下拉刷新）
+	onPullDownRefresh() {
+        // 调用z-paging的reload方法，刷新列表
+		this.$refs.paging.reload().catch(() => {});
+	},
+    // 当页面滚动事件被触发
+	onPageScroll(e) {
+        // 更新z-paging内部的scrollTop
+        // 这是必须的，因为z-paging在页面滚动模式中是通过scrollTop判断当前是否可以进行下拉刷新的。
+        // 若scrollTop > 10时不允许下拉刷新，仅允许滚动；因此没有调用此方法会导致在任意位置都能下拉刷新
+		this.$refs.paging.updatePageScrollTop(e.scrollTop);
+        // 如果滚动到顶部，则触发聊天记录模式下的加载更多聊天记录（仅聊天记录模式需要）
+		e.scrollTop < 10 && this.$refs.paging.doChatRecordLoadMore();
+	},
+    // 当页面滚动到底部事件被触发
+	onReachBottom() {
+        // 通知z-paging滚动到底部了，z-paging会进行相应的处理，例如加载更多数据
+		this.$refs.paging.pageReachBottom();
+	}
+}
+```
+由上可知，实际上mixins引入不是必须的，mixins或hooks本身只是为了减少重复的代码，您完全可以根据mixins中的内容自行处理页面滚动的情况；  
+当理解了以上说明以后，您也就可以游刃有余地处理`在子组件内使用z-paging如何引入mixins的问题`了。只需要遵循一个原则：`将页面滚动相关的事件通知给z-paging`即可。
 
 
 
