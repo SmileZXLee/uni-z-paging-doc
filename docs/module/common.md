@@ -26,7 +26,7 @@
 | --------------------- | ---------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------- |
 | 固定布局`(默认)` | :fixed="true"                                              | 默认配置，z-paging为`position: fixed`并`铺满整个页面`，`脱离页面文档流`。z-paging标签外的view`都会被它盖住或盖住它`。建议：页面中所有元素写在z-paging标签内(包括自定义的导航栏或者自定义的tabbar)，如果需要固定在顶部的则放在`slot="top"`中，固定在底部的放在`slot="bottom"`，此时z-paging是`局部滚动`的。<br />适用场景：一般的页面列表分页 | <img src="/img/pic_fixed.png" style="width: 200"/>       |
 | 非固定布局 | :fixed="false"                                             | 可选配置，z-paging不再是`position: fixed`；但z-paging依然是局部滚动，可以将z-paging标签想象成`scroll-view`，因此您`必须给它(或给它的父view)确定的高度`，因为局部滚动必须确定滚动的范围。<br />适用场景：在`弹窗内部`、`swiper内部`等需要局部滚动的场景 | <img src="/img/pic_not_fixed.png"/>   |
-| 页面滚动 | :use-page-scroll="true"`(注意引入mixins，详见props中的说明)` | 可选配置，z-paging`不再是局部滚动的`，也就是z-paging内部相当于不再存在`scroll-view`，可以将z-paging想象成普通的view容器，列表内容会将其撑高，z-paging的`高度由列表内容决定`。<br />适用场景：下拉刷新需要从页面的某个view下方开始；或者一些需要使用到页面滚动默认行为的场景 | <img src="/img/pic_page_scroll.png"/> |
+| 页面滚动 | :use-page-scroll="true"`(注意引入mixins，详见props中的说明)` | 可选配置，z-paging`不再是局部滚动的`，也就是z-paging内部相当于不再存在`scroll-view`，可以将z-paging想象成普通的view容器，列表内容会将其撑高，z-paging的`高度由列表内容决定`。<br />适用场景：下拉刷新需要从页面的某个view下方开始；或者一些需要使用到页面滚动默认行为的场景(例如页面滚动联动导航栏透明度改变) | <img src="/img/pic_page_scroll.png"/> |
 
 #### 关于页面滚动模式，为什么要引入mixins的解释
 在页面滚动模式下，z-paging无法得知当前页面滚动的scrollTop和页面是否滚动到底部了，因此必须监听页面滚动相关事件并将其通知给z-paging；使得z-paging可以作出相应的响应。

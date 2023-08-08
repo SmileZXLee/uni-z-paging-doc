@@ -11,13 +11,11 @@
 
 ```html  
 <template>
-    <view class="content">
-        <z-paging ref="paging" v-model="dataList" @query="queryList">
-            <view class="item" v-for="(item,index) in dataList">
-                <view class="item-title">{{item.title}}</view>
-            </view>
-        </z-paging>
-    </view>
+    <z-paging ref="paging" v-model="dataList" @query="queryList">
+		<view class="item" v-for="(item,index) in dataList">
+			<view class="item-title">{{item.title}}</view>
+		</view>
+	</z-paging>
 </template>
 
 <script>
@@ -192,16 +190,14 @@
 ```html
 <!-- 使用页面滚动示例(无需设置z-paging的高度) -->
 <template>
-	<view class="content">
-		<!-- 此时使用了页面的滚动，z-paging不需要有确定的高度，use-page-scroll需要设置为true -->
-		<!-- 注意注意！！这里的ref必须设置且必须等于"paging"，否则mixin方法无效 -->
-		<z-paging ref="paging" v-model="dataList" use-page-scroll @query="queryList">
-			<!-- 如果希望其他view跟着页面滚动，可以放在z-paging标签内 -->
-			<view class="item" v-for="(item,index) in dataList" :key="index">
-				<view class="item-title">{{item.title}}</view>
-			</view>
-		</z-paging>
-	</view>
+	<!-- 此时使用了页面的滚动，z-paging不需要有确定的高度，use-page-scroll需要设置为true -->
+	<!-- 注意注意！！这里的ref必须设置且必须等于"paging"，否则mixin方法无效 -->
+	<z-paging ref="paging" v-model="dataList" use-page-scroll @query="queryList">
+		<!-- 如果希望其他view跟着页面滚动，可以放在z-paging标签内 -->
+		<view class="item" v-for="(item,index) in dataList" :key="index">
+			<view class="item-title">{{item.title}}</view>
+		</view>
+	</z-paging>
 </template>
 
 <script>
@@ -225,15 +221,13 @@
 ```html
 <!-- 使用页面滚动示例 -->
 <template>
-	<view class="content">
-		<!-- 此时使用了页面的滚动，z-paging不需要有确定的高度，use-page-scroll需要设置为true -->
-		<z-paging ref="paging" v-model="dataList" use-page-scroll @query="queryList">
-			<!-- 如果希望其他view跟着页面滚动，可以放在z-paging标签内 -->
-			<view class="item" v-for="(item,index) in dataList" :key="index">
-				<view class="item-title">{{item.title}}</view>
-			</view>
-		</z-paging>
-	</view>
+	<!-- 此时使用了页面的滚动，z-paging不需要有确定的高度，use-page-scroll需要设置为true -->
+	<z-paging ref="paging" v-model="dataList" use-page-scroll @query="queryList">
+		<!-- 如果希望其他view跟着页面滚动，可以放在z-paging标签内 -->
+		<view class="item" v-for="(item,index) in dataList" :key="index">
+			<view class="item-title">{{item.title}}</view>
+		</view>
+	</z-paging>
 </template>
 
 <script setup>
@@ -262,22 +256,20 @@
 ```html
 <!-- 虚拟列表演示(一般写法) -->
 <template>
-	<view class="content">
-		<!-- 如果页面中的cell高度是固定不变的，则不需要设置cell-height-mode，如果页面中高度是动态改变的，则设置cell-height-mode="dynamic" -->
-		<z-paging ref="paging" use-virtual-list @query="queryList">
-			<!-- 通过slot="cell"插入列表for循环的cell，slot-scope中提供当前for循环的item和index -->
-			<!-- 因字节跳动小程序不支持slot-scope，因此不支持字节跳动小程序 -->
-			<view slot="cell" slot-scope="{item,index}">
-				<view class="item-title">{{item.title}}</view>
-			</view>
-			<!-- vue3中写法如下 -->
-			<!-- 
-			<template v-slot:cell="{item,index}">
-				<view class="item-title">{{item.title}}</view>
-			</template> 
-			-->
-		</z-paging>
-	</view>
+	<!-- 如果页面中的cell高度是固定不变的，则不需要设置cell-height-mode，如果页面中高度是动态改变的，则设置cell-height-mode="dynamic" -->
+	<z-paging ref="paging" use-virtual-list @query="queryList">
+		<!-- 通过slot="cell"插入列表for循环的cell，slot-scope中提供当前for循环的item和index -->
+		<!-- 因字节跳动小程序不支持slot-scope，因此不支持字节跳动小程序 -->
+		<view slot="cell" slot-scope="{item,index}">
+			<view class="item-title">{{item.title}}</view>
+		</view>
+		<!-- vue3中写法如下 -->
+		<!-- 
+		<template v-slot:cell="{item,index}">
+			<view class="item-title">{{item.title}}</view>
+		</template> 
+		-->
+	</z-paging>
 </template>
 
 <script>
@@ -312,13 +304,11 @@
 <!-- 在微信小程序中若使用虚拟列表推荐使用兼容写法，具体写法参见demo中的virtual-list-compatibility-demo -->
 <!-- 使用虚拟列表兼容写法时必须手动在z-paging的源代码z-paging.vue中搜索zp-public-virtual-cell并打开相关注释 -->
 <template>
-	<view class="content">
-		<!-- 如果页面中的cell高度是固定不变的，则不需要设置cell-height-mode，如果页面中高度是动态改变的，则设置cell-height-mode="dynamic" -->
-		<z-paging ref="paging" use-virtual-list use-compatibility-mode :extra-data="{id:'test1'}" @query="queryList">
-			<!-- 以下内容极为重要！！！！！！！！ -->
-			<!-- cell中的内容必须写在zp-public-virtual-cell组件中，必须在项目的components目录下创建名为zp-public-virtual-cell的组件 -->
-		</z-paging>
-	</view>
+	<!-- 如果页面中的cell高度是固定不变的，则不需要设置cell-height-mode，如果页面中高度是动态改变的，则设置cell-height-mode="dynamic" -->
+	<z-paging ref="paging" use-virtual-list use-compatibility-mode :extra-data="{id:'test1'}" @query="queryList">
+		<!-- 以下内容极为重要！！！！！！！！ -->
+		<!-- cell中的内容必须写在zp-public-virtual-cell组件中，必须在项目的components目录下创建名为zp-public-virtual-cell的组件 -->
+	</z-paging>
 </template>
 
 <script>

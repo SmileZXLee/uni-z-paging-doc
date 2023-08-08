@@ -81,19 +81,17 @@ export default { X };
 
 ```html  
 <template>
-    <view class="content">
-        <z-paging ref="paging" v-model="dataList" @query="queryList">
-            <view class="item" v-for="(item,index) in dataList">
-                <view class="item-title">{{item.title}}</view>
-            </view>
-        </z-paging>
-    </view>
+    <z-paging ref="paging" v-model="dataList" @query="queryList">
+		<view class="item" v-for="(item,index) in dataList">
+			<view class="item-title">{{item.title}}</view>
+		</view>
+	</z-paging>
 </template>
 
 <script setup>
     import { ref } from 'vue';
     const paging = ref(null)
-    let dataList = ref([])
+    const dataList = ref([])
     
     const queryList = (pageNo, pageSize) => {
         //这里的pageNo和pageSize会自动计算好，直接传给服务器即可
@@ -119,15 +117,13 @@ export default { X };
 ```html
 <!-- 使用页面滚动示例 -->
 <template>
-	<view class="content">
-		<!-- 此时使用了页面的滚动，z-paging不需要有确定的高度，use-page-scroll需要设置为true -->
-		<z-paging ref="paging" v-model="dataList" use-page-scroll @query="queryList">
-			<!-- 如果希望其他view跟着页面滚动，可以放在z-paging标签内 -->
-			<view class="item" v-for="(item,index) in dataList" :key="index">
-				<view class="item-title">{{item.title}}</view>
-			</view>
-		</z-paging>
-	</view>
+	<!-- 此时使用了页面的滚动，z-paging不需要有确定的高度，use-page-scroll需要设置为true -->
+	<z-paging ref="paging" v-model="dataList" use-page-scroll @query="queryList">
+		<!-- 如果希望其他view跟着页面滚动，可以放在z-paging标签内 -->
+		<view class="item" v-for="(item,index) in dataList" :key="index">
+			<view class="item-title">{{item.title}}</view>
+		</view>
+	</z-paging>
 </template>
 
 <script setup>
@@ -138,7 +134,7 @@ export default { X };
 	
     const paging = ref(null)
 	
-    let dataList = ref([])
+    const dataList = ref([])
 	
 	//类似mixins，如果是页面滚动务必要写这一行，并传入当前ref绑定的paging，注意此处是paging，而非paging.value
 	useZPaging(paging)
