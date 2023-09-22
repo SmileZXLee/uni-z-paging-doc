@@ -3,7 +3,7 @@
 ### [基本数据&布局Props](/api/props/common.html)
 属性配置：设置`v-model数据源`、控制`初始pageNo&pageSize`、设置`页面滚动`、设置`fixed布局`、设置`底部安全区域适配`、设置`z-paging宽高&背景色`、设置`下拉刷新&加载更多主题色`等
 ### [reload方法相关Props](/api/props/reload.html)
-属性配置：设置`mounted后自动调用reload方法`、设置`reload时是否自动滚动到顶部`、设置`reload时是否立即自动清空原list`、设置`reload时是否自动显示下拉刷新view`等
+属性配置：设置`mounted后是否自动触发queryList`、设置`reload时是否自动滚动到顶部`、设置`reload时是否立即自动清空原list`、设置`reload时是否自动显示下拉刷新view`等
 ### [Slots](/api/slot/main.html#主体布局slot)
 插槽：自定义`z-paging上下左右四个位置插槽`  
 > 上下左右四个插槽位置草图   

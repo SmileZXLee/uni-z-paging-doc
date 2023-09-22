@@ -2,7 +2,7 @@
 > 针对聊天记录模式的处理
 
 ### [Props](/api/props/chat-record-mode.html)
-属性配置：控制`是否启用聊天记录模式`、控制`聊天记录模式时是否自动隐藏键盘`
+属性配置：设置`是否启用聊天记录模式`、设置`聊天记录模式时是否自动隐藏键盘`
 ### [Slots](/api/slot/main.html#聊天记录模式slot)
 插槽：自定义`聊天记录模式时自定义顶部加载更多view`
 ### [Methods](/api/methods/main.html#聊天记录模式相关方法)
