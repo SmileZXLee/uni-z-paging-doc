@@ -8,11 +8,11 @@
 :::
 
 ## 数据刷新&处理方法
-
 | 方法名                                             | 说明                                                         | 参数                                                         |
 | -------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | reload                                             | 重新加载分页数据，pageNo恢复为默认值，相当于下拉刷新的效果<p>(触发reload后相关配置可查阅[reload相关配置](/api/props/reload.html))</p> | `参数1(非必填)`:(传true或false，默认为false)reload时是否展示下拉刷新动画，默认为否<br /><Badge text="2.5.3"/> `返回值(return)`: `Promise(resolve({totalList, noMore}), reject)`获取本次操作请求结束后的【总列表】和【是否有更多数据】 |
 | refresh <Badge text="2.0.4"/>                      | 刷新列表数据，pageNo和pageSize不会重置，列表数据会重新从服务端获取。<p style="color:red;">(必须保证@query绑定的方法中的pageNo和pageSize和传给服务端的一致)</p> | <Badge text="2.5.3"/> `返回值(return)`:`Promise(resolve({totalList, noMore}), reject)`获取本次操作请求结束后的【总列表】和【是否有更多数据】 |
+| refreshToPage <Badge text="2.5.9"/>                | 刷新列表数据至指定页。<p style="color:red;">(必须保证@query绑定的方法中的pageNo和pageSize和传给服务端的一致)</p> | `参数1(必填)`:目标页数，例如目标页数=5时则代表刷新列表至第5页，此时pageNo会变为5，列表会展示前5页的数据<br /><Badge text="2.5.3"/> `返回值(return)`:`Promise(resolve({totalList, noMore}), reject)`获取本次操作请求结束后的【总列表】和【是否有更多数据】 |
 | complete                                           | 请求结束(成功或者失败)调用此方法，将请求的结果传递给z-paging处理，会自动判断是否有更多数据(当通过complete传进去的数组长度小于pageSize时，则判定为没有更多了)。<p style="color:red;">(全局错误处理：当请求失败时，也必须调用complete，可在封装的全局网络请求错误的地方书写：`uni.$emit('z-paging-error-emit');`  即可将当前加载中状态的z-paging设置为请求失败状态，无需在每个页面中写`this.$refs.paging.complete(false)`)</p><p style="color:red;"><Badge text="2.1.9"/>(全局complete：当请求成功时，可在封装的全局网络请求成功的地方书写：`uni.$emit('z-paging-complete-emit',请求结果数组);`  则无需在每个页面中写`this.$refs.paging.complete(请求结果数组)`)。对于下方的`completeByXXX`，需使用`uni.$emit('z-paging-complete-emit',{type:xxx,list:请求结果数组,rule:对应方法completeByXXX中参数2的值});`，例如，需要全局表示`completeByTotal`则写法为`uni.$emit('z-paging-complete-emit',{type:'total',list:请求结果数组,rule:total的值})`。附type枚举值：'total'、'nomore'、'key'。<br>ps：若当前页面(组件示例)中调用了z-paging的`complete`及相关方法，则当次全局complete将失效，以避免重复添加数据的问题</p><p style="color:red;font-weight:bold">(特别注意：全局emit的规则为：当z-paging接收到错误或完成的全局emit事件时，若当前状态为"加载中"，则处理对应的错误或完成事件。因此若您的项目可能存在多个z-paging实例同时处于"加载中"状态，不建议使用全局emit处理，否则将可能导致数据错乱！)</p> | `参数1(必填)`:请求结果数组；<br>`参数2(非必填)`:是否请求成功，不填默认为true。<br><p style="color:red;">请求失败时直接调用：`this.$refs.paging.complete(false)`; 即可；如果只是想表达请求结束，则调用：`this.$refs.paging.complete()`; 即可</p><br /><Badge text="2.5.3"/> `返回值(return)`: `Promise(resolve({totalList, noMore}), reject)`获取本次操作请求结束后的【总列表】和【是否有更多数据】 |
 | completeByTotal <Badge text="2.0.6"/>              | 【通过total判断是否有更多数据】请求结束(成功或者失败)调用此方法，将请求的结果传递给z-paging处理<p style="color:red;">(将此方法替换`complete`方法即可，此方法为`complete`方法的功能扩展，遵循`complete`原有规则)</p> | `参数1(必填)`:请求结果数组；<br/>`参数2(必填)`:total(列表总长度)<br/>`参数3(非必填)`:是否请求成功，不填默认为true<br /><Badge text="2.5.3"/> `返回值(return)`: `Promise(resolve({totalList, noMore}), reject)`获取本次操作请求结束后的【总列表】和【是否有更多数据】 |
 | completeByNoMore <Badge text="1.9.2"/>             | 【自行判断是否有更多数据】请求结束(成功或者失败)调用此方法，将请求的结果传递给z-paging处理<p style="color:red;">(将此方法替换`complete`方法即可，此方法为`complete`方法的功能扩展，遵循`complete`原有规则)</p> | `参数1(必填)`:请求结果数组；<br/>`参数2(必填)`:是否有没有更多数据，若为true则代表没有更多数据了(`v2.5.1`之前的版本与此相反)，如果在某个时刻`参数1`传入了空数组，也代表着没有更多数据了；<br/>`参数3(非必填)`:是否请求成功，不填默认为true<br /><Badge text="2.5.3"/> `返回值(return)`: `Promise(resolve({totalList, noMore}), reject)`获取本次操作请求结束后的【总列表】和【是否有更多数据】 |
@@ -44,10 +44,12 @@
 
 ## 虚拟列表相关方法
 
-| 方法名                                         | 说明                                                         | 参数                                                |
-| ---------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------- |
-| didUpdateVirtualListCell <Badge text="2.4.0"/> | 在使用动态高度虚拟列表时，手动更新指定cell的缓存高度(当cell高度在初始化之后再次改变时调用) | `参数1(必填)`:需要更新的cell在列表中的位置，从0开始 |
-| didDeleteVirtualListCell <Badge text="2.4.0"/> | 在使用动态高度虚拟列表时，若删除了列表数组中的某个item，需要调用此方法以更新高度缓存数组 | `参数1(必填)`:需要更新的cell在列表中的位置，从0开始 |
+| 方法名                                         | 说明                                                         | 参数                                                         |
+| ---------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| doInsertVirtualListItem <Badge text="2.5.9"/>  | 在使用动态高度虚拟列表时，若在列表数组中需要插入某个item，需要调用此方法 | `参数1(必填)`:插入的数据项<br>`参数2(必填)`:插入的cell位置，若为2，则插入的item在原list的index=1之后，从0开始 |
+| didUpdateVirtualListCell <Badge text="2.4.0"/> | 在使用动态高度虚拟列表时，手动更新指定cell的缓存高度(当cell高度在初始化之后再次改变时调用) | `参数1(必填)`:需要更新的cell在列表中的位置，从0开始          |
+| didDeleteVirtualListCell <Badge text="2.4.0"/> | 在使用动态高度虚拟列表时，若删除了列表数组中的某个item，需要调用此方法以更新高度缓存数组 | `参数1(必填)`:需要更新的cell在列表中的位置，从0开始          |
+
 
 ## 本地分页相关方法
 

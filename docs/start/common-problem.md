@@ -23,6 +23,17 @@
 ## 为什么在nvue中，`v-model`绑定的数据源有数据，但是列表却空白，没有渲染？
 因为在nvue中，z-paging内置默认使用的是`list`组件，因此z-paging的子组件必须是`<cell />`或`<z-paging-cell />`
 
+## 为什么在nvue中，第一页可以正常滚动到底部加载更多，第二页滚动到底部的时候显示"点击加载更多"？
+在nvue中，z-paging默认会被渲染为`<list />`标签(<span style="fontWeight: bold">使用list组件的性能高于使用view或scroll-view的滚动。原因在于list在不可见部分的渲染资源回收有特殊的优化处理</span>)，因此此时z-paging中的view必须是`<cell />`、`<header />`等`<list />`独有的子组件。<span style="fontWeight: bold">ps：`<cell />`仅可用于nvue，`.nvue`结尾的文件在非app平台将被编译为`.vue`；若需要在nvue中渲染为`<cell />`，在vue中渲染为`<view />`，则可以使用`<z-paging-cell />`标签</span>  
+写法示例👇🏻
+```html
+<z-paging ref="paging" v-model="dataList" @query="queryList">
+    <cell class="item" v-for="(item,index) in dataList" :key="item.id" @click="itemClick(item)">
+        <text class="item-title">{{item.title}}</text>
+    </cell>
+</z-paging>
+```
+
 ## 为什么z-paging列表在h5和app平台中可以显示，但是在微信小程序中一片空白？
 可能是因为给z-paging设置了`:fixed="false"`，此时z-paging不是铺满全屏的，这时候它需要有确定的高度。您可能是通过style或者class设置了高度，这在微信小程序中是无效的，请通过`height="100px"`或`:paging-style="{height: '100px'}"`进行设置，或给z-paging的父容器设置确定的高度。
 
@@ -57,7 +68,7 @@
 z-paging中`complete`方法中默认判断有无更多数据的规则是：当`complete`中参数的数组长度小于`pageSize`即判断为没有更多数据，当列表总数为10是，因为第一页请求返回的数组长度为10，不小于`pageSize`，则允许加载更多，第二页请求返回0条数据，才展示没有更多。  
 您可以通过`completeByTotal(请求结果数组，列表总长度)`来代替`complete`，则可以通过total来判断有无更多数据。
 
-## 为什么滚动到底部加载更多可以不断触发，后面每页数据都是重复的？
+## 为什么滚动到底部加载更多可以不断触发，后面每页数据都是重复的？或明明有下一页数据，但是底部显示"没有更多了"?
 z-paging中`complete`方法中默认判断有无更多数据的规则是：当`complete`中参数的数组长度小于`pageSize`即判断为没有更多数据，当列表总数为10是，因为第一页请求返回的数组长度为10，不小于`pageSize`，则允许加载更多，第二页请求返回0条数据，才展示没有更多。  
 有些后端返回分页数据规则是没有对应页面的数据时返回第一页数据，因此无法自动判断是否已经没有更多数据了。  
 您可以通过`completeByTotal(请求结果数组，列表总长度)`来代替`complete`，则可以通过total来判断有无更多数据。
@@ -83,3 +94,6 @@ queryList(pageNo, pageSize) {
 
 ## 为什么在微信小程序中我将dataList赋值内子组件，子组件内的列表无法渲染？
 可能是传给子组件的props为使用驼峰命名，例如`<list :data-list="dataList" />`，请修改为`<list :dataList="dataList" />`。
+
+## 为什么在vue3中使用uview-plus时，滚动到顶部按钮点击无效？
+此为`uview-plus`的问题，您可以尝试在引入`uview-plus`的项目中写一个普通的scroll-view，并尝试通过js将其滚动到顶部，代码可参照uniapp官方：[https://uniapp.dcloud.net.cn/component/scroll-view.html](https://uniapp.dcloud.net.cn/component/scroll-view.html)，滚动到顶部同样失效，请与`uview-plus`开发者反馈。

@@ -166,7 +166,7 @@ module.exports = {
 						children: [],
 					},
 					{
-						title: 'i18n模块',
+						title: 'i18n国际化模块',
 						path: '/module/i18n',
 						children: [],
 					}
