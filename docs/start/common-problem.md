@@ -24,7 +24,7 @@
 因为在nvue中，z-paging内置默认使用的是`list`组件，因此z-paging的子组件必须是`<cell />`或`<z-paging-cell />`
 
 ## 为什么在nvue中，第一页可以正常滚动到底部加载更多，第二页滚动到底部的时候显示"点击加载更多"？
-在nvue中，z-paging默认会被渲染为`<list />`标签(<span style="fontWeight: bold">使用list组件的性能高于使用view或scroll-view的滚动。原因在于list在不可见部分的渲染资源回收有特殊的优化处理</span>)，因此此时z-paging中的view必须是`<cell />`、`<header />`等`<list />`独有的子组件。<span style="fontWeight: bold">ps：`<cell />`仅可用于nvue，`.nvue`结尾的文件在非app平台将被编译为`.vue`；若需要在nvue中渲染为`<cell />`，在vue中渲染为`<view />`，则可以使用`<z-paging-cell />`标签</span>  
+在nvue中，z-paging默认会被渲染为`<list />`标签(<span style="fontWeight: bold">使用list组件的性能高于使用view或scroll-view的滚动。原因在于list在不可见部分的渲染资源回收有特殊的优化处理</span>)，因此此时z-paging中的view必须是`<cell />`、`<header />`等`<list />`独有的子组件，<span style="fontWeight: bold;color: red">且v-for必须写在cell标签上</span>。<br /><span style="fontWeight: bold">ps：`<cell />`仅可用于nvue，`.nvue`结尾的文件在非app平台将被编译为`.vue`；若需要在nvue中渲染为`<cell />`，在vue中渲染为`<view />`，则可以使用`<z-paging-cell />`标签</span>  
 写法示例👇🏻
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
