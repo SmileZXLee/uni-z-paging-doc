@@ -28,9 +28,15 @@
 
 | 事件名                                    | 说明                           | 回调参数                                                     |
 | ----------------------------------------- | ------------------------------ | ------------------------------------------------------------ |
-| @emptyViewReload <Badge text="1.8.0"/>    | 点击了空数据图中的重新加载按钮 | 点击重新加载后是否进行reload操作，默认为是。<br>如果需要禁止reload事件，则在page的methods中书写：<p style="font-weight:bold;">emptyViewReload(e){<br/> e(false);<br/>  //处理自己的业务逻辑<br/>}</p> |
+| @emptyViewReload <Badge text="1.8.0"/>    | 点击了空数据图中的重新加载按钮 | 点击重新加载后是否进行reload操作，默认为是。<br>如果需要禁止reload事件，则在page的methods中书写：<p style="font-weight:bold;">emptyViewReload(e) {<br/> &nbsp;&nbsp;&nbsp;&nbsp;e(false);<br/>  &nbsp;&nbsp;&nbsp;&nbsp;//处理自己的业务逻辑<br/>}</p> |
 | @emptyViewClick <Badge text="2.3.3"/>     | 点击了空数据图view             | -                                                            |
 | @isLoadFailedChange <Badge text="2.5.0"/> | `z-paging`请求失败状态改变     | 当前是否是请求失败状态，为true代表是，反之为否；默认状态为否 |
+
+## 返回顶部按钮相关事件
+
+| 事件名                                | 说明               | 回调参数                                                     |
+| ------------------------------------- | ------------------ | ------------------------------------------------------------ |
+| @backToTopClick <Badge text="2.6.1"/> | 点击了返回顶部按钮 | 点击返回顶部按钮后是否滚动到顶部，默认为是。<br>如果需要禁止滚动到顶部事件，则在page的methods中书写：<p style="font-weight:bold;">backToTopClick(e) {<br/> &nbsp;&nbsp;&nbsp;&nbsp;e(false);<br/>  &nbsp;&nbsp;&nbsp;&nbsp;//处理自己的业务逻辑<br/>}</p> |
 
 ## 虚拟列表&内置列表相关事件
 

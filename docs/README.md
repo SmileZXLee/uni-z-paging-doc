@@ -9,11 +9,11 @@
  /___|    | .__/ \__,_|\__, |_|_| |_|\__, |
           |_|          |___/         |___/   文档
 —————————————————————————————————————————————————
-v2.6.0 (2023-10-17)
+v2.6.1 (2023-10-29)
 - by ZXLee 
 感谢使用^_^
 ```
-###  ⭐️ 如果您觉得`z-paging`还不错的话，可以点一个star鼓励一下(＾ω＾)👉🏻  [![Github stars](https://img.shields.io/github/stars/smilezxlee/uni-z-paging?logo=GitHub&style=flat)](https://github.com/SmileZXLee/uni-z-paging)
+###  ⭐️ 开源不易~ 如果您觉得`z-paging`还不错的话，可以点一个star鼓励一下(＾ω＾)👉🏻  [![Github stars](https://img.shields.io/github/stars/smilezxlee/uni-z-paging?logo=GitHub&style=flat)](https://github.com/SmileZXLee/uni-z-paging)
 ## 基本使用  
 
 <code-group>
