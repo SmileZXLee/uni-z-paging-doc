@@ -12,7 +12,7 @@
 ```html  
 <template>
     <z-paging ref="paging" v-model="dataList" @query="queryList">
-		<view class="item" v-for="(item,index) in dataList">
+		<view class="item" v-for="(item,index) in dataList" :key="index">
 			<view class="item-title">{{item.title}}</view>
 		</view>
 	</z-paging>
