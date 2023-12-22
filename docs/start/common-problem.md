@@ -96,4 +96,12 @@ queryList(pageNo, pageSize) {
 可能是传给子组件的props为使用驼峰命名，例如`<list :data-list="dataList" />`，请修改为`<list :dataList="dataList" />`。
 
 ## 为什么在vue3中使用uview-plus时，滚动到顶部按钮点击无效？
-此为`uview-plus`的问题，您可以尝试在引入`uview-plus`的项目中写一个普通的scroll-view，并尝试通过js将其滚动到顶部，代码可参照uniapp官方：[https://uniapp.dcloud.net.cn/component/scroll-view.html](https://uniapp.dcloud.net.cn/component/scroll-view.html)，滚动到顶部同样失效，请与`uview-plus`开发者反馈。
+此为`uview-plus`的问题，您可以尝试在引入`uview-plus`的项目中写一个普通的scroll-view，并尝试通过js将其滚动到顶部，代码可参照uniapp官方：[https://uniapp.dcloud.net.cn/component/scroll-view.html](https://uniapp.dcloud.net.cn/component/scroll-view.html)，滚动到顶部同样失效，请与`uview-plus`开发者反馈。  
+
+## 为什么在iPhone + tabbar页面中，跳转到非tabbar页面后返回，底部有一段空白间距
+请在tabbar页面的`onShow`方法中手动更新一下布局(需要v2.6.5或以上版本)
+```js
+onShow() {
+	this.$refs.paging && this.$refs.paging.updateFixedLayout();
+}
+```

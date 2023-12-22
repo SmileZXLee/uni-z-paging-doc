@@ -10,6 +10,12 @@
 `z-paging`的所有版本更新都会尽可能兼容低版本写法，更新版本之后可能出现的不兼容之处都会在下方列出。  
 :::
 
+## `V2.6.5+`
+
+* 由V2.6.5起，【全局配置】`在路径@/uni_modules/z-paging下创建z-paging-config.js`废弃
+* 由V2.6.5起，【全局配置】在`main.js`中`import zConfig from '@/uni_modules/z-paging/components/z-paging/js/z-paging-config'`(此路径为使用uni_modules情况下使用，可依照具体情况进行修改)，然后进行z-paging的全局配置: `zConfig.setConfig(xxx)` 废弃
+* 新方案可参见👉🏻 [全局配置](/api/props/global-config.html)
+
 ## `V2.5.1+`
 
 * 由V2.5.1起，方法`end`废弃，由`complete`代替

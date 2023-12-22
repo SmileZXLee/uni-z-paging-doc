@@ -43,7 +43,8 @@
 | updatePageScrollTop                           | 当使用页面滚动并且自定义下拉刷新时，请在页面的`onPageScroll`中调用此方法，告知z-paging当前的pageScrollTop，否则会导致在任意位置都可以下拉刷新(若引入了mixins，则不需要调用此方法) | `参数1(必填)`:从page的onPageScroll中获取的scrollTop |
 | updatePageScrollTopHeight                     | 在使用页面滚动并且设置了`slot="top"`时，默认初次加载会自动获取其高度，并使内部容器下移，当`slot="top"`的view高度动态改变时，在其高度需要更新时调用此方法 | -                                                   |
 | updatePageScrollBottomHeight                  | 在使用页面滚动并且设置了`slot="bottom"`时，默认初次加载会自动获取其高度，并使内部容器下移，当`slot="bottom"`的view高度动态改变时，在其高度需要更新时调用此方法 | -                                                   |
-| updateLeftAndRightWidth <Badge text="2.3.5"/> | 更新`slot="left"`和`slot="right"`宽度，当`slot="left"`或`slot="right"`宽度动态改变后调用 | -                                                   |
+| updateLeftAndRightWidth <Badge text="2.3.5"/> | 更新`slot="left"`和`slot="right"`宽度，当`slot="left"`或`slot="right"`宽度动态改变后调用 |                                                     |
+| updateFixedLayout <Badge text="2.6.5"/>       | 更新`fixed`模式下`z-paging`的布局，在`onShow`时候调用，以修复在`iOS+h5+tabbar+fixed+底部有安全区域`的设备中从tabbar页面跳转到无tabbar页面后返回，底部有一段空白区域的问题 | -                                                   |
 
 ## 虚拟列表相关方法
 

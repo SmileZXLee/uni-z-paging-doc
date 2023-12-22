@@ -9,7 +9,7 @@
  /___|    | .__/ \__,_|\__, |_|_| |_|\__, |
           |_|          |___/         |___/   文档
 —————————————————————————————————————————————————
-v2.6.3 (2023-11-30)
+v2.6.6 (2023-12-20)
 - by ZXLee 
 感谢使用^_^
 ```
@@ -86,5 +86,5 @@ v2.6.3 (2023-11-30)
 
 
 <!-- <center style="margin-bottom:10px;"><img src="https://visitor-badge.glitch.me/badge?page_id=smilezxlee.z-paging" /></center> -->
-<center style="margin-bottom:10px;"><img src="https://api.z-notify.zxlee.cn/v1/public/statistics/8293556910106066944/badge?title=访问人次&style=flat" /></center>
+<!-- <center style="margin-bottom:10px;"><img src="https://api.z-notify.zxlee.cn/v1/public/statistics/8293556910106066944/badge?title=访问人次&style=flat" /></center> -->
 <div style="margin-bottom:-80px; display:flex;justify-content: center;font-size:13px;">Copyright 2021-2023 z-paging | <a style="color: #014084;margin-left:5px;" href="https://beian.miit.gov.cn/" target="_blank">闽ICP备17015849号-1</a></div>
