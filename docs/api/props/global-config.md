@@ -8,13 +8,8 @@
 :::
 
 * `(推荐)`【方案1】<Badge text="2.6.5"/> 在路径`main.js`中添加`z-paging`配置`(具体位置没有要求，确保初始化项目执行到即可)`
-
-::: danger 注意
-此方案不支持`vue3+appVue`！！  
-此方案兼容`vue2/3`、`vue/nvue`；但是由于在`vue3+appVue`端，props默认值读取在main.js之前执行，因此在`vue3+appVue`端，`此方案无效`，请使用【方案2】！
-:::
 ```js
-// mian.js
+// main.js
 uni.$zp = {
 	config: {
 		//配置分页默认pageSize为15
@@ -26,8 +21,8 @@ uni.$zp = {
 }
 ```
 
-* 【方案二】<Badge text="2.0.4"/> 在文件 `z-paging/config/index.js`中进行配置，`此方案所有平台兼容`，但是需要注意更新插件时要避免被覆盖。
-> 此配置生效优先级高于【方案1】
+* 【方案2】<Badge text="2.0.4"/> 在文件 `z-paging/config/index.js`中进行配置，`此方案所有平台兼容`，但是需要注意更新插件时要避免被覆盖。
+> 若同时配置了【方案1】，此配置生效优先级高于【方案1】
 ```js
 // z-paging/config/index.js
 module.exports = {
