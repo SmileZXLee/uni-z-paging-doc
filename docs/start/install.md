@@ -20,8 +20,8 @@ z-paging遵循[easycom规范](https://uniapp.dcloud.io/component/README?id=easyc
 ::: warning 注意
 在支付宝和钉钉小程序中，必须在`pages.json`中进行如下设置：
 ```json
-//以下代码可以写在globalStyle中或特定页面的style中
-//支付宝和钉钉小程序需要取消回弹效果
+// 以下代码可以写在globalStyle中或特定页面的style中
+// 支付宝和钉钉小程序需要取消回弹效果
 "mp-alipay": {
   "allowsBounceVertical": "NO"
 }
@@ -31,12 +31,12 @@ z-paging遵循[easycom规范](https://uniapp.dcloud.io/component/README?id=easyc
 ## 通过npm安装
 > 为多端兼容考虑，建议优先从[插件市场](https://ext.dcloud.net.cn/plugin?id=3935)获取插件
 ```bash
-//若项目之前未使用npm管理依赖（项目根目录下无package.json文件），先在项目根目录执行命令初始化npm工程
+// 若项目之前未使用npm管理依赖（项目根目录下无package.json文件），先在项目根目录执行命令初始化npm工程
 npm init -y
 
-//安装
+// 安装
 npm install z-paging --save
-//更新
+// 更新
 npm update z-paging
 ```
 

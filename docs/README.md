@@ -52,6 +52,11 @@ v2.6.9 (2024-01-01)
                 this.$request.queryList({ pageNo,pageSize }).then(res => {
 					// 将请求结果通过complete传给z-paging处理，同时也代表请求结束，这一行必须调用
                 	this.$refs.paging.complete(res.data.list);
+                }).catch(res => {
+                	// 如果请求失败写this.$refs.paging.complete(false)，会自动展示错误页面
+                	// 注意，每次都需要在catch中写这句话很麻烦，z-paging提供了方案可以全局统一处理
+                	// 在底层的网络请求抛出异常时，写uni.$emit('z-paging-error-emit');即可
+                	this.$refs.paging.complete(false);
                 })
             }
         },
@@ -84,7 +89,12 @@ v2.6.9 (2024-01-01)
         request.queryList({ pageNo,pageSize }).then(res => {
 			// 将请求结果通过complete传给z-paging处理，同时也代表请求结束，这一行必须调用
             paging.value.complete(res.data.list);
-        })
+        }).catch(res => {
+			// 如果请求失败写paging.value.complete(false);
+			// 注意，每次都需要在catch中写这句话很麻烦，z-paging提供了方案可以全局统一处理
+			// 在底层的网络请求抛出异常时，写uni.$emit('z-paging-error-emit');即可
+			paging.value.complete(false);
+		})
     }
 </script>
 ```

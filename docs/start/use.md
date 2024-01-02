@@ -27,15 +27,15 @@
         },
         methods: {
             queryList(pageNo, pageSize) {
-              	//这里的pageNo和pageSize会自动计算好，直接传给服务器即可
-              	//这里的请求只是演示，请替换成自己的项目的网络请求，并在网络请求回调中通过this.$refs.paging.complete(请求回来的数组)将请求结果传给z-paging
+              	// 这里的pageNo和pageSize会自动计算好，直接传给服务器即可
+              	// 这里的请求只是演示，请替换成自己的项目的网络请求，并在网络请求回调中通过this.$refs.paging.complete(请求回来的数组)将请求结果传给z-paging
                 this.$request.queryList({ pageNo,pageSize }).then(res => {
-                	//请勿在网络请求回调中给dataList赋值！！只需要调用complete就可以了
+                	// 请勿在网络请求回调中给dataList赋值！！只需要调用complete就可以了
                 	this.$refs.paging.complete(res.data.list);
                 }).catch(res => {
-                	//如果请求失败写this.$refs.paging.complete(false)，会自动展示错误页面
-                	//注意，每次都需要在catch中写这句话很麻烦，z-paging提供了方案可以全局统一处理
-                	//在底层的网络请求抛出异常时，写uni.$emit('z-paging-error-emit');即可
+                	// 如果请求失败写this.$refs.paging.complete(false)，会自动展示错误页面
+                	// 注意，每次都需要在catch中写这句话很麻烦，z-paging提供了方案可以全局统一处理
+                	// 在底层的网络请求抛出异常时，写uni.$emit('z-paging-error-emit');即可
                 	this.$refs.paging.complete(false);
                 })
             }
@@ -63,7 +63,7 @@
 			onRefresh() {
 				// 告知z-paging下拉刷新结束，这样才可以开始下一次的下拉刷新
 				setTimeout(() => {
-					//1.5秒之后停止刷新动画
+					// 1.5秒之后停止刷新动画
 					this.$refs.paging.complete();
 				}, 1500)
 			},
@@ -201,16 +201,16 @@
 </template>
 
 <script>
-	//使用页面滚动时引入此mixin，用于监听和处理onPullDownRefresh等页面生命周期方法(如果全局引入了，就不要这一步，全局引入示例见main.js)
+	// 使用页面滚动时引入此mixin，用于监听和处理onPullDownRefresh等页面生命周期方法(如果全局引入了，就不要这一步，全局引入示例见main.js)
 	import ZPMixin from '@/uni_modules/z-paging/components/z-paging/js/z-paging-mixin'
 	export default {
-		//注意这一步不要漏掉，必须注册mixins(如果全局引入了，就不要这一步，全局引入示例见main.js)
+		// 注意这一步不要漏掉，必须注册mixins(如果全局引入了，就不要这一步，全局引入示例见main.js)
 		mixins: [ZPMixin],
 		data() {
-			//参见demo
+			// 参见demo
 		},
 		methods: {
-			//参见demo
+			// 参见demo
 		}
 	}
 </script>
@@ -232,7 +232,7 @@
 
 <script setup>
 	import { ref } from 'vue';
-	//必须导入需要用到的页面生命周期（即使在当前页面上没有直接使用到）
+	// 必须导入需要用到的页面生命周期（即使在当前页面上没有直接使用到）
 	import { onPageScroll, onReachBottom } from '@dcloudio/uni-app';
 	import useZPaging from "@/uni_modules/z-paging/components/z-paging/js/hooks/useZPaging.js";
 	
@@ -240,10 +240,10 @@
 	
     let dataList = ref([])
 	
-	//类似mixins，如果是页面滚动务必要写这一行，并传入当前ref绑定的paging，注意此处是paging，而非paging.value
+	// 类似mixins，如果是页面滚动务必要写这一行，并传入当前ref绑定的paging，注意此处是paging，而非paging.value
 	useZPaging(paging)
 	
-	//其他省略
+	// 其他省略
 </script>
 ```
 </code-block>
@@ -276,15 +276,15 @@
     export default {
         methods: {
             queryList(pageNo, pageSize) {
-              	//这里的pageNo和pageSize会自动计算好，直接传给服务器即可
-              	//这里的请求只是演示，请替换成自己的项目的网络请求，并在网络请求回调中通过this.$refs.paging.complete(请求回来的数组)将请求结果传给z-paging
+              	// 这里的pageNo和pageSize会自动计算好，直接传给服务器即可
+              	// 这里的请求只是演示，请替换成自己的项目的网络请求，并在网络请求回调中通过this.$refs.paging.complete(请求回来的数组)将请求结果传给z-paging
                 this.$request.queryList({ pageNo,pageSize }).then(res => {
-                	//请勿在网络请求回调中给dataList赋值！！只需要调用complete就可以了
+                	// 请勿在网络请求回调中给dataList赋值！！只需要调用complete就可以了
                 	this.$refs.paging.complete(res.data.list);
                 }).catch(res => {
-                	//如果请求失败写this.$refs.paging.complete(false)，会自动展示错误页面
-                	//注意，每次都需要在catch中写这句话很麻烦，z-paging提供了方案可以全局统一处理
-                	//在底层的网络请求抛出异常时，写uni.$emit('z-paging-error-emit');即可
+                	// 如果请求失败写this.$refs.paging.complete(false)，会自动展示错误页面
+                	// 注意，每次都需要在catch中写这句话很麻烦，z-paging提供了方案可以全局统一处理
+                	// 在底层的网络请求抛出异常时，写uni.$emit('z-paging-error-emit');即可
                 	this.$refs.paging.complete(false);
                 })
             }
@@ -315,7 +315,7 @@
     export default {
         methods: {
             queryList(pageNo, pageSize) {
-              	//代码同虚拟列表(一般写法)
+              	// 代码同虚拟列表(一般写法)
             }
         },
     };
@@ -379,9 +379,9 @@
         },
         methods: {
             queryList() {
-              	//这里的请求只是演示，请替换成自己的项目的网络请求
+              	// 这里的请求只是演示，请替换成自己的项目的网络请求
                 this.$request.queryList({ pageNo,pageSize }).then(res => {
-                	//设置本地分页并将数据传给z-paging
+                	// 设置本地分页并将数据传给z-paging
                 	this.$refs.paging.setLocalPaging(res.data.list);
                 })
             }

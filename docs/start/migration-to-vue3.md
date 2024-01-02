@@ -94,15 +94,15 @@ export default { X };
     const dataList = ref([])
     
     const queryList = (pageNo, pageSize) => {
-        //这里的pageNo和pageSize会自动计算好，直接传给服务器即可
-        //这里的请求只是演示，请替换成自己的项目的网络请求，并在网络请求回调中通过paging.value.complete(请求回来的数组)将请求结果传给z-paging
+        // 这里的pageNo和pageSize会自动计算好，直接传给服务器即可
+        // 这里的请求只是演示，请替换成自己的项目的网络请求，并在网络请求回调中通过paging.value.complete(请求回来的数组)将请求结果传给z-paging
         request.queryList({ pageNo,pageSize }).then(res => {
-        	//请勿在网络请求回调中给dataList赋值！！只需要调用complete就可以了
+        	// 请勿在网络请求回调中给dataList赋值！！只需要调用complete就可以了
             paging.value.complete(res.data.list);
         }).catch(res => {
-        	//如果请求失败写paging.value.complete(false)，会自动展示错误页面
-        	//注意，每次都需要在catch中写这句话很麻烦，z-paging提供了方案可以全局统一处理
-        	//在底层的网络请求抛出异常时，写uni.$emit('z-paging-error-emit');即可
+        	// 如果请求失败写paging.value.complete(false)，会自动展示错误页面
+        	// 注意，每次都需要在catch中写这句话很麻烦，z-paging提供了方案可以全局统一处理
+        	// 在底层的网络请求抛出异常时，写uni.$emit('z-paging-error-emit');即可
         	paging.value.complete(false);
         })
     }
@@ -128,7 +128,7 @@ export default { X };
 
 <script setup>
 	import { ref } from 'vue';
-	//必须导入需要用到的页面生命周期（即使在当前页面上没有直接使用到）
+	 必须导入需要用到的页面生命周期（即使在当前页面上没有直接使用到）
 	import { onPageScroll, onReachBottom } from '@dcloudio/uni-app';
 	import useZPaging from "@/uni_modules/z-paging/components/z-paging/js/hooks/useZPaging.js";
 	
@@ -136,9 +136,9 @@ export default { X };
 	
     const dataList = ref([])
 	
-	//类似mixins，如果是页面滚动务必要写这一行，并传入当前ref绑定的paging，注意此处是paging，而非paging.value
+	// 类似mixins，如果是页面滚动务必要写这一行，并传入当前ref绑定的paging，注意此处是paging，而非paging.value
 	useZPaging(paging)
 	
-	//其他省略
+	// 其他省略
 </script>
 ```
