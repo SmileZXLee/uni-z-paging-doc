@@ -10,6 +10,11 @@
 `z-paging`的所有版本更新都会尽可能兼容低版本写法，更新版本之后可能出现的不兼容之处都会在下方列出。  
 :::
 
+## `V2.7.0+`
+
+* 由V2.7.0起，将vue中的聊天记录模式与nvue中对齐，完全解决了聊天记录模式滚动到顶部加载更多在vue中抖动的问题，同时将聊天记录模式键盘自动弹出自动上推页面交由`z-paging`处理，解决了由此引发的各种问题，尤其是在微信小程序中导航栏被键盘顶出屏幕外的问题。如果您使用了`z-paging`的聊天记录模式，强烈建议更新！  
+写法有一定变更，主要为去除了聊天记录模式`use-chat-record-mode`配置、去除了cell需要添加`:id="z-paging-${index}"`的要求、新增cell需要添加`style="transform: scaleY(-1)"`的要求，具体请下载[示例项目](/start/example-download.html)查看`chat-history-demo.vue`和`chat-input-bar.vue`。
+
 ## `V2.6.5+`
 
 * 由V2.6.5起，【全局配置】`在路径@/uni_modules/z-paging下创建z-paging-config.js`废弃

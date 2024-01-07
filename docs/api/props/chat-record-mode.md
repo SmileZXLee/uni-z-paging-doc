@@ -2,6 +2,6 @@
 
 | 参数                                               | 说明                                                         | 类型           | 默认值 | 可选值 |
 | :------------------------------------------------- | ------------------------------------------------------------ | :------------- | :----- | :----- |
-| use-chat-record-mode                               | 使用聊天记录模式，为保证良好的体验。<br>在vue中建议同时开启页面滚动(设置`use-page-scroll`为true)，可一定程度优化页面闪动/跳动问题，nvue中请不要开启页面滚动！<br><p style="color:red;">(注意：在vue中暂时无法完全解决聊天分页闪动问题，在nvue中可以完全解决，若在App中使用此模式，建议选用nvue)</p> | Boolean        | false  | true   |
+| use-chat-record-mode                               | 使用聊天记录模式，为保证良好的体验。<p style="color:red;">(由v2.7.0起，已完全解决在vue中加载更多闪动的问题，欢迎更新体验)</p> | Boolean        | false  | true   |
 | auto-hide-keyboard-when-chat <Badge text="2.3.4"/> | 使用聊天记录模式时是否自动隐藏键盘(在用户触摸列表时候自动隐藏键盘) | Boolean        | true   | false  |
 | chat-record-more-offset <Badge text="2.6.9"/>      | 使用聊天记录模式时滚动到顶部后，列表垂直移动偏移距离         | Number\|String | 0rpx   | -      |

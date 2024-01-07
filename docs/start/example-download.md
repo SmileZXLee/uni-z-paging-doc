@@ -9,7 +9,7 @@
 * 点击【使用HBuilderX导入示例项目】或【下载示例项目ZIP】<br />
 <img style="width:200px;" src="/img/example_download1.png" />
 
-### ②[推荐] 通过github下载(Alpha版v2.6.9)
+### ②[推荐] 通过github下载(Alpha版v2.7.0)
 * 访问[github](https://github.com/SmileZXLee/uni-z-paging)
 * 点击`Code` -> `Download ZIP`
 * 或者在终端输入`git clone https://github.com/SmileZXLee/uni-z-paging`直接进行下载 <br />
