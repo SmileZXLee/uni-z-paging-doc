@@ -47,18 +47,20 @@
 
 ## 聊天记录模式相关事件
 
-| 事件名                               | 说明                                                         | 回调参数 |
-| ------------------------------------ | ------------------------------------------------------------ | -------- |
-| @hidedKeyboard <Badge text="2.3.6"/> | 在聊天记录模式下，触摸列表隐藏了键盘<p style="color:red;">(nvue无效)</p> | -        |
+| 事件名                                      | 说明                                                         | 回调参数             |
+| ------------------------------------------- | ------------------------------------------------------------ | -------------------- |
+| @hidedKeyboard <Badge text="2.3.6"/>        | 在聊天记录模式下，触摸列表隐藏了键盘<p style="color:red;">(nvue无效)</p> | -                    |
+| @keyboardHeightChange <Badge text="2.7.1"/> | 键盘高度改变<p style="color:red;">(聊天记录模式启用时才有效，如果在聊天记录模式页面需要监听键盘高度改变，请不要直接通过`uni.onKeyboardHeightChange`监听，否则可能导致`z-paging`内置的键盘高度改变监听失效。ps:H5、百度小程序、抖音小程序、飞书小程序不支持)</p> | {height:0(键盘高度)} |
 
 ## 滚动相关事件
 
-| 事件名           | 说明                                                         | 回调参数                                                     |
-| ---------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| @scroll          | `z-paging`列表滚动时触发                                     | `(vue中)` event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY}<br/>`(nvue中)` event = {`contentSize`(列表的内容尺寸) = {width, height}, `contentOffset`(列表的偏移尺寸) = {x, y} , `isDragging`(用户是否正在拖动列表)} |
-| @scrollTopChange | scrollTop改变时触发，使用点击返回顶部时需要获取scrollTop时可使用此事件【注：通过`:scroll-top.sync`绑定当前data中的指定变量亦可】<p style="color:red;">(@scrolltoupper触发时，也会自动触发此方法，且scrollTop=0)</p> | scrollTop                                                    |
-| @scrolltolower   | `z-paging`内置的scroll-view滚动底部时触发                    | 来源(`toBottom`滚动到底部；`click`点击了加载更多view)        |
-| @scrolltoupper   | `z-paging`内置的scroll-view滚动顶部时触发                    | -                                                            |
+| 事件名                           | 说明                                                         | 回调参数                                                     |
+| -------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| @scroll                          | `z-paging`列表滚动时触发                                     | `(vue中)` event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY}<br/>`(nvue中)` event = {`contentSize`(列表的内容尺寸) = {width, height}, `contentOffset`(列表的偏移尺寸) = {x, y} , `isDragging`(用户是否正在拖动列表)} |
+| @scrollTopChange                 | scrollTop改变时触发，使用点击返回顶部时需要获取scrollTop时可使用此事件【注：通过`:scroll-top.sync`绑定当前data中的指定变量亦可】<p style="color:red;">(@scrolltoupper触发时，也会自动触发此方法，且scrollTop=0)</p> | scrollTop                                                    |
+| @scrolltolower                   | `z-paging`内置的scroll-view滚动底部时触发                    | 来源(`toBottom`滚动到底部；`click`点击了加载更多view)        |
+| @scrolltoupper                   | `z-paging`内置的scroll-view滚动顶部时触发                    | -                                                            |
+| @scrollend <Badge text="2.7.3"/> | `z-paging`内置的list滚动结束时触发<p style="color:red;">(仅nvue有效)</p> | event = {`contentSize`(列表的内容尺寸) = {width, height}, `contentOffset`(列表的偏移尺寸) = {x, y} , `isDragging`(用户是否正在拖动列表)} |
 
 ## 布局&交互相关事件
 
