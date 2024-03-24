@@ -9,17 +9,39 @@
 
 :::
 
-::: warning 注意
-①由于超出屏幕的cell可能被销毁并重新创建，因此cell内的switch等带状态的控件同样将被销毁和重新创建，因此请确保是通过for循环item绑定它们的状态的，否则其状态将丢失。  
-②cell高度模式为dynamic时，z-paging会在cell渲染时获取并缓存对应cell的高度，因此如果cell的高度是异步增高的(也就是在cell初次渲染后增高，例如评论列表，在cell渲染后手动插入子评论，或是`<image />`标签定宽，高度根据图片实际大小撑开的)，其高度需要确定已更新后调用`this.$refs.paging.didUpdateVirtualListCell(index)`进行更新，删除列表cell亦然，否则将导致列表跳动。具体方法参见[虚拟列表相关方法](/api/methods/main.html#虚拟列表相关方法)。  
-③`use-virtual-list`与`use-inner-list`在微信小程序中部分较高版本调试库会报`More than one slot named "cell" are found...`的警告并导致开发者工具卡顿，将基础库版本调到`2.18.0`以下即可。因线上没有控制台打印，因此不会影响线上版本。  
-④ `use-virtual-list`与`use-inner-list`在微信小程序中若在slot插入的cell内部引用了页面中的data、computed、methods等，将导致cell只能渲染一行，需等待官方修复，详见：[点击查看详情](https://ask.dcloud.net.cn/question/147333)。(替代解决方案：在调用complete前处理列表数据，此时可以调用页面中的data、computed、methods等，在计算完毕后给列表中的item新增一个属性并赋值，在cell中直接获取这个值即可)  
-⑤ `use-virtual-list`与`use-inner-list`在微信小程序中若在slot插入的cell内部通过switch等修改item内部变量，内部变量修改无效，需等待官方修复，详见：[点击查看详情](https://ask.dcloud.net.cn/question/147494)   
-⑥在使用vue3且同时运行在微信小程序上时，暂不支持`use-inner-list`与`use-virtual-list(非兼容模式)`。  
-⑦上方 ③、④、⑤、⑥ 四个问题可通过使用`兼容模式`解决，在微信小程序中推荐使用兼容模式的写法！  
-⑧在微信小程序中使用虚拟列表时，如果不同的cell中的image不同，会存在image闪动的问题。目前原因不明，可通过给view设置`background-image`来代替`<image />`以解决此问题。  
-⑨在微信小程序模拟器中，cell高度模式为dynamic时可能存在上下跳动的问题，此为模拟器的bug，不影响生产用户正常使用。可使用真机预览模式进行测试。
-:::
+## z-paging虚拟列表写法在不同平台可用性
+
+### vue2
+
+|                        | h5   | App  | 微信小程序 | QQ小程序 | 支付宝/钉钉小程序 | 头条/抖音小程序 |
+| ---------------------- | ---- | ---- | ---------- | -------- | ----------------- | --------------- |
+| (一般写法)内置列表写法 | ✅    | ✅    | ⚠️          | ✅        | ✅                 | ✅               |
+| 非内置列表写法         | ✅    | ✅    | ❌          | ❌        | ❌                 | ❌               |
+| 兼容写法               | ✅    | ✅    | ✅          | ✅        | ✅                 | ✅               |
+
+### vue3
+
+|                        | h5   | App  | 微信小程序 | QQ小程序 | 支付宝/钉钉小程序 | 头条/抖音小程序 |
+| ---------------------- | ---- | ---- | ---------- | -------- | ----------------- | --------------- |
+| (一般写法)内置列表写法 | ✅    | ✅    | ❌          | ❌        | ❌                 | ✅               |
+| 非内置列表写法         | ✅    | ✅    | ✅          | ✅        | ✅                 | ❌               |
+| 兼容写法               | ✅    | ✅    | ❌          | ❌        | ❌                 | ✅               |
+
+注：
+
+✅代表兼容性良好，无明显问题且渲染性能良好
+
+⚠️代表基本可用，但是可能会有性能问题或影响用户体验的问题
+
+❌代表有重大问题，基本不可用
+
+
+
+`(一般写法)内置列表写法`：写法简单，通过slot=cell插入所需cell，页面中无直接的for循环，在vue2中兼容性良好。  
+
+`非内置列表写法`：写法较简单，在页面中对当前需要渲染的虚拟列表数据进行for循环，在vue3中兼容性良好。  
+
+`兼容写法`：写法麻烦，而且需要手动修改`z-paging`源码，所有渲染cell写在相同组件内，不易维护，在vue2中兼容性很好，但非必须不建议使用。  
 
 ### [Props](/api/props/virtual-list.html)
 #### 属性配置：设置`是否开启虚拟列表`、设置`是否开启内置列表`、设置`虚拟列表高度模式`、设置`虚拟列表个性化配置`等
@@ -36,7 +58,8 @@
 
 ### 效果演示
 
-#### 渲染1w+条数据时，dom中渲染的列表item数量始终保持在45个左右。
+#### 渲染1w+条数据时，dom中渲染的列表item数量始终保持在45个左右
+>ps：45个并非固定的，取决于props：`preload-page`的配置，与每个cell高度有关，目前demo中列表item数量应该保持在100多：因为`preload-page`调大了，增加了预加载cell数量，以缓解滑动过快可能导致的白屏问题。
 
 <img style="width:800px;" src="https://z-paging.zxlee.cn/public/img/z-paging-virtual-list.gif"></img>
 
@@ -44,3 +67,16 @@
 
 ### 示例
 * [虚拟列表示例](../../start/use.html#虚拟列表示例)
+
+
+::: warning 注意
+①由于超出屏幕的cell可能被销毁并重新创建，因此cell内的switch等带状态的控件同样将被销毁和重新创建，因此请确保是通过for循环item绑定它们的状态的，否则其状态将丢失。  
+②cell高度模式为dynamic时，z-paging会在cell渲染时获取并缓存对应cell的高度，因此如果cell的高度是异步增高的(也就是在cell初次渲染后增高，例如评论列表，在cell渲染后手动插入子评论，或是`<image />`标签定宽，高度根据图片实际大小撑开的)，其高度需要确定已更新后调用`this.$refs.paging.didUpdateVirtualListCell(index)`进行更新，删除列表cell亦然，否则将导致列表跳动。具体方法参见[虚拟列表相关方法](/api/methods/main.html#虚拟列表相关方法)。  
+③`use-virtual-list`与`use-inner-list`在微信小程序中部分较高版本调试库会报`More than one slot named "cell" are found...`的警告并导致开发者工具卡顿，将基础库版本调到`2.18.0`以下即可。因线上没有控制台打印，因此不会影响线上版本。  
+④ `use-virtual-list`与`use-inner-list`在微信小程序中若在slot插入的cell内部引用了页面中的data、computed、methods等，将导致cell只能渲染一行，需等待官方修复，详见：[点击查看详情](https://ask.dcloud.net.cn/question/147333)。(替代解决方案：在调用complete前处理列表数据，此时可以调用页面中的data、computed、methods等，在计算完毕后给列表中的item新增一个属性并赋值，在cell中直接获取这个值即可)  
+⑤ `use-virtual-list`与`use-inner-list`在微信小程序中若在slot插入的cell内部通过switch等修改item内部变量，内部变量修改无效，需等待官方修复，详见：[点击查看详情](https://ask.dcloud.net.cn/question/147494)   
+⑥在使用vue3且同时运行在微信小程序上时，暂不支持`use-inner-list`与`use-virtual-list(非兼容模式)`。  
+⑦上方 ③、④、⑤、⑥ 四个问题可通过使用`兼容模式`解决，在微信小程序中推荐使用兼容模式的写法！  
+⑧在微信小程序中使用虚拟列表时，如果不同的cell中的image不同，会存在image闪动的问题。目前原因不明，可通过给view设置`background-image`来代替`<image />`以解决此问题。  
+⑨在微信小程序模拟器中，cell高度模式为dynamic时可能存在上下跳动的问题，此为模拟器的bug，不影响生产用户正常使用。可使用真机预览模式进行测试。
+:::

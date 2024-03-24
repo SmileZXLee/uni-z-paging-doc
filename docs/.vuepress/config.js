@@ -24,6 +24,7 @@ module.exports = {
 	themeConfig: {
 		smoothScroll: true,
 		logo: '/img/title-logo.png',
+		search: { provider: 'local' },
 		contributors: false,
 		lastUpdatedText: '最近更新',
 		// repo: 'https://github.com/SmileZXLee/uni-z-paging',
