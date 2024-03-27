@@ -22,7 +22,7 @@ module.exports = {
 		}]
 	],
 	themeConfig: {
-		smoothScroll: true,
+		smoothScroll: false,
 		logo: '/img/title-logo.png',
 		search: { provider: 'local' },
 		contributors: false,

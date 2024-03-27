@@ -289,10 +289,13 @@
 
 ## 虚拟列表示例
 
+不同写法在不同平台兼容性有差异，详见[虚拟列表&内置列表模块](/module/virtual-list.html)
+
 <code-group>
-<code-block title="一般写法" active>
+<code-block title="一般写法(内置列表写法)" active>
 ```html
 <!-- 虚拟列表演示(一般写法) -->
+<!-- 写法简单，通过slot=cell插入所需cell，页面中无直接的for循环，在vue2中兼容性良好 -->
 <template>
 	<!-- 如果页面中的cell高度是固定不变的，则不需要设置cell-height-mode，如果页面中高度是动态改变的，则设置cell-height-mode="dynamic" -->
 	<z-paging ref="paging" use-virtual-list @query="queryList">
@@ -336,10 +339,61 @@
 ```
 </code-block>
 
+<code-block title="非内置列表写法">
+```html
+<!-- 虚拟列表演示(一般写法) -->
+<!-- 写法较简单，在页面中对当前需要渲染的虚拟列表数据进行for循环，在vue3中兼容性良好 -->
+<template>
+<!-- 如果页面中的cell高度是固定不变的，则不需要设置cell-height-mode，如果页面中高度是动态改变的，则设置cell-height-mode="dynamic" -->
+	<z-paging ref="paging" use-virtual-list :force-close-inner-list="true" @virtualListChange="virtualListChange" @query="queryList">
+		<!-- :id="`zp-id-${item.zp_index}`"和:key="item.zp_index" 必须写，必须写！！！！ -->
+		<!-- 这里for循环的index不是数组中真实的index了，请使用item.zp_index获取真实的index -->
+		<view class="item" :id="`zp-id-${item.zp_index}`" :key="item.zp_index" v-for="(item,index) in virtualList">
+			<view class="item-title">{{item.title}}</view>
+		</view>
+	</z-paging>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				// 虚拟列表数组，通过@virtualListChange监听获得最新数组
+				virtualList: [],
+			}
+		},
+		methods: {
+			// 监听虚拟列表数组改变并赋值给virtualList进行重新渲染
+			virtualListChange(vList) {
+				this.virtualList = vList;
+			},
+			queryList(pageNo, pageSize) {
+				// 这里的pageNo和pageSize会自动计算好，直接传给服务器即可
+				// 这里的请求只是演示，请替换成自己的项目的网络请求，并在网络请求回调中通过this.$refs.paging.complete(请求回来的数组)将请求结果传给z-paging
+				this.$request.queryListLong({ pageNo,pageSize }).then(res => {
+					// 请勿在网络请求回调中给dataList赋值！！只需要调用complete就可以了
+					this.$refs.paging.complete(res.data.list);
+				}).catch(res => {
+					// 如果请求失败写this.$refs.paging.complete(false);
+					// 注意，每次都需要在catch中写这句话很麻烦，z-paging提供了方案可以全局统一处理
+					// 在底层的网络请求抛出异常时，写uni.$emit('z-paging-error-emit');即可
+					this.$refs.paging.complete(false);
+				})
+			}
+		}
+	}
+</script>
+
+<style scoped>
+    
+</style>
+```
+</code-block>
+
 <code-block title="兼容写法">
 ```html
 <!-- 虚拟列表演示(兼容写法) -->
-<!-- 在微信小程序中若使用虚拟列表推荐使用兼容写法，具体写法参见demo中的virtual-list-compatibility-demo -->
+<!-- 写法麻烦，而且需要手动修改z-paging源码，所有渲染cell写在相同组件内，不易维护，在vue2中兼容性很好，但非必须不建议使用 -->
 <!-- 使用虚拟列表兼容写法时必须手动在z-paging的源代码z-paging.vue中搜索zp-public-virtual-cell并打开相关注释 -->
 <template>
 	<!-- 如果页面中的cell高度是固定不变的，则不需要设置cell-height-mode，如果页面中高度是动态改变的，则设置cell-height-mode="dynamic" -->
