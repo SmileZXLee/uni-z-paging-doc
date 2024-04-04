@@ -58,7 +58,7 @@ npm update z-paging
 }
 ```
 
-在`vue.config.js`(没有这个文件则在项目根目录下创建)中添加配置
+【仅vue2+cli需要】在`vue.config.js`(没有这个文件则在项目根目录下创建)中添加配置
 ```js
 module.exports = {
 	transpileDependencies: ['z-paging']

@@ -110,6 +110,37 @@
 </script>
 ```
 
+## 下拉进入二楼示例
+```html  
+<template>
+  <!-- 下楼进入二楼建议在pages.json中隐藏系统导航栏，使用自定义导航栏，避免二楼被系统导航栏盖住 -->
+	<z-paging ref="paging" v-model="dataList" refresher-f2-enabled @query="queryList">
+		<!-- 自定义松手显示二楼view（非必须，可根据具体需求定制） -->
+		<template #refresherF2>
+			<view class="refresher-f2-view">
+				<text class="refresher-f2-view-text">松手可以进入二楼哦 (*╹▽╹*)</text>
+			</view>
+		</template>
+		<!-- 自定义需要插入二楼的view，建议将插入二楼的view设置高度100%以铺满容器高度 -->
+		<template #f2>
+			<custom-f2 @closeF2="onCloseF2"/>
+		</template>
+		<!-- 页面内容 -->
+	</z-paging>
+</template>
+
+<script>
+	export default {
+		methods: {
+			// 点击了关闭二楼
+			onCloseF2() {
+				this.$refs.paging.closeF2();
+			}
+		}
+	}
+</script>
+```
+
 
 ## 设置自定义emptyView组件示例
 #### 设置自定义emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理

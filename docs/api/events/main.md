@@ -9,14 +9,15 @@
 
 ## 下拉刷新相关事件
 
-| 事件名                 | 说明                                                         | 回调参数                                                     |
-| ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| @refresherStatusChange | 自定义下拉刷新状态改变<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：通过`:refresher-status.sync`绑定当前data中的指定变量亦可】 | 0-默认状态 1.松手立即刷新 2.刷新中 3.刷新成功(默认情况下看不到此状态，如果需要展示刷新成功状态，请设置刷新结束以后延时收回的时间，如:`:refresher-complete-delay="200"`) |
-| @refresherTouchstart   | 自定义下拉刷新下拉开始<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：当需要更细致定制自定义下拉刷新时使用，如果只需监听下拉刷新各个状态改变，使用`refresherStatusChange`即可】<p style="color:red;">(nvue无效)</p> | 当前触摸开始的屏幕点的y值(单位px)                            |
-| @refresherTouchmove    | 自定义下拉刷新下拉拖动中<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：在使用wxs的平台上，为减少wxs与js通信折损，只有在z-paging添加@refresherTouchmove时，wxs才会实时将下拉拖动事件传给js，在微信小程序和QQ小程序中，因$listeners无效，所以必须设置`:watch-refresher-touchmove="true"`方可使此事件被触发】 | {pullingDistance: 下拉的距离, dy: 前后两次回调滑动距离的差值, viewHeight: refresh组件高度, rate:pullingDistance/viewHeight的比值} |
-| @refresherTouchend     | 自定义下拉刷新下拉结束<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：当需要更细致定制自定义下拉刷新时使用，如果只需监听下拉刷新各个状态改变，使用`refresherStatusChange`即可】<p style="color:red;">(nvue无效)</p> | 当前触摸结束分页内容下移的y值(单位px)                        |
-| @onRefresh             | 自定义下拉刷新被触发                                         | -                                                            |
-| @onRestore             | 自定义下拉刷新被复位                                         | -                                                            |
+| 事件名                                   | 说明                                                         | 回调参数                                                     |
+| ---------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| @refresherStatusChange                   | 自定义下拉刷新状态改变<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：通过`:refresher-status.sync`绑定当前data中的指定变量亦可】 | 0-默认状态 1.松手立即刷新 2.刷新中 3.刷新成功(默认情况下看不到此状态，如果需要展示刷新成功状态，请设置刷新结束以后延时收回的时间，如:`:refresher-complete-delay="200"`) |
+| @refresherTouchstart                     | 自定义下拉刷新下拉开始<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：当需要更细致定制自定义下拉刷新时使用，如果只需监听下拉刷新各个状态改变，使用`refresherStatusChange`即可】<p style="color:red;">(nvue无效)</p> | 当前触摸开始的屏幕点的y值(单位px)                            |
+| @refresherTouchmove                      | 自定义下拉刷新下拉拖动中<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：在使用wxs的平台上，为减少wxs与js通信折损，只有在z-paging添加@refresherTouchmove时，wxs才会实时将下拉拖动事件传给js，在微信小程序和QQ小程序中，因$listeners无效，所以必须设置`:watch-refresher-touchmove="true"`方可使此事件被触发】 | {pullingDistance: 下拉的距离, dy: 前后两次回调滑动距离的差值, viewHeight: refresh组件高度, rate:pullingDistance/viewHeight的比值} |
+| @refresherTouchend                       | 自定义下拉刷新下拉结束<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：当需要更细致定制自定义下拉刷新时使用，如果只需监听下拉刷新各个状态改变，使用`refresherStatusChange`即可】<p style="color:red;">(nvue无效)</p> | 当前触摸结束分页内容下移的y值(单位px)                        |
+| @refresherF2Change <Badge text="2.7.7"/> | 下拉进入二楼状态改变                                         | go-二楼开启 close-二楼关闭                                   |
+| @onRefresh                               | 自定义下拉刷新被触发                                         | -                                                            |
+| @onRestore                               | 自定义下拉刷新被复位                                         | -                                                            |
 
 ## 底部加载更多相关事件
 

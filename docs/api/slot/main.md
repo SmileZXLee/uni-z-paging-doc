@@ -5,21 +5,25 @@
 
 <code-group>
 <code-block title="vue2" active>
+
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
-	<view slot="top">我是固定在顶部的view</view>
+  <view slot="top">我是固定在顶部的view</view>
 </z-paging>
 ```
+
 </code-block>
 
 <code-block title="vue2/3">
+
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
-	<template #top>
-		<view>我是固定在顶部的view</view>
-	</template>
+  <template #top>
+    <view>我是固定在顶部的view</view>
+  </template>
 </z-paging>
 ```
+
 </code-block>
 </code-group>
 
@@ -27,27 +31,31 @@
 
 <code-group>
 <code-block title="vue2" active>
+
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
-	<view slot="bottom">
-		<view v-if="showBottom">
-			<!-- bottom的内容 -->
-		</view>
-	</view>
+  <view slot="bottom">
+    <view v-if="showBottom">
+      <!-- bottom的内容 -->
+    </view>
+  </view>
 </z-paging>
 ```
+
 </code-block>
 
 <code-block title="vue2/3">
+
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
-	<template #bottom>
-		<view v-if="showBottom">
-			<!-- bottom的内容 -->
-		</view>
-	</template>
+  <template #bottom>
+    <view v-if="showBottom">
+      <!-- bottom的内容 -->
+    </view>
+  </template>
 </z-paging>
 ```
+
 </code-block>
 </code-group>
 
@@ -68,6 +76,8 @@
 | :-------------------------------------- | ------------------------------------------------------------ |
 | refresher                               | 自定义下拉刷新view，设置后则不使用uni自带的下拉刷新view和z-paging自定义的下拉刷新view。此view的style必须设置为`height:100%`<p style="color:red;">(在非nvue中，自定义下拉刷新view的高度受`refresher-threshold`控制，因此如果它的高度不为默认的80rpx，则需要设置`refresher-threshold="自定义下拉刷新view的高度"`)</p><p>slot-scope="{ refresherStatus(0-默认状态 1.松手立即刷新 2.刷新中 3.刷新成功) }"</p> |
 | refresherComplete <Badge text="2.1.1"/> | 自定义`结束状态下`的下拉刷新view，若设置，当下拉刷新结束时，会替换当前状态下的下拉刷新view。<p style="color:red;">(注意：默认情况下您无法看到结束状态的下拉刷新view，除非您设置了`refresher-complete-delay`并且值足够大，例如：500)</p> |
+| refresherF2 <Badge text="2.7.7"/>       | 自定义松手显示二楼状态下的view                               |
+| f2 <Badge text="2.7.7"/>                | 自定义需要插入二楼的view                                     |
 
 ## 底部加载更多Slot
 
