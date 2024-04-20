@@ -372,7 +372,7 @@
 
 <code-block title="非内置列表写法">
 ```html
-<!-- 虚拟列表演示(一般写法) -->
+<!-- 虚拟列表演示(非内置列表写法) -->
 <!-- 写法较简单，在页面中对当前需要渲染的虚拟列表数据进行for循环，在vue3中兼容性良好 -->
 <template>
 <!-- 如果页面中的cell高度是固定不变的，则不需要设置cell-height-mode，如果页面中高度是动态改变的，则设置cell-height-mode="dynamic" -->
@@ -503,8 +503,8 @@
         methods: {
             queryList() {
               	// 这里的请求只是演示，请替换成自己的项目的网络请求
-                this.$request.queryList({ pageNo,pageSize }).then(res => {
-                	// 设置本地分页并将数据传给z-paging
+                this.$request.queryAllList().then(res => {
+                	// 设置本地分页并将服务端返回的完整列表数据传给z-paging，滚动到底部会在本地进行分页数据拼接，不会触发分页请求。下拉刷新或reload时会重新触发queryList
                 	this.$refs.paging.setLocalPaging(res.data.list);
                 })
             }
