@@ -24,6 +24,7 @@
 | 方法名                                        | 说明                                                         | 参数 |
 | --------------------------------------------- | ------------------------------------------------------------ | ---- |
 | updateLeftAndRightWidth <Badge text="2.3.5"/> | 更新`slot="left"`和`slot="right"`宽度，当`slot="left"`或`slot="right"`宽度动态改变后调用 | -    |
+| updateFixedLayout <Badge text="2.6.5"/>       | 更新`fixed`模式下`z-paging`的布局，在`onShow`时候调用，以修复在`iOS+h5+tabbar+fixed+底部有安全区域`的设备中从tabbar页面跳转到无tabbar页面后返回，底部有一段空白区域的问题 | -    |
 
 ## z-paging-swiper-item配置
 
