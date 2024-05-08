@@ -86,7 +86,7 @@
 </code-block>
 </code-group>
 
-## 仅使用下拉刷新示例
+## 仅使用下拉刷新示例 <Badge text="1.6.6"/>
 ```html  
 <template>
     <z-paging ref="paging" refresher-only @onRefresh="onRefresh">
@@ -110,7 +110,7 @@
 </script>
 ```
 
-## 下拉进入二楼示例
+## 下拉进入二楼示例 <Badge text="2.7.7"/>
 ```html  
 <template>
   <!-- 下楼进入二楼建议在pages.json中隐藏系统导航栏，使用自定义导航栏，避免二楼被系统导航栏盖住 -->
@@ -318,7 +318,7 @@
 </code-block>
 </code-group>
 
-## 虚拟列表示例
+## 虚拟列表示例 <Badge text="2.2.5"/>
 
 不同写法在不同平台兼容性有差异，详见[虚拟列表&内置列表模块](/module/virtual-list.html)
 
@@ -477,6 +477,58 @@
 ```
 </code-block>
 </code-group>
+
+## 使用fetch的极简写法示例 <Badge text="2.7.8"/>
+```html
+<!-- 使用fetch的极简写法示例 -->
+<template>
+	<!-- 通过:fetch直接传入列表请求函数即可，默认会调用对应请求参数并且给它传{pageNo, pageSize}两个参数 -->
+	<!-- :fetch的请求函数附加参数可通过:fetch-params传入 -->
+	<z-paging ref="paging" v-model="dataList" :fetch="queryList" :fetch-params="{ type: tabIndex + 1 }">
+		<view class="item" v-for="(item,index) in dataList">
+			<view class="item-title">{{item.title}}</view>
+		</view>
+	</z-paging>
+</template>
+
+<script>
+	import { queryList } from '../../http/request.js'
+	export default {
+		data() {
+			return {
+				queryList,
+				dataList: [],
+			}
+		},
+		methods: {
+			// 也支持自行实现fetch函数，例如在props中添加 :fetch="fetchFunc"，然后实现：
+			/* 
+			async fetchFunc(params) {
+				const res = await this.$request.queryList({ pageNo: params.pageNo, pageSize: params.pageSize, type: this.tabIndex + 1 });
+				return res.data.list;
+			}
+			*/
+			
+			// 在main.js中可以对全局:fetch的请求参数和响应进行拦截和统一处理，默认请求参数为{ pageNo, pageSize }，将响应结果直接当作分页数组。如非默认情况，请使用下方示例处理
+			/*
+			// 处理z-paging fetch写法拦截，handleFetchParams用于拦截请求入参，返回最终入参对象。handleFetchResult用于拦截请求结果，自行处理请求结束后操作，务必调用complete或complete相关方法
+			// 支持链式调用
+			ZPInterceptor.handleFetchParams((parmas, extraParams) => {
+				return {pageNo: parmas.pageNo, pageSize: parmas.pageSize, ...extraParams};
+			}).handleFetchResult((fetchResult, paging) => {
+				fetchResult.then(res => {
+					paging.complete(res.data.list);
+				}).catch(err => {
+					paging.complete(false);
+				})
+			})
+			*/
+		   
+		}
+	}
+</script>
+```
+* 针对fetch的全局拦截写法请参照：[拦截器](/api/props/global-config.html#拦截器)
 
 ## i18n示例
 

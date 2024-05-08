@@ -108,6 +108,11 @@ module.exports = {
 						title: 'mini版',
 						path: '/start/mini',
 						children: [],
+					},
+					{
+						title: 'TypeScript 支持',
+						path: '/start/typescript-support',
+						children: [],
 					}
 				],
 			},

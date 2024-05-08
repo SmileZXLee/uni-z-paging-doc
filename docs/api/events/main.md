@@ -68,4 +68,4 @@
 | 事件名                                      | 说明                                                     | 回调参数                                                     |
 | ------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------ |
 | @contentHeightChanged <Badge text="2.1.3"/> | `z-paging`中内容高度改变时触发                           | 改变后的高度                                                 |
-| @touchDirectionChange <Badge text="2.3.0"/> | 监听列表触摸方向改变<p style="color:red;">(nvue无效)</p> | <p style="color:red;">(必须同时设置`:watch-touch-direction-change="true"`)</p>列表触摸的方法，有`top`和`bottom`两种值，`top`代表用户将列表向上移动(scrollTop不断减小)，`bottom`代表用户将列表向下移动(scrollTop不断增大) |
+| @touchDirectionChange <Badge text="2.3.0"/> | 监听列表触摸方向改变<p style="color:red;">(nvue无效)</p> | <p style="color:red;">(必须同时设置`:watch-touch-direction-change="true"`)</p>列表触摸的方向，有`top`和`bottom`两种值，`top`代表用户将列表向上移动(scrollTop不断减小)，`bottom`代表用户将列表向下移动(scrollTop不断增大) |
