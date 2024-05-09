@@ -19,5 +19,5 @@
 | :-------------------- | :---------------------------------------------- | :----- | :----- | :----- |
 | top-z-index           | slot="top"的view的z-index，仅使用页面滚动时有效 | Number | 99     | -      |
 | super-content-z-index | z-paging内容容器父view的z-index                 | Number | 1      | -      |
-| content-z-index       | z-paging内容容器部分的z-index                   | Number | 10     | -      |
+| content-z-index       | z-paging内容容器部分的z-index                   | Number | 1     | -      |
 | empty-view-z-index    | 空数据view的z-index                             | Number | 9      | -      |
