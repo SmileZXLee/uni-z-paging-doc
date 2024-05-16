@@ -1,10 +1,17 @@
-### 版本差异
+# 版本差异
 
-#### 如何查看z-paging版本？
+### 如何查看z-paging版本？
 
 * 【方式1】展开`z-paging`文件夹，查看`z-paging.vue`文件，顶部有注明版本号。
 * 【方式2】通过`console.log(this.$refs.paging.getVersion())`打印当前版本号。
 * 【方式3】若您的项目使用`uni_modules`管理，展开`uni_modules`下的`z-paging`文件夹，查看其中`package.json`的`version`字段即为版本号。
+
+### 版本更新历史
+* [点击查看](https://ext.dcloud.net.cn/plugin?id=3935&update_log)
+
+### 不同版本下载
+* npm方式安装可直接指定`z-paging`版本
+* 非npm安装请查阅 [Release](https://github.com/SmileZXLee/uni-z-paging/releases)
 
 ::: tip 说明
 `z-paging`的所有版本更新都会尽可能兼容低版本写法，更新版本之后可能出现的不兼容之处都会在下方列出。  

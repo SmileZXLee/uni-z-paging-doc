@@ -95,11 +95,6 @@ module.exports = {
 						children: [],
 					},
 					{
-						title: '版本记录',
-						path: 'https://ext.dcloud.net.cn/plugin?id=3935&update_log',
-						children: [],
-					},
-					{
 						title: '版本差异',
 						path: '/start/upgrade-guide',
 						children: [],

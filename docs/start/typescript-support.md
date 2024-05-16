@@ -25,6 +25,8 @@ z-paging基于js开发，支持在js/ts中使用，z-paging提供了ts类型定�
 import { ref } from 'vue'
 // 使用ZPagingInstance定义z-paging的ref (<any>可修改为返回数组中具体对象的Type)
 const paging = ref<ZPagingInstance<any> | null>(null);
+// 或使用简化写法，v2.7.9起支持
+const paging = ref<ZPagingInstance>();
 
 // z-paging相关Events可以通过ZPagingEvent.Xxx设置Event类型，例如@query对应ZPagingEvent.Query、@scroll对应ZPagingEvent.Scroll
 const queryList: ZPagingEvent.Query = (pageNo: number, pageSize: number) => {

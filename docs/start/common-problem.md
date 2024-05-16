@@ -43,20 +43,26 @@
 ## 在支付宝或钉钉小程序中，为什么有时候无法进行下拉刷新，在其他平台正常？
 在支付宝和钉钉小程序中，必须在`pages.json`中进行如下设置：  
 ```json
-//以下代码可以写在globalStyle中或特定页面的style中
-//支付宝和钉钉小程序需要取消回弹效果
+// 以下代码可以写在globalStyle中或特定页面的style中
+// 支付宝和钉钉小程序需要取消回弹效果
 "mp-alipay": {
   "allowsBounceVertical": "NO"
 }
 ```
-## 为什么在iOS中有时候若列表滚动到最底部后继续往上拉，列表会被锁住3-5秒无法滚动？
+## 为什么有时候列表滚动到最底部后继续往上拉，列表会被锁住3-5秒无法滚动？
 这是因为系统内置的bounce导致的，请在`pages.json`中进行如下设置：  
 ```json
-//以下代码可以写在globalStyle中或特定页面的style中
+// 以下代码可以写在globalStyle中或特定页面的style中
+// 在App中，取消下拉刷新灰色半弧形效果(避免在底部上拉列表被短暂锁定)
 "app-plus": {
-	//禁用bounce
 	"bounce": "none"
 }
+```
+或
+```json
+// 以下代码写在特定页面的style中
+// 禁止页面滚动
+"disableScroll": true
 ```
 ## 为什么监听页面事件：onPageScroll、onReachBottom等无效？
 默认情况下，z-paging铺满全屏并局部滚动的，因此不会触发相关页面事件，可以通过`@scroll`监听滚动事件，通过`@scrolltolower`监听滚动到底部事件。
