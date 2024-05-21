@@ -141,6 +141,31 @@
 </script>
 ```
 
+## 延迟加载列表示例
+#### 自行控制z-paging列表加载时机，例如先获取tabs数据然后再触发列表加载
+```html  
+<template>
+	<!-- 通过:auto="false"禁止默认的自动加载列表行为 -->
+	<z-paging ref="paging" v-model="dataList" :auto="false" @query="queryList">
+		<!-- 页面内容 -->
+	</z-paging>
+</template>
+
+<script>
+	export default {
+		onLoad() {
+			// 在页面加载时请求tabs数据
+			this.$request.queryTabs().then(tabs => {
+				this.tabList = tabs;
+				// 获取tabs数据后触发加载z-paging列表
+				this.$refs.paging.reload();
+			})
+		},
+		// 其他部分与普通模式一致，略
+	}
+</script>
+```
+
 
 ## 设置自定义emptyView组件示例
 #### 设置自定义emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理
