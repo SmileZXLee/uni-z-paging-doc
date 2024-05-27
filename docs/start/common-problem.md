@@ -88,8 +88,8 @@ z-paging中`complete`方法中默认判断有无更多数据的规则是：当`c
 ```js
 queryList(pageNo, pageSize) {
 	if (pageNo === 1) {
-		//如果是第一页，则调用u-waterfall的clear方法，注意这里不一定是pageNo === 1，需要根据具体起始pageNo进行修改
-		//u-waterfall组件需要添加ref="uWaterfall"
+		// 如果是第一页，则调用u-waterfall的clear方法，注意这里不一定是pageNo === 1，需要根据具体起始pageNo进行修改
+		// u-waterfall组件需要添加ref="uWaterfall"
 		this.$refs.uWaterfall.clear();
 	}
 }
