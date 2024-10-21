@@ -111,3 +111,6 @@ onShow() {
 	this.$refs.paging && this.$refs.paging.updateFixedLayout();
 }
 ```
+
+## 为什么弹窗被slot=top或slot=bottom盖住，无法全屏
+请将弹窗放在z-paging标签外。

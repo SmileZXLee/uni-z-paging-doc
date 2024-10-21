@@ -95,7 +95,7 @@ module.exports = {
 						children: [],
 					},
 					{
-						title: '版本差异',
+						title: '版本差异&更新记录',
 						path: '/start/upgrade-guide',
 						children: [],
 					},

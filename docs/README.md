@@ -1,3 +1,7 @@
+::: tip 🎉🎉🎉
+在鸿蒙Next正式版发布前夕，得益于`uni-app`对鸿蒙Next的良好兼容，`z-paging`由`v2.8.0`版本起已全面兼容鸿蒙Next，需要的同学可更新体验~
+:::
+
 ```html                                  
   ____     _ __   __ _  __ _(_)_ __   __ _ 
  |_  /____| '_ \ / _` |/ _` | | '_ \ / _` |
@@ -5,7 +9,7 @@
  /___|    | .__/ \__,_|\__, |_|_| |_|\__, |
           |_|          |___/         |___/   文档
 —————————————————————————————————————————————————
-v2.7.12 (2024-09-22)
+v2.8.0 (2024-10-21)
 - by ZXLee 
 感谢使用^_^
 ```
@@ -90,7 +94,6 @@ v2.7.12 (2024-09-22)
 </code-group>
 
 
-
 <!-- <center style="margin-bottom:10px;"><img src="https://visitor-badge.glitch.me/badge?page_id=smilezxlee.z-paging" /></center> -->
-<center style="margin-bottom:10px;"><img src="https://api.z-notify.zxlee.cn/v1/public/statistics/8293556910106066944/badge?title=访问人次&style=flat&from=doc" /></center>
+<center style="margin-bottom:10px;"><img src="http://localhost:8900/v1/public/statistics/8293556910106066944/badge" /></center>
 <div style="margin-bottom:-80px; display:flex;justify-content: center;font-size:13px;">Copyright 2021-2024 z-paging | <a style="color: #014084;margin-left:5px;" href="https://beian.miit.gov.cn/" target="_blank">闽ICP备17015849号-1</a></div>

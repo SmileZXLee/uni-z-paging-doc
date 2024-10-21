@@ -128,7 +128,7 @@ export default { X };
 
 <script setup>
 	import { ref } from 'vue';
-	 必须导入需要用到的页面生命周期（即使在当前页面上没有直接使用到）
+	// 必须导入需要用到的页面生命周期（即使在当前页面上没有直接使用到）
 	import { onPageScroll, onReachBottom } from '@dcloudio/uni-app';
 	import useZPaging from "@/uni_modules/z-paging/components/z-paging/js/hooks/useZPaging.js";
 	
