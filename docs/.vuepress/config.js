@@ -14,7 +14,7 @@ module.exports = {
 		}],
 		['meta', {
 			name: 'Keywords',
-			content: 'z-paging,uniapp,分页,下拉刷新,加载更多,虚拟列表'
+			content: 'z-paging, z-paging文档, z-paging官网, uniapp, 分页, 下拉刷新, 加载更多, 虚拟列表'
 		}],
 		['link', {
 			rel: 'icon',
@@ -32,8 +32,13 @@ module.exports = {
 		nav: [
 			// NavbarItem
 			{
-				text: '示例项目下载',
-				link: '/start/example-download.html',
+				text: 'v2.8.0',
+				items: [
+					{ text: '版本差异', link: '/start/upgrade-guide.html' },
+					{ text: '示例项目下载', link: '/start/example-download.html' },
+					{ text: '更新日志', link: 'https://ext.dcloud.net.cn/plugin?id=3935&update_log' },
+					{ text: '历史版本', link: 'https://github.com/SmileZXLee/uni-z-paging/releases' },
+				]
 			},
 			{
 				text: '插件市场',
@@ -92,11 +97,6 @@ module.exports = {
 					{
 						title: '从vue2迁移到vue3',
 						path: '/start/migration-to-vue3',
-						children: [],
-					},
-					{
-						title: '版本差异&更新记录',
-						path: '/start/upgrade-guide',
 						children: [],
 					},
 					{

@@ -170,25 +170,24 @@
 ## 设置自定义emptyView组件示例
 #### 设置自定义emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理
 <code-group>
-<code-block title="vue2" active>
-```html
-<z-paging ref="paging" v-model="dataList" @query="queryList">
-    <!-- 设置自己的emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理 -->
-    <empty-view slot="empty" />
-    <view class="item" v-for="(item,index) in dataList" :key="index">
-        <view class="item-title">{{item.title}}</view>
-    </view>
-</z-paging>
-```
-</code-block>
-
-<code-block title="vue2/3">
+<code-block title="vue2/3" active>
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
     <!-- 设置自己的emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理 -->
 	<template #empty>
 		<empty-view />
 	</template>
+    <view class="item" v-for="(item,index) in dataList" :key="index">
+        <view class="item-title">{{item.title}}</view>
+    </view>
+</z-paging>
+```
+</code-block>
+<code-block title="vue2">
+```html
+<z-paging ref="paging" v-model="dataList" @query="queryList">
+    <!-- 设置自己的emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理 -->
+    <empty-view slot="empty" />
     <view class="item" v-for="(item,index) in dataList" :key="index">
         <view class="item-title">{{item.title}}</view>
     </view>
@@ -215,21 +214,7 @@
 #### `use-custom-refresher`需要设置为true(默认为true)，此时将不会使用uni自带的下拉刷新，转为使用z-paging自定义的下拉刷新，通过slot可以插入开发者自定义的下拉刷新view。
 
 <code-group>
-<code-block title="vue2" active>
-```html
-<z-paging ref="paging" v-model="dataList" @query="queryList">
-    <!-- 自定义下拉刷新view -->
-    <!-- 此处的custom-refresh为demo中自定义的组件，非z-paging的内置组件，请在实际项目中自行创建。这里插入什么view，下拉刷新就显示什么view -->
-    <custom-refresher slot="refresher" slot-scope="{refresherStatus}" :status="refresherStatus"></custom-refresher>
-    <!-- list数据，建议像下方这样在item外层套一个view，而非直接for循环item，因为slot插入有数量限制 -->
-	<view class="item" v-for="(item,index) in dataList" :key="index">
-	    <view class="item-title">{{item.title}}</view>
-	</view>
-</z-paging>
-```
-</code-block>
-
-<code-block title="vue2/3">
+<code-block title="vue2/3" active>
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
     <!-- 自定义下拉刷新view -->
@@ -243,6 +228,19 @@
 </z-paging>
 ```
 </code-block>
+<code-block title="vue2">
+```html
+<z-paging ref="paging" v-model="dataList" @query="queryList">
+    <!-- 自定义下拉刷新view -->
+    <!-- 此处的custom-refresh为demo中自定义的组件，非z-paging的内置组件，请在实际项目中自行创建。这里插入什么view，下拉刷新就显示什么view -->
+    <custom-refresher slot="refresher" slot-scope="{refresherStatus}" :status="refresherStatus"></custom-refresher>
+    <!-- list数据，建议像下方这样在item外层套一个view，而非直接for循环item，因为slot插入有数量限制 -->
+	<view class="item" v-for="(item,index) in dataList" :key="index">
+	    <view class="item-title">{{item.title}}</view>
+	</view>
+</z-paging>
+```
+</code-block>
 </code-group>
 
 ## 自定义加载更多各个状态的描述view示例
@@ -250,19 +248,7 @@
 #### 以修改【没有更多了】状态描述view为例
 
 <code-group>
-<code-block title="vue2" active>
-```html
-<z-paging ref="paging" v-model="dataList" @query="queryList">
-    <view class="item" v-for="(item,index) in dataList" :key="index">
-        <view class="item-title">{{item.title}}</view>
-    </view>
-	<!-- 自定义的没有更多数据view -->
-    <view slot="loadingMoreNoMore" style="background-color: red">这是完全自定义的没有更多数据view</view>
-</z-paging>
-```
-</code-block>
-
-<code-block title="vue2/3">
+<code-block title="vue2/3" active>
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
     <view class="item" v-for="(item,index) in dataList" :key="index">
@@ -272,6 +258,17 @@
 	<template #loadingMoreNoMore>
 		<view style="background-color: red">这是完全自定义的没有更多数据view</view>
 	</template>
+</z-paging>
+```
+</code-block>
+<code-block title="vue2">
+```html
+<z-paging ref="paging" v-model="dataList" @query="queryList">
+    <view class="item" v-for="(item,index) in dataList" :key="index">
+        <view class="item-title">{{item.title}}</view>
+    </view>
+	<!-- 自定义的没有更多数据view -->
+    <view slot="loadingMoreNoMore" style="background-color: red">这是完全自定义的没有更多数据view</view>
 </z-paging>
 ```
 </code-block>
@@ -356,16 +353,9 @@
 	<!-- 如果页面中的cell高度是固定不变的，则不需要设置cell-height-mode，如果页面中高度是动态改变的，则设置cell-height-mode="dynamic" -->
 	<z-paging ref="paging" use-virtual-list @query="queryList">
 		<!-- 通过slot="cell"插入列表for循环的cell，slot-scope中提供当前for循环的item和index -->
-		<!-- 因字节跳动小程序不支持slot-scope，因此不支持字节跳动小程序 -->
-		<view slot="cell" slot-scope="{item,index}">
+		<template #cell="{item,index}">
 			<view class="item-title">{{item.title}}</view>
-		</view>
-		<!-- vue3中写法如下 -->
-		<!-- 
-		<template v-slot:cell="{item,index}">
-			<view class="item-title">{{item.title}}</view>
-		</template> 
-		-->
+		</template>
 	</z-paging>
 </template>
 
