@@ -13,7 +13,7 @@ v2.8.0 (2024-10-21)
 - by ZXLee 
 感谢使用^_^
 ```
-## 🧐为什么选择z-paging？
+## 👍 为什么选择z-paging？
 <Why />
 
 ###  ⭐️ 开源不易~ 如果您觉得`z-paging`还不错的话，可以点一个star鼓励一下(＾ω＾)👉🏻  [![Github stars](https://img.shields.io/github/stars/smilezxlee/uni-z-paging?logo=GitHub&style=flat)](https://github.com/SmileZXLee/uni-z-paging)
