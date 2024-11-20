@@ -89,6 +89,7 @@
 ## 仅使用下拉刷新示例 <Badge text="1.6.6"/>
 ```html  
 <template>
+	<!-- refresher-only会关闭mounted自动请求数据、关闭滚动到底部加载更多，强制隐藏空数据图。如果同时需要下拉刷新和滚动到底部加载更多，只需设置:auto="false"即可，请勿设置refresher-only -->
     <z-paging ref="paging" refresher-only @onRefresh="onRefresh">
 		<!-- 页面内容 -->
 	</z-paging>
