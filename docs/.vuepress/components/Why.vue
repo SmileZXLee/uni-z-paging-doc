@@ -19,7 +19,7 @@
 				list: [{
                     icon: '💧',
                     title: '像喝水一样简单！',
-                    details: '<span style="font-weight: bold;color: #007aff;">仅需两步</span>即可实现完整下拉刷新和上拉加载更多功能，分页全自动管理！亦可通过<span style="font-weight: bold;color: #007aff;">极少代码</span>轻松完成标准页面容器布局。'
+                    details: '<span style="font-weight: bold;color: #007aff;">仅需两步</span>即可实现完整下拉刷新和上拉加载更多功能，分页全自动管理！亦可通过<span style="font-weight: bold;color: #007aff;">极少代码</span>轻松完成标准页面容器布局。适用场景广泛。'
                 },{
                     icon: '⚒️',
                     title: '丰富的自定义配置！',
@@ -27,11 +27,11 @@
                 },{
                     icon: '🚀',
                     title: '高性能！',
-                    details: '使用wxs+renderjs在视图层实现下拉刷新，<span style="font-weight: bold;color: #007aff;">丝滑流畅零卡顿</span>；强大的兼容各平台的虚拟列表算法，轻松渲染<span style="font-weight: bold;color: #007aff;">百万级列表数据</span>。'
+                    details: '使用wxs+renderjs在视图层实现下拉刷新，<span style="font-weight: bold;color: #007aff;">丝滑流畅零卡顿</span>。强大的兼容各平台的虚拟列表算法，轻松渲染<span style="font-weight: bold;color: #007aff;">百万级列表数据</span>。'
                 },{
                     icon: '🌍',
                     title: '全平台兼容！',
-                    details: '支持ios、安卓、鸿蒙next；h5；微信小程序、QQ小程序、支付宝小程序、抖音小程序、百度小程序、快手小程序、飞书小程序、快应用等<span style="font-weight: bold;color: #007aff;">十几个平台</span>。'
+                    details: '支持ios、安卓、鸿蒙Next；h5；微信小程序、QQ小程序、支付宝小程序、抖音小程序、百度小程序、快手小程序、飞书小程序、快应用等<span style="font-weight: bold;color: #007aff;">十几个平台</span>。'
                 },{
                     icon: '🔥',
                     title: '热门且流行！',
