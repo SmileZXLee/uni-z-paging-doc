@@ -19,7 +19,7 @@
 				list: [{
                     icon: '💧',
                     title: '像喝水一样简单！',
-                    details: '<span style="font-weight: bold;color: #007aff;">仅需两步</span>即可实现完整下拉刷新和上拉加载更多功能，分页全自动管理！亦可通过<span style="font-weight: bold;color: #007aff;">极少代码</span>轻松完成标准页面容器布局。适用场景广泛。'
+                    details: '<span style="font-weight: bold;color: #007aff;">仅需两步</span>即可实现完整下拉刷新和上拉加载更多功能，分页全自动管理！亦可通过<span style="font-weight: bold;color: #007aff;">极少代码</span>轻松完成标准页面容器布局。应用灵活且广泛。'
                 },{
                     icon: '⚒️',
                     title: '丰富的自定义配置！',
