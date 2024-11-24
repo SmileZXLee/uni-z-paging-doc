@@ -14,6 +14,9 @@
 `z-paging`的所有版本更新都会尽可能兼容低版本写法，更新版本之后可能出现的不兼容之处都会在下方列出。  
 :::
 
+## `V2.8.1+`
+* 由V2.8.1起，`events`和`slots`中的参数涉及枚举的部分，统一由之前的`number`类型修改为`string`类型，展示更直观！涉及的`events`：`@query`中的`from`参数；`@refresherStatusChange`中的`status`参数；`@loadingStatusChange`中的`status`参数；`slot="refresher"`中的`refresherStatus`参数；`slot="chatLoading"`中的`loadingMoreStatus`参数。具体请查阅相关`events`或`slots`文档。
+
 ## `V2.7.0+`
 
 * 由V2.7.0起，将vue中的聊天记录模式与nvue中对齐，完全解决了聊天记录模式滚动到顶部加载更多在vue中抖动的问题，同时将聊天记录模式键盘自动弹出自动上推页面交由`z-paging`处理，解决了由此引发的各种问题，尤其是在微信小程序中导航栏被键盘顶出屏幕外的问题。如果您使用了`z-paging`的聊天记录模式，强烈建议更新！  

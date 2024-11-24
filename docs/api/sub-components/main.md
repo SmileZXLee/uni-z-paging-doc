@@ -49,7 +49,7 @@
 
 | 事件名      | 说明                                                         | 回调参数                                                     |
 | ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| @query      | 下拉刷新或滚动到底部时会自动触发此方法。`z-paging`加载时也会触发(若要禁止，请设置`:auto="false"`)。pageNo和pageSize会自动计算好，直接传给服务器即可。 | `参数1`:pageNo(当前第几页)；<br/>`参数2`:pageSize(每页多少条)<br/>`参数3` <Badge text="2.1.4"/>:from(@query的触发来源：0.用户主动下拉刷新 1.通过reload触发 2.通过refresh触发 3.通过滚动到底部加载更多或点击底部加载更多触发) |
+| @query      | 下拉刷新或滚动到底部时会自动触发此方法。`z-paging`加载时也会触发(若要禁止，请设置`:auto="false"`)。pageNo和pageSize会自动计算好，直接传给服务器即可。 | `参数1`:pageNo(当前第几页)；<br/>`参数2`:pageSize(每页多少条)<br/>`参数3` <Badge text="2.1.4"/>:from(@query的触发来源：user-pull-down:用户主动下拉刷新；reload:通过reload触发；refresh:通过refresh触发；load-more:通过滚动到底部加载更多或点击底部加载更多触发)<span style="color:red;">(v2.8.0及之前的版本的from是number类型，对应为：0,1,2,3)</span> |
 | @updateList | 更新当前对应tab的数据                                        | 当前对应tab的数据(数组)                                      |
 
 ## z-paging-empty-view配置
@@ -69,13 +69,15 @@
 | empty-view-title-style                        | 空数据图描述文字样式                                         | Object  | {}          | -      |
 | empty-view-reload-style <Badge text="1.6.7"/> | 空数据图重新加载按钮样式                                     | Object  | {}          | -      |
 | show-empty-view-reload <Badge text="1.6.7"/>  | 是否显示空数据图重新加载按钮(无数据时)                       | Boolean | false       | true   |
-| is-load-failed                                | 是否是加载失败                                               | Boolean | true        | false  |
+| is-load-failed                                | 是否是加载失败                                               | Boolean | false        | true  |
+| unit <Badge text="2.6.7"/>                    | 空数据图中布局的单位                                         | String  | rpx         | px     |
 
 ### events
 
-| 事件名  | 说明               | 回调参数 |
-| ------- | ------------------ | -------- |
-| @reload | 点击了重新加载按钮 | -        |
+| 事件名                           | 说明               | 回调参数 |
+| -------------------------------- | ------------------ | -------- |
+| @reload                          | 点击了重新加载按钮 | -        |
+| @viewClick <Badge text="2.3.3"/> | 点击了空数据图view | -        |
 
 ## z-paging-cell配置 <Badge text="2.3.1"/>
 

@@ -80,9 +80,9 @@ ZPInterceptor.handleQuery((pageNo, pageSize, from, lastItem) => {
 
 | 参数                            | 说明                                                         | 类型   |
 | ------------------------------- | ------------------------------------------------------------ | ------ |
-| pageNo                          | 当前第几页                                                   | Number |
-| pageSize                        | 每页多少条                                                   | Number |
-| from                            | @query的触发来源：0.用户主动下拉刷新 1.通过reload触发 2.通过refresh触发 3.通过滚动到底部加载更多或点击底部加载更多触发； | Number |
+| pageNo                          | 当前第几页                                                   | Number | String |
+| pageSize                        | 每页多少条                                                   | Number | String |
+| from                            | from(@query的触发来源：user-pull-down:用户主动下拉刷新；reload:通过reload触发；refresh:通过refresh触发；load-more:通过滚动到底部加载更多或点击底部加载更多触发)<span style="color:red;">(v2.8.0及之前的版本是number类型，对应为：0,1,2,3)</span> | String |
 | lastItem  <Badge text="2.5.8"/> | 当前列表最后一项                                             | Object |
 `返回值`：return一个数组，数组中0、1、2的元素就代表@query中绑定方法获取到的参数，数组长度不一定为3，数组长度为多少，@query中的参数就有多少个
 ***

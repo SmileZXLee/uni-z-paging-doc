@@ -72,7 +72,7 @@
 
 | 名称                                    | 说明                                                         |
 | :-------------------------------------- | ------------------------------------------------------------ |
-| refresher                               | 自定义下拉刷新view，设置后则不使用uni自带的下拉刷新view和z-paging自定义的下拉刷新view。此view的style必须设置为`height:100%`<p style="color:red;">(在非nvue中，自定义下拉刷新view的高度受`refresher-threshold`控制，因此如果它的高度不为默认的80rpx，则需要设置`refresher-threshold="自定义下拉刷新view的高度"`)</p><p>slot-scope="{ refresherStatus(0-默认状态 1.松手立即刷新 2.刷新中 3.刷新成功) }"</p> |
+| refresher                               | 自定义下拉刷新view，设置后则不使用uni自带的下拉刷新view和z-paging自定义的下拉刷新view。此view的style必须设置为`height:100%`<p style="color:red;">(在非nvue中，自定义下拉刷新view的高度受`refresher-threshold`控制，因此如果它的高度不为默认的80rpx，则需要设置`refresher-threshold="自定义下拉刷新view的高度"`)</p><p>slot-scope="{ refresherStatus(default:默认状态；release-to-refresh:松手立即刷新；loading:刷新中；complete:刷新结束；go-f2:松手进入二楼)<span style="color:red;">(v2.8.0及之前的版本是number类型，对应为：0,1,2,3,4)</span> }"</p> |
 | refresherComplete <Badge text="2.1.1"/> | 自定义`结束状态下`的下拉刷新view，若设置，当下拉刷新结束时，会替换当前状态下的下拉刷新view。<p style="color:red;">(注意：默认情况下您无法看到结束状态的下拉刷新view，除非您设置了`refresher-complete-delay`并且值足够大，例如：500)</p> |
 | refresherF2 <Badge text="2.7.7"/>       | 自定义松手显示二楼状态下的view                               |
 | f2 <Badge text="2.7.7"/>                | 自定义需要插入二楼的view                                     |
@@ -116,5 +116,5 @@
 
 | 名称                             | 说明                                                         |
 | :------------------------------- | ------------------------------------------------------------ |
-| chatLoading                      | 使用聊天记录模式时自定义顶部加载更多view(除没有更多数据外)，`use-chat-record-mode`为true时有效<p>slot-scope="{ loadingMoreStatus(0-默认状态 1.加载中 2.没有更多数据 3.加载失败) }" <Badge text="2.7.5"/> </p> |
+| chatLoading                      | 使用聊天记录模式时自定义顶部加载更多view(除没有更多数据外)，`use-chat-record-mode`为true时有效<p>slot-scope="{ loadingMoreStatus(default:默认状态；loading:加载中；no-more:没有更多数据；fail:加载失败) <span style="color:red;">(v2.8.0及之前的版本是number类型，对应为：0,1,2,3)</span> }" <Badge text="2.7.5"/> </p> |
 | chatNoMore <Badge text="2.7.5"/> | 使用聊天记录模式时自定义没有更多数据view，`use-chat-record-mode`为true时有效 |

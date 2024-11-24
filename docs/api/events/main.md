@@ -4,14 +4,14 @@
 
 | 事件名      | 说明                                                         | 回调参数                                                     |
 | ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| @query      | 下拉刷新或滚动到底部时会自动触发此方法。`z-paging`加载时也会触发(若要禁止，请设置`:auto="false"`)。pageNo和pageSize会自动计算好，直接传给服务器即可。 | `参数1`:pageNo(当前第几页)；<br/>`参数2`:pageSize(每页多少条)<span style="color:red;">(pageSize必须与传给服务器的一致，如果需要修改pageSize，请通过`:default-page-size="15"`修改)</span><br/>`参数3` <Badge text="2.1.4"/>:from(@query的触发来源：0.用户主动下拉刷新 1.通过reload触发 2.通过refresh触发 3.通过滚动到底部加载更多或点击底部加载更多触发) |
+| @query      | 下拉刷新或滚动到底部时会自动触发此方法。`z-paging`加载时也会触发(若要禁止，请设置`:auto="false"`)。pageNo和pageSize会自动计算好，直接传给服务器即可。 | `参数1`:pageNo(当前第几页)；<br/>`参数2`:pageSize(每页多少条)<span style="color:red;">(pageSize必须与传给服务器的一致，如果需要修改pageSize，请通过`:default-page-size="15"`修改)</span><br/>`参数3` <Badge text="2.1.4"/>:from(@query的触发来源：user-pull-down:用户主动下拉刷新；reload:通过reload触发；refresh:通过refresh触发；load-more:通过滚动到底部加载更多或点击底部加载更多触发)<span style="color:red;">(v2.8.0及之前的版本的from是number类型，对应为：0,1,2,3)</span> |
 | @listChange | 分页渲染的数组改变时触发                                     | 最终的分页数据数组                                           |
 
 ## 下拉刷新相关事件
 
 | 事件名                                   | 说明                                                         | 回调参数                                                     |
 | ---------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| @refresherStatusChange                   | 自定义下拉刷新状态改变<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：通过`:refresher-status.sync`绑定当前data中的指定变量亦可】 | 0-默认状态 1.松手立即刷新 2.刷新中 3.刷新成功(默认情况下看不到此状态，如果需要展示刷新成功状态，请设置刷新结束以后延时收回的时间，如:`:refresher-complete-delay="200"`) |
+| @refresherStatusChange                   | 自定义下拉刷新状态改变<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：通过`:refresher-status.sync`绑定当前data中的指定变量亦可】 | default:默认状态；<br/>release-to-refresh:松手立即刷新；<br/>loading:刷新中；<br/>complete:刷新结束(默认情况下看不到此状态，如果需要展示刷新成功状态，请设置刷新结束以后延时收回的时间，如:`:refresher-complete-delay="200"`)；<br/>go-f2:松手进入二楼<br/><span style="color:red;">(v2.8.0及之前的版本是number类型，对应为：0,1,2,3,4)</span> |
 | @refresherTouchstart                     | 自定义下拉刷新下拉开始<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：当需要更细致定制自定义下拉刷新时使用，如果只需监听下拉刷新各个状态改变，使用`refresherStatusChange`即可】<p style="color:red;">(nvue无效)</p> | 当前触摸开始的屏幕点的y值(单位px)                            |
 | @refresherTouchmove                      | 自定义下拉刷新下拉拖动中<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：在使用wxs的平台上(微信小程序、QQ小程序、app-vue、h5)，为减少wxs与js通信折损，此事件默认不触发，必须设置`:watch-refresher-touchmove="true"`方可使此事件被触发】 | {pullingDistance: 下拉的距离, dy: 前后两次回调滑动距离的差值, viewHeight: refresh组件高度, rate:pullingDistance/viewHeight的比值} |
 | @refresherTouchend                       | 自定义下拉刷新下拉结束<p style="color:red;">(use-custom-refresher为false时无效)</p>【注：当需要更细致定制自定义下拉刷新时使用，如果只需监听下拉刷新各个状态改变，使用`refresherStatusChange`即可】<p style="color:red;">(nvue无效)</p> | 当前触摸结束分页内容下移的y值(单位px)                        |
@@ -21,9 +21,9 @@
 
 ## 底部加载更多相关事件
 
-| 事件名               | 说明                 | 回调参数                                      |
-| -------------------- | -------------------- | --------------------------------------------- |
-| @loadingStatusChange | 底部加载更多状态改变 | 0-默认状态 1.加载中 2.没有更多数据 3.加载失败 |
+| 事件名               | 说明                 | 回调参数                                                     |
+| -------------------- | -------------------- | ------------------------------------------------------------ |
+| @loadingStatusChange | 底部加载更多状态改变 | default:默认状态；<br/>loading:加载中；<br/>no-more:没有更多数据；<br/>fail:加载失败<br/><span style="color:red;">(v2.8.0及之前的版本是number类型，对应为：0,1,2,3)</span> |
 
 ## 空数据与加载失败相关事件
 
