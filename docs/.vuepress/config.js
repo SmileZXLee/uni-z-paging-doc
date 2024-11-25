@@ -100,6 +100,11 @@ module.exports = {
 						children: [],
 					},
 					{
+						title: 'uniapp-x版',
+						path: '/start/uniapp-x',
+						children: [],
+					},
+					{
 						title: 'mini版',
 						path: '/start/mini',
 						children: [],
