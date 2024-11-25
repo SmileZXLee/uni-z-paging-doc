@@ -32,7 +32,7 @@ module.exports = {
 		nav: [
 			// NavbarItem
 			{
-				text: 'v2.8.1',
+				text: 'v2.8.2',
 				items: [
 					{ text: '版本差异', link: '/start/upgrade-guide.html' },
 					{ text: '示例项目下载', link: '/start/example-download.html' },
