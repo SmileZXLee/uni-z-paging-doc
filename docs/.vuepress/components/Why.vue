@@ -39,7 +39,7 @@
                 },{
                     icon: '🌟',
                     title: '广受好评且可靠！',
-                    details: '由2021年开源至今已迭代<span style="font-weight: bold;color: #007aff;">100+</span>个版本，在插件市场评分<span style="font-weight: bold;color: #007aff;">4.8</span>/5.0分。建有总计容纳7000人的QQ群，使用问题、bug及需求解答及时。'
+                    details: '由2021年开源至今已迭代<span style="font-weight: bold;color: #007aff;">100+</span>个版本，在插件市场评分<span style="font-weight: bold;color: #007aff;">4.8</span>/5.0分。建有总计容纳近万人使用答疑QQ群。遵循<span style="font-weight: bold;color: #007aff;">MIT开源协议</span>，商用无需任何授权和费用。'
                 }]
 			}
 		}
