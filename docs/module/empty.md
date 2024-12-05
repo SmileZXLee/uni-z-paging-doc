@@ -21,4 +21,4 @@
 ***
 
 ### 示例
-* [设置自定义emptyView组件示例](/start/use.html#设置自定义emptyview组件示例)
+* [设置自定义empty组件示例](/start/use.html#设置自定义empty组件示例)

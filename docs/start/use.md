@@ -168,13 +168,14 @@
 ```
 
 
-## 设置自定义emptyView组件示例
-#### 设置自定义emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理
+## 设置自定义empty组件示例
+#### 设置自定义empty组件，非必须。空数据时会自动展示空数据组件，不需要自己处理
 <code-group>
 <code-block title="vue2/3" active>
+
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
-    <!-- 设置自己的emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理 -->
+    <!-- 设置自己的empty组件，非必须。空数据时会自动展示空数据组件，不需要自己处理 -->
 	<template #empty>
 		<empty-view />
 	</template>
@@ -183,8 +184,10 @@
     </view>
 </z-paging>
 ```
+
 </code-block>
 <code-block title="vue2">
+
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
     <!-- 设置自己的emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理 -->
@@ -194,6 +197,7 @@
     </view>
 </z-paging>
 ```
+
 </code-block>
 </code-group>
 
@@ -216,6 +220,7 @@
 
 <code-group>
 <code-block title="vue2/3" active>
+
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
     <!-- 自定义下拉刷新view -->
@@ -228,8 +233,10 @@
 	</view>
 </z-paging>
 ```
+
 </code-block>
 <code-block title="vue2">
+
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
     <!-- 自定义下拉刷新view -->
@@ -241,6 +248,7 @@
 	</view>
 </z-paging>
 ```
+
 </code-block>
 </code-group>
 
@@ -250,6 +258,7 @@
 
 <code-group>
 <code-block title="vue2/3" active>
+
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
     <view class="item" v-for="(item,index) in dataList" :key="index">
@@ -261,8 +270,10 @@
 	</template>
 </z-paging>
 ```
+
 </code-block>
 <code-block title="vue2">
+
 ```html
 <z-paging ref="paging" v-model="dataList" @query="queryList">
     <view class="item" v-for="(item,index) in dataList" :key="index">
@@ -272,6 +283,7 @@
     <view slot="loadingMoreNoMore" style="background-color: red">这是完全自定义的没有更多数据view</view>
 </z-paging>
 ```
+
 </code-block>
 </code-group>
 
@@ -279,6 +291,7 @@
 
 <code-group>
 <code-block title="选项式api(vue2/3)" active>
+
 ```html
 <!-- 使用页面滚动示例(无需设置z-paging的高度) -->
 <template>
@@ -307,9 +320,11 @@
 	}
 </script>
 ```
+
 </code-block>
 
 <code-block title="组合式api(vue3+hooks)">
+
 ```html
 <!-- 使用页面滚动示例 -->
 <template>
@@ -384,9 +399,11 @@
     
 </style>
 ```
+
 </code-block>
 
 <code-block title="非内置列表写法">
+
 ```html
 <!-- 虚拟列表演示(非内置列表写法) -->
 <!-- 写法较简单，在页面中对当前需要渲染的虚拟列表数据进行for循环，在vue3中兼容性良好 -->
@@ -435,9 +452,11 @@
     
 </style>
 ```
+
 </code-block>
 
 <code-block title="兼容写法">
+
 ```html
 <!-- 虚拟列表演示(兼容写法) -->
 <!-- 写法麻烦，而且需要手动修改z-paging源码，所有渲染cell写在相同组件内，不易维护，在vue2中兼容性很好，但非必须不建议使用 -->
@@ -491,6 +510,7 @@
 	}
 </script>
 ```
+
 </code-block>
 </code-group>
 
