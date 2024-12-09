@@ -27,7 +27,7 @@
                 },{
                     icon: '🚀',
                     title: '高性能！',
-                    details: '使用wxs+renderjs在视图层实现下拉刷新，<span style="font-weight: bold;color: #007aff;">丝滑流畅零卡顿</span>。强大的兼容各平台的虚拟列表算法，轻松渲染<span style="font-weight: bold;color: #007aff;">百万级列表数据</span>。'
+                    details: '使用wxs+renderjs在视图层实现下拉刷新，<span style="font-weight: bold;color: #007aff;">丝滑流畅零卡顿</span>。强大的兼容各平台的虚拟列表算法，轻松渲染<span style="font-weight: bold;color: #007aff;">百万级列表数据</span>。底层细节优化及兼容处理。'
                 },{
                     icon: '🌍',
                     title: '全平台兼容！',
