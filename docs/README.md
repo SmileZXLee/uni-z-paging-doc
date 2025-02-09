@@ -1,5 +1,6 @@
-::: tip 🎉🎉🎉
-在鸿蒙Next正式版发布前夕，得益于`uni-app`对鸿蒙Next的优秀兼容，`z-paging`由`v2.8.0`版本起已全面兼容鸿蒙Next，需要的同学可更新体验~
+::: danger 2025新年快乐！！🎉🧨🎉🧨
+（`・ω・)つ━☆・*。祝大家在新的一年里工作顺利，事事顺心！  
+<span style="font-size: 14px;font-weight: bold;">工作再忙，也要记得照顾好自己･◡･</span>
 :::
 
 ```html                                  
@@ -9,7 +10,7 @@
  /___|    | .__/ \__,_|\__, |_|_| |_|\__, |
           |_|          |___/         |___/   文档
 —————————————————————————————————————————————————
-v2.8.4 (2024-12-02)
+v2.8.5 (2025-02-09)
 @author ZXLee <admin@zxlee.cn>
 感谢使用^_^
 ```
@@ -99,4 +100,4 @@ v2.8.4 (2024-12-02)
 
 <!-- <center style="margin-bottom:10px;"><img src="https://visitor-badge.glitch.me/badge?page_id=smilezxlee.z-paging" /></center> -->
 <center style="margin-bottom:10px;"><img src="https://api.z-notify.zxlee.cn/v1/public/statistics/8293556910106066944/badge?title=访问人次&style=flat&from=doc" /></center>
-<div style="margin-bottom:-80px; display:flex;justify-content: center;font-size:13px;">Copyright 2021-2024 z-paging | <a style="color: #014084;margin-left:5px;" href="https://beian.miit.gov.cn/" target="_blank">闽ICP备17015849号-1</a></div>
+<div style="margin-bottom:-80px; display:flex;justify-content: center;font-size:13px;">Copyright 2021-2025 z-paging | <a style="color: #014084;margin-left:5px;" href="https://beian.miit.gov.cn/" target="_blank">闽ICP备17015849号-1</a></div>

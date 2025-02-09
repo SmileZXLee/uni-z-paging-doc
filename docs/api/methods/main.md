@@ -78,7 +78,8 @@
 | scrollToBottom                                | 滚动到底部                                                   | `参数1(非必填)`:是否有动画效果，默认为是                     |
 | scrollIntoViewById                            | 滚动到指定view<p style="color:red;">(vue中有效，若此方法无效，请使用`scrollIntoViewByNodeTop`)</p> | `参数1(必填)`需要滚动到的view的id值，不包含"#"；<br/>`参数2(非必填)`:偏移量，单位为px，默认为0；<br/>`参数3(非必填)`:是否有动画效果，默认为否 |
 | scrollIntoViewByNodeTop <Badge text="1.7.4"/> | 滚动到指定view<p style="color:red;">(vue中有效)</p>          | `参数1(必填)`:需要滚动的view的top值(通过uni.createSelectorQuery()获取)；<br/>`参数2(非必填)`:偏移量，单位为px，默认为0；<br/>`参数3(非必填)`:是否有动画效果，默认为否 |
-| scrollToY <Badge text="2.1.0"/>               | 滚动到指定view(与`scrollIntoViewByNodeTop`的不同之处在于，`scrollToY `传入的是view相对于屏幕的top值，而`scrollIntoViewByNodeTop`传入的top值并非是固定的，通过uni.createSelectorQuery()获取到的top会因列表滚动而改变)<p style="color:red;">(vue中有效)</p> | `参数1(必填)`:需要滚动到的view的top值，单位为px；<br/>`参数2(非必填)`:偏移量，单位为px，默认为0；<br/>`参数3(非必填)`:是否有动画效果，默认为否 |
+| scrollToY <Badge text="2.1.0"/>               | y轴滚动到指定位置(与`scrollIntoViewByNodeTop`的不同之处在于，`scrollToY `传入的是view相对于屏幕的top值，而`scrollIntoViewByNodeTop`传入的top值并非是固定的，通过uni.createSelectorQuery()获取到的top会因列表滚动而改变)<p style="color:red;">(vue中有效)</p> | `参数1(必填)`:与顶部的距离，单位为px；<br/>`参数2(非必填)`:偏移量，单位为px，默认为0；<br/>`参数3(非必填)`:是否有动画效果，默认为否 |
+| scrollToX <Badge text="2.8.5"/>               | x轴滚动到指定位置                                            | `参数1(必填)`:与左侧的距离，单位为px；<br/>`参数2(非必填)`:偏移量，单位为px，默认为0；<br/>`参数3(非必填)`:是否有动画效果，默认为否 |
 | scrollIntoViewByIndex                         | 滚动到指定view<p style="color:red;">(nvue或虚拟列表<Badge text="2.7.8"/>中有效)(在nvue中的cell必须设置 :ref="\`z-paging-${index}\`")</p> | `参数1(必填)`:需要滚动到的view的index(第几个)；<br/>`参数2(非必填)`:偏移量，单位为px，默认为0；<br/>`参数3(非必填)`:是否有动画效果，默认为否 |
 | scrollIntoViewByView                          | 滚动到指定view<p style="color:red;">(nvue中有效)</p>         | `参数1(必填)`:需要滚动到的view(通过`this.$refs.xxx`获取)；<br/>`参数2(非必填)`:偏移量，单位为px，默认为0；<br/>`参数3(非必填)`:是否有动画效果，默认为否 |
 
