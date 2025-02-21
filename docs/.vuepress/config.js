@@ -298,7 +298,7 @@ module.exports = {
 		}
 	},
 	plugins: [
-		['flexsearch'],
+		['flexsearch-pro'],
 		['@vuepress/active-header-links'],
 	],
 }

@@ -33,6 +33,18 @@
     </cell>
 </z-paging>
 ```
+## 为什么在nvue中使用瀑布流时，如果背景不是白色（例如黑色），下拉刷新是会看到一根白色的线？
+这个白色的线是`refresh`组件的背景色，将它的背景色设置与页面背景色相同即可，即👉🏻 `:nvue-refresher-style="{ background: 'black' }" `
+```html
+<z-paging ref="paging" v-model="dataList" :paging-style="{ background: 'black' }" :nvue-refresher-style="{ background: 'black' }" nvue-list-is="waterfall"  @query="queryList">
+    <cell class="item" v-for="(item,index) in dataList" :key="item.id" @click="itemClick(item)">
+        <text class="item-title">{{item.title}}</text>
+    </cell>
+</z-paging>
+```
+
+## 为什么在nvue + vue3中，配置nvue-list-is="waterfall"无效？
+此为nvue的bug，已给uni-app官方提issue，需等待官方修复。详见：[在nvue+vue3中，通过:is设置waterfall无效，在nvue+vue2中正常](https://ask.dcloud.net.cn/question/168505)
 
 ## 为什么z-paging列表在h5和app平台中可以显示，但是在微信小程序中一片空白？
 可能是因为给z-paging设置了`:fixed="false"`，此时z-paging不是铺满全屏的，这时候它需要有确定的高度。您可能是通过style或者class设置了高度，这在微信小程序中是无效的，请通过`height="100px"`或`:paging-style="{height: '100px'}"`进行设置，或给z-paging的父容器设置确定的高度。
