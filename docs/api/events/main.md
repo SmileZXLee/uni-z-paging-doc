@@ -60,8 +60,8 @@
 | -------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | @scroll                          | `z-paging`列表滚动时触发<p style="color:red;">(此事件忠实地转发了`scroll-view/list`的`@scroll`数据，此方法受内部节流影响可能无法100%监听到滚动到顶部和底部事件，若有相关需求请结合`@scrolltoupper`、`@scrolltolower`综合判断，上述2个事件触发`z-paging`单独进行了进一步更严谨的判断)</p> | `(vue中)` event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY}<br/>`(nvue中)` event = {`contentSize`(列表的内容尺寸) = {width, height}, `contentOffset`(列表的偏移尺寸) = {x, y} , `isDragging`(用户是否正在拖动列表)} |
 | @scrollTopChange                 | scrollTop改变时触发，使用点击返回顶部时需要获取scrollTop时可使用此事件【注：通过`:scroll-top.sync`绑定当前data中的指定变量亦可】<p style="color:red;">(@scrolltoupper触发时，也会自动触发此方法，且scrollTop=0)</p> | scrollTop                                                    |
-| @scrolltolower                   | `z-paging`内置的scroll-view滚动底部时触发                    | 来源(`toBottom`滚动到底部；`click`点击了加载更多view)        |
-| @scrolltoupper                   | `z-paging`内置的scroll-view滚动顶部时触发                    | -                                                            |
+| @scrolltolower                   | `z-paging`内置的`scroll-view`、`list-view`或`waterfall`滚动底部时触发<p style="color:red;">(v2.8.6之前不支持nvue)</p> | -                                                            |
+| @scrolltoupper                   | `z-paging`内置的`scroll-view`、`list-view`或`waterfall`滚动顶部时触发<p style="color:red;">(v2.8.6之前不支持nvue)</p> | -                                                            |
 | @scrollend <Badge text="2.7.3"/> | `z-paging`内置的list滚动结束时触发<p style="color:red;">(仅nvue有效)</p> | event = {`contentSize`(列表的内容尺寸) = {width, height}, `contentOffset`(列表的偏移尺寸) = {x, y} , `isDragging`(用户是否正在拖动列表)} |
 
 ## 布局&交互相关事件
