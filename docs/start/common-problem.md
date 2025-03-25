@@ -131,4 +131,4 @@ onShow() {
 请将弹窗放在`z-paging`标签外。
 
 ## ㉗ 为什么使用cli + z-paging时打开页面会有`TypeError: vue.undefined is not a function`的报错？
-请检查`package.json`中是否包含`@vue/compiler-core`依赖，如果有请移除。
+请检查`package.json`中是否包含`@vue/compiler-core`或`vue-tsc`依赖，如果有请移除。
