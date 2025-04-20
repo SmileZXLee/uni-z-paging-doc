@@ -16,8 +16,8 @@
 | :--------------------------- | ------------------------------------------------------------ |
 | top <Badge text="1.5.5"/>    | 可以将自定义导航栏、tab-view等需要固定的`(不需要跟着滚动的)`元素放入`slot="top"`的view中。<br/>注意，当有多个需要固定的view时，请用一个view包住它们，并且在这个view上设置`slot="top"`。需要固定在顶部的view请勿设置`position: fixed;`。 |
 | bottom <Badge text="1.6.2"/> | 可以将需要固定在底部的`(不需要跟着滚动的)`元素放入`slot="bottom"`的view中。<br>注意，当有多个需要固定的view时，请用一个view包住它们，并且在这个view上设置`slot="bottom"`。需要固定在底部的view请勿设置`position: fixed;`。 |
-| left <Badge text="2.2.3"/>   | 可以将需要固定在左侧的`(不需要跟着滚动的)`元素放入`slot="left"`的view中。<br>注意，当有多个需要固定的view时，请用一个view包住它们，并且在这个view上设置`slot="left"`。需要固定在左侧的view请勿设置`position: fixed;`。<p style="color:red;">`slot="left"`插入的view将夹在`slot="top"`和`slot="bottom"`之间，不会盖住它们。如果希望它的高度铺满屏幕，请为插入的view设置`height:100%`(如果是nvue请设置`flex:1`)，不建议在页面滚动模式下使用`slot="left"`，因为它也会跟着页面滚动。</p> |
-| right <Badge text="2.2.3"/>  | 可以将需要固定在右侧的`(不需要跟着滚动的)`元素放入`slot="right"`的view中。<br>注意，当有多个需要固定的view时，请用一个view包住它们，并且在这个view上设置`slot="right"`。需要固定在右侧的view请勿设置`position: fixed;`。<p style="color:red;">`slot="right"`插入的view将夹在`slot="top"`和`slot="bottom"`之间，不会盖住它们。如果希望它的高度铺满屏幕，请为插入的view设置`height:100%`(如果是nvue请设置`flex:1`)，不建议在页面滚动模式下使用`slot="right"`，因为它也会跟着页面滚动。</p> |
+| left <Badge text="2.2.3"/>   | 可以将需要固定在左侧的`(不需要跟着滚动的)`元素放入`slot="left"`的view中。<br>注意，当有多个需要固定的view时，请用一个view包住它们，并且在这个view上设置`slot="left"`。需要固定在左侧的view请勿设置`position: fixed;`。<p style="color:red;">`slot="left"`插入的view将夹在`slot="top"`和`slot="bottom"`之间，不会盖住它们。如果希望它的高度铺满屏幕，请为插入的view设置`height:100%`(如果是nvue请设置`flex:1`)，如需滚动需自行插入`scroll-view`，不建议在页面滚动模式下使用`slot="left"`，因为它也会跟着页面滚动。</p> |
+| right <Badge text="2.2.3"/>  | 可以将需要固定在右侧的`(不需要跟着滚动的)`元素放入`slot="right"`的view中。<br>注意，当有多个需要固定的view时，请用一个view包住它们，并且在这个view上设置`slot="right"`。需要固定在右侧的view请勿设置`position: fixed;`。<p style="color:red;">`slot="right"`插入的view将夹在`slot="top"`和`slot="bottom"`之间，不会盖住它们。如果希望它的高度铺满屏幕，请为插入的view设置`height:100%`(如果是nvue请设置`flex:1`)，如需滚动需自行插入`scroll-view`，不建议在页面滚动模式下使用`slot="right"`，因为它也会跟着页面滚动。</p> |
 
 ### methods
 
@@ -69,7 +69,7 @@
 | empty-view-title-style                        | 空数据图描述文字样式                                         | Object  | {}          | -      |
 | empty-view-reload-style <Badge text="1.6.7"/> | 空数据图重新加载按钮样式                                     | Object  | {}          | -      |
 | show-empty-view-reload <Badge text="1.6.7"/>  | 是否显示空数据图重新加载按钮(无数据时)                       | Boolean | false       | true   |
-| is-load-failed                                | 是否是加载失败                                               | Boolean | false        | true  |
+| is-load-failed                                | 是否是加载失败                                               | Boolean | false       | true   |
 | unit <Badge text="2.6.7"/>                    | 空数据图中布局的单位                                         | String  | rpx         | px     |
 
 ### events
