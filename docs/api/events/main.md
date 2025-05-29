@@ -66,7 +66,9 @@
 
 ## 布局&交互相关事件
 
-| 事件名                                      | 说明                                                     | 回调参数                                                     |
-| ------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------ |
-| @contentHeightChanged <Badge text="2.1.3"/> | `z-paging`中内容高度改变时触发                           | 改变后的高度                                                 |
-| @touchDirectionChange <Badge text="2.3.0"/> | 监听列表触摸方向改变<p style="color:red;">(nvue无效)</p> | <p style="color:red;">(必须同时设置`:watch-touch-direction-change="true"`)</p>列表触摸的方向，有`top`和`bottom`两种值，`top`代表用户将列表向上移动(scrollTop不断减小)，`bottom`代表用户将列表向下移动(scrollTop不断增大) |
+| 事件名                                       | 说明                                                         | 回调参数                                                     |
+| -------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| @contentHeightChanged <Badge text="2.1.3"/>  | `z-paging`中内容高度改变时触发                               | 改变后的高度                                                 |
+| @touchDirectionChange <Badge text="2.3.0"/>  | 监听列表触摸方向改变<p style="color:red;">(nvue无效)</p><p style="color:red;">(在iOS+h5中列表滚动时触摸事件可能不会触发)</p> | <p style="color:red;">(必须同时设置`:watch-touch-direction-change="true"`)</p>列表触摸的方向，有`top`和`bottom`两种值，`top`代表用户将列表向上移动(scrollTop不断减小)，`bottom`代表用户将列表向下移动(scrollTop不断增大) |
+| @scrollDirectionChange <Badge text="2.8.7"/> | 监听列表滚动方向改变<p style="color:red;">(页面滚动模式无效)</p> | <p style="color:red;">(必须同时设置`:scroll-touch-direction-change="true"`)</p>列表触摸的方向，有`top`和`bottom`两种值，`top`代表列表向上滚动(scrollTop不断减小)，`bottom`代表列表向下滚动(scrollTop不断增大) |
+

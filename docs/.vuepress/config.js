@@ -32,7 +32,7 @@ module.exports = {
 		nav: [
 			// NavbarItem
 			{
-				text: 'v2.8.6',
+				text: 'v2.8.7',
 				items: [
 					{ text: '版本差异', link: '/start/upgrade-guide.html' },
 					{ text: '示例项目下载', link: '/start/example-download.html' },
@@ -122,7 +122,7 @@ module.exports = {
 				children: [
 					// SidebarItem
 					{
-						title: '基础模块(数据处理、页面滚动、本地分页、布局设置)',
+						title: '基础模块',
 						path: '/module/common',
 						children: [],
 					},
