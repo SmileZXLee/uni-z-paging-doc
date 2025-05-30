@@ -8,5 +8,4 @@
 | auto-to-bottom-when-chat <Badge text="2.7.4"/>             | 使用聊天记录模式中键盘弹出时是否自动滚动到底部               | Boolean | false  | true   |
 | chat-adjust-position-offset <Badge text="2.7.6"/>          | 使用聊天记录模式中键盘弹出时占位高度偏移距离。默认0rpx。单位px | String  | 0px    | -      |
 | show-chat-loading-when-reload <Badge text="2.7.4"/>        | 使用聊天记录模式中`reload`时是否显示`chatLoading`            | Boolean | false  | true   |
-| bottom-bg-color <Badge text="2.7.4"/>                      | `bottom`的背景色，默认透明，传字符串，如"#ffffff"            | String  | -      | -      |
 | chat-loading-more-default-as-loading <Badge text="2.7.5"/> | 在聊天记录模式中滑动到顶部状态为默认状态时，是否以加载中的状态展示 | Boolean | true   | false  |

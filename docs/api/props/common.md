@@ -18,6 +18,7 @@
 | width <Badge text="2.0.6"/>                         | z-paging的宽度，优先级低于`paging-style`中设置的width，传字符串，如100px、100rpx、100% | String                 | -                                                            | -      |
 | max-width <Badge text="2.7.6"/>                     | z-paging的最大宽度，优先级低于`paging-style`中设置的`max-width`；传字符串，如100px、100rpx、100%。默认为空，也就是铺满窗口宽度，若设置了特定值则会自动添加`margin: 0 auto` | String                 | -                                                            | -      |
 | bg-color <Badge text="2.0.6"/>                      | z-paging的背景色(为css中的`background`，因此也可以设置渐变，背景图片等)，优先级低于`paging-style`中设置的background-color。传字符串，如"#ffffff" | String                 | -                                                            | -      |
+| bottom-bg-color <Badge text="2.7.4"/>               | `bottom`的背景色，默认透明，传字符串，如"#ffffff"            | String                 | -                                                            | -      |
 | watch-touch-direction-change <Badge text="2.3.0"/>  | 是否监听列表触摸方向改变                                     | Boolean                | false                                                        | true   |
 | watch-scroll-direction-change <Badge text="2.8.7"/> | 是否监听列表滚动方向改变                                     | Boolean                | false                                                        | true   |
 | delay <Badge text="1.9.6"/>                         | 调用`complete`后延迟处理的时间，单位为毫秒，优先级高于`min-delay` | Number\|String         | 0                                                            | -      |
