@@ -2,7 +2,7 @@
 [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;示例项目下载](/start/example-download.html)
 <div style="display: flex;flex-wrap: wrap;margin-top: 10px;" v-if="showPhone">
 	<div style="position:relative;height: 650px;">
-		<img style="width:350px;" src="https://www.zxlee.cn/github/uni-z-paging/phone.png"></img>
+		<img style="width:350px;" src="https://z-paging.zxlee.cn/public/img/phone.png"></img>
 		<iframe id="iframe" style="width:302px;height:537px;left:24px;top:82px; position: absolute;" frameborder=0
 			allowfullscreen="true" src="https://demo.z-paging.zxlee.cn">
 		</iframe>

@@ -9,10 +9,19 @@ v2.8.7 (2025-05-30)
 @author ZXLee <admin@zxlee.cn>
 感谢使用^_^
 ```
+<img src="https://img.shields.io/github/v/release/SmileZXLee/uni-z-paging?style=flat" />  
+<img src="https://img.shields.io/npm/dm/z-paging?logo=npm&style=flat" />
+<img src="https://img.shields.io/github/license/SmileZXLee/uni-z-paging?style=flat" />
+<img src="https://img.shields.io/github/stars/smilezxlee/uni-z-paging?logo=GitHub&style=flat" />
+<img src="https://api.z-notify.zxlee.cn/v1/public/statistics/8293556910106066944/badge?title=官网浏览人次&style=flat&from=doc" />  
+
 ## 👍 为什么选择z-paging？
 <Why />
 
-###  ⭐️ 开源不易~ 如果您觉得`z-paging`还不错的话，可以点一个star鼓励一下(＾ω＾)👉🏻  [![Github stars](https://img.shields.io/github/stars/smilezxlee/uni-z-paging?logo=GitHub&style=flat)](https://github.com/SmileZXLee/uni-z-paging)
+## ⭐️ 关注`z-paging`的最新进展
+* 📌 您可以关注`z-paging`的 [github仓库](https://github.com/SmileZXLee/uni-z-paging) 或 [uniapp插件市场](https://ext.dcloud.net.cn/plugin?id=3935) 获取最新动态！
+* 📬 在使用过程中发现任何问题都可以提 [Issue](https://github.com/SmileZXLee/uni-z-paging/issues)，同时也欢迎 [PR](https://github.com/SmileZXLee/uni-z-paging/pulls)。
+* 💖 开源不易，如果您觉得`z-paging`对您的项目有帮助的话，可以点个[Star](https://github.com/SmileZXLee/uni-z-paging)鼓励下(＾ω＾)
 ## 基本使用  
 
 <code-group>
@@ -94,5 +103,4 @@ v2.8.7 (2025-05-30)
 
 
 <!-- <center style="margin-bottom:10px;"><img src="https://visitor-badge.glitch.me/badge?page_id=smilezxlee.z-paging" /></center> -->
-<center style="margin-bottom:10px;"><img src="https://api.z-notify.zxlee.cn/v1/public/statistics/8293556910106066944/badge?title=访问人次&style=flat&from=doc" /></center>
-<div style="margin-bottom:-80px; display:flex;justify-content: center;font-size:13px;">Copyright 2021-2025 z-paging | <a style="color: #014084;margin-left:5px;" href="https://beian.miit.gov.cn/" target="_blank">闽ICP备17015849号-1</a></div>
+<div style="margin-bottom:-80px;margin-top: 20px;display:flex;justify-content: center;align-items:center;font-size:13px;">Copyright 2021-2025 z-paging ❤️ | <a style="color: #014084;margin-left:5px;" href="https://beian.miit.gov.cn/" target="_blank">闽ICP备17015849号-1</a></div>

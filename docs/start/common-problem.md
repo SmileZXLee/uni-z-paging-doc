@@ -132,6 +132,6 @@ onShow() {
 
 ## ㉗ 为什么使用cli + z-paging时打开页面会有`TypeError: vue.undefined is not a function`的报错？
 目前仅发现`cli`模板+ `HBuilderX`运行项目有此问题，纯`cli`运行未发现，解决方案如下👇🏻  
-请检查`package.json`中是否包含`@vue/compiler-core`、`vue-tsc`或`@dcloudio/vite-plugin-uni`依赖，如果有请移除这三个依赖。  
+请检查`package.json`中是否包含`@vue/compiler-core`、`vue-tsc`或`@dcloudio/vite-plugin-uni`依赖，如果有请移除这三个依赖（如果移除`@dcloudio/vite-plugin-uni`后无法编译，则不要移除它）。  
 > 具体的原因尚不明确，上述依赖会导致项目运行到App平台时所有使用到`wxs`和`renderjs`并且给它们传值的地方产生`TypeError: vue.undefined is not a function`的报错，因`z-paging`使用到了`wxs`和`renderjs`以提升性能和进行一些原生相关优化处理，因此有这个报错。其他相关插件例如官方的[uni-swipe-action](https://uniapp.dcloud.net.cn/component/uniui/uni-swipe-action)也会有和`z-paging`相同问题，遇到类似问题请留意。
 
