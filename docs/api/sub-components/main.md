@@ -7,7 +7,7 @@
 | 参数                   | 说明                     | 类型    | 默认值 | 可选值 |
 | :--------------------- | :----------------------- | :------ | :----- | :----- |
 | fixed                  | 是否使用fixed布局        | Boolean | true   | false  |
-| safe-area-inset-bottom | 是否开启底部安全区域适配 | Boolean | false  | true   |
+| safe-area-inset-bottom | 是否开启底部安全区域适配<p style="color:red;">(在使用系统`tabbar`页面请勿开启，否则可能导致滚动区域高度不足)</p> | Boolean | false  | true   |
 | swiper-style           | z-paging-swiper样式      | Object  | {}     | -      |
 
 ### slots

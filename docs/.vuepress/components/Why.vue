@@ -35,7 +35,7 @@
                 },{
                     icon: '🔥',
                     title: '热门且流行！',
-                    details: '在插件市场+npm中已被开发者下载<span style="font-weight: bold;color: #007aff;">超10万次</span>，质量、扩展性和稳定性经过<span style="font-weight: bold;color: #007aff;">数万个项目</span>检验。在uniapp插件市场热门总榜中稳定<span style="font-weight: bold;color: #007aff;">排名前十</span>。'
+                    details: '在插件市场+npm中已被开发者下载<span style="font-weight: bold;color: #007aff;">超15万次</span>，质量、扩展性和稳定性经过<span style="font-weight: bold;color: #007aff;">数万个项目</span>检验。在uniapp插件市场热门总榜中稳定<span style="font-weight: bold;color: #007aff;">排名前十</span>。'
                 },{
                     icon: '🌟',
                     title: '广受好评且可靠！',
